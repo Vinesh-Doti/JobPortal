@@ -1,0 +1,5963 @@
+(globalThis.TURBOPACK || (globalThis.TURBOPACK = [])).push([typeof document === "object" ? document.currentScript : undefined,
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/picocolors.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+// ISC License
+// Copyright (c) 2021 Alexey Raspopov, Kostiantyn Denysov, Anton Verinov
+// Permission to use, copy, modify, and/or distribute this software for any
+// purpose with or without fee is hereby granted, provided that the above
+// copyright notice and this permission notice appear in all copies.
+// THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+// WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+// MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+// ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+// WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+// ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+// OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+//
+// https://github.com/alexeyraspopov/picocolors/blob/b6261487e7b81aaab2440e397a356732cad9e342/picocolors.js#L1
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+0 && (module.exports = {
+    bgBlack: null,
+    bgBlue: null,
+    bgCyan: null,
+    bgGreen: null,
+    bgMagenta: null,
+    bgRed: null,
+    bgWhite: null,
+    bgYellow: null,
+    black: null,
+    blue: null,
+    bold: null,
+    cyan: null,
+    dim: null,
+    gray: null,
+    green: null,
+    hidden: null,
+    inverse: null,
+    italic: null,
+    magenta: null,
+    purple: null,
+    red: null,
+    reset: null,
+    strikethrough: null,
+    underline: null,
+    white: null,
+    yellow: null
+});
+function _export(target, all) {
+    for(var name in all)Object.defineProperty(target, name, {
+        enumerable: true,
+        get: all[name]
+    });
+}
+_export(exports, {
+    bgBlack: function() {
+        return bgBlack;
+    },
+    bgBlue: function() {
+        return bgBlue;
+    },
+    bgCyan: function() {
+        return bgCyan;
+    },
+    bgGreen: function() {
+        return bgGreen;
+    },
+    bgMagenta: function() {
+        return bgMagenta;
+    },
+    bgRed: function() {
+        return bgRed;
+    },
+    bgWhite: function() {
+        return bgWhite;
+    },
+    bgYellow: function() {
+        return bgYellow;
+    },
+    black: function() {
+        return black;
+    },
+    blue: function() {
+        return blue;
+    },
+    bold: function() {
+        return bold;
+    },
+    cyan: function() {
+        return cyan;
+    },
+    dim: function() {
+        return dim;
+    },
+    gray: function() {
+        return gray;
+    },
+    green: function() {
+        return green;
+    },
+    hidden: function() {
+        return hidden;
+    },
+    inverse: function() {
+        return inverse;
+    },
+    italic: function() {
+        return italic;
+    },
+    magenta: function() {
+        return magenta;
+    },
+    purple: function() {
+        return purple;
+    },
+    red: function() {
+        return red;
+    },
+    reset: function() {
+        return reset;
+    },
+    strikethrough: function() {
+        return strikethrough;
+    },
+    underline: function() {
+        return underline;
+    },
+    white: function() {
+        return white;
+    },
+    yellow: function() {
+        return yellow;
+    }
+});
+var _globalThis;
+const { env, stdout } = ((_globalThis = globalThis) == null ? void 0 : _globalThis.process) ?? {};
+const enabled = env && !env.NO_COLOR && (env.FORCE_COLOR || (stdout == null ? void 0 : stdout.isTTY) && !env.CI && env.TERM !== 'dumb');
+const replaceClose = (str, close, replace, index)=>{
+    const start = str.substring(0, index) + replace;
+    const end = str.substring(index + close.length);
+    const nextIndex = end.indexOf(close);
+    return ~nextIndex ? start + replaceClose(end, close, replace, nextIndex) : start + end;
+};
+const formatter = (open, close, replace = open)=>{
+    if (!enabled) return String;
+    return (input)=>{
+        const string = '' + input;
+        const index = string.indexOf(close, open.length);
+        return ~index ? open + replaceClose(string, close, replace, index) + close : open + string + close;
+    };
+};
+const reset = enabled ? (s)=>`\x1b[0m${s}\x1b[0m` : String;
+const bold = formatter('\x1b[1m', '\x1b[22m', '\x1b[22m\x1b[1m');
+const dim = formatter('\x1b[2m', '\x1b[22m', '\x1b[22m\x1b[2m');
+const italic = formatter('\x1b[3m', '\x1b[23m');
+const underline = formatter('\x1b[4m', '\x1b[24m');
+const inverse = formatter('\x1b[7m', '\x1b[27m');
+const hidden = formatter('\x1b[8m', '\x1b[28m');
+const strikethrough = formatter('\x1b[9m', '\x1b[29m');
+const black = formatter('\x1b[30m', '\x1b[39m');
+const red = formatter('\x1b[31m', '\x1b[39m');
+const green = formatter('\x1b[32m', '\x1b[39m');
+const yellow = formatter('\x1b[33m', '\x1b[39m');
+const blue = formatter('\x1b[34m', '\x1b[39m');
+const magenta = formatter('\x1b[35m', '\x1b[39m');
+const purple = formatter('\x1b[38;2;173;127;168m', '\x1b[39m');
+const cyan = formatter('\x1b[36m', '\x1b[39m');
+const white = formatter('\x1b[37m', '\x1b[39m');
+const gray = formatter('\x1b[90m', '\x1b[39m');
+const bgBlack = formatter('\x1b[40m', '\x1b[49m');
+const bgRed = formatter('\x1b[41m', '\x1b[49m');
+const bgGreen = formatter('\x1b[42m', '\x1b[49m');
+const bgYellow = formatter('\x1b[43m', '\x1b[49m');
+const bgBlue = formatter('\x1b[44m', '\x1b[49m');
+const bgMagenta = formatter('\x1b[45m', '\x1b[49m');
+const bgCyan = formatter('\x1b[46m', '\x1b[49m');
+const bgWhite = formatter('\x1b[47m', '\x1b[49m'); //# sourceMappingURL=picocolors.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/find-root.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+var __TURBOPACK__imported__module__$5b$project$5d2f$JobPortal$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/JobPortal/frontend/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
+"use strict";
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+0 && (module.exports = {
+    findRootDirAndLockFiles: null,
+    findRootLockFile: null,
+    warnDuplicatedLockFiles: null
+});
+function _export(target, all) {
+    for(var name in all)Object.defineProperty(target, name, {
+        enumerable: true,
+        get: all[name]
+    });
+}
+_export(exports, {
+    findRootDirAndLockFiles: function() {
+        return findRootDirAndLockFiles;
+    },
+    findRootLockFile: function() {
+        return findRootLockFile;
+    },
+    warnDuplicatedLockFiles: function() {
+        return warnDuplicatedLockFiles;
+    }
+});
+const _path = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/compiled/path-browserify/index.js [app-client] (ecmascript)");
+const _findup = /*#__PURE__*/ _interop_require_default(__turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/compiled/find-up/index.js [app-client] (ecmascript)"));
+const _log = /*#__PURE__*/ _interop_require_wildcard(__turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/build/output/log.js [app-client] (ecmascript)"));
+function _interop_require_default(obj) {
+    return obj && obj.__esModule ? obj : {
+        default: obj
+    };
+}
+function _getRequireWildcardCache(nodeInterop) {
+    if (typeof WeakMap !== "function") return null;
+    var cacheBabelInterop = new WeakMap();
+    var cacheNodeInterop = new WeakMap();
+    return (_getRequireWildcardCache = function(nodeInterop) {
+        return nodeInterop ? cacheNodeInterop : cacheBabelInterop;
+    })(nodeInterop);
+}
+function _interop_require_wildcard(obj, nodeInterop) {
+    if (!nodeInterop && obj && obj.__esModule) {
+        return obj;
+    }
+    if (obj === null || typeof obj !== "object" && typeof obj !== "function") {
+        return {
+            default: obj
+        };
+    }
+    var cache = _getRequireWildcardCache(nodeInterop);
+    if (cache && cache.has(obj)) {
+        return cache.get(obj);
+    }
+    var newObj = {
+        __proto__: null
+    };
+    var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;
+    for(var key in obj){
+        if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) {
+            var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;
+            if (desc && (desc.get || desc.set)) {
+                Object.defineProperty(newObj, key, desc);
+            } else {
+                newObj[key] = obj[key];
+            }
+        }
+    }
+    newObj.default = obj;
+    if (cache) {
+        cache.set(obj, newObj);
+    }
+    return newObj;
+}
+function findRootLockFile(cwd) {
+    return _findup.default.sync([
+        'pnpm-lock.yaml',
+        'package-lock.json',
+        'yarn.lock',
+        'bun.lock',
+        'bun.lockb'
+    ], {
+        cwd
+    });
+}
+function findRootDirAndLockFiles(cwd) {
+    const lockFile = findRootLockFile(cwd);
+    if (!lockFile) return {
+        lockFiles: [],
+        rootDir: cwd
+    };
+    const lockFiles = [
+        lockFile
+    ];
+    while(true){
+        const lastLockFile = lockFiles[lockFiles.length - 1];
+        const currentDir = (0, _path.dirname)(lastLockFile);
+        const parentDir = (0, _path.dirname)(currentDir);
+        // dirname('/')==='/' so if we happen to reach the FS root (as might happen in a container we need to quit to avoid looping forever
+        if (parentDir === currentDir) break;
+        const newLockFile = findRootLockFile(parentDir);
+        if (!newLockFile) break;
+        lockFiles.push(newLockFile);
+    }
+    return {
+        lockFiles,
+        rootDir: (0, _path.dirname)(lockFiles[lockFiles.length - 1])
+    };
+}
+function warnDuplicatedLockFiles(lockFiles) {
+    if (lockFiles.length > 1) {
+        const additionalLockFiles = lockFiles.slice(0, -1).map((str)=>`\n   * ${str}`).join('');
+        if ("TURBOPACK compile-time truthy", 1) {
+            _log.warnOnce(`Warning: Next.js inferred your workspace root, but it may not be correct.\n` + ` We detected multiple lockfiles and selected the directory of ${lockFiles[lockFiles.length - 1]} as the root directory.\n` + ` To silence this warning, set \`turbopack.root\` in your Next.js config, or consider ` + `removing one of the lockfiles if it's not needed.\n` + `   See https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory for more information.\n` + ` Detected additional lockfiles: ${additionalLockFiles}\n`);
+        } else //TURBOPACK unreachable
+        ;
+    }
+} //# sourceMappingURL=find-root.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/file-exists.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+0 && (module.exports = {
+    FileType: null,
+    fileExists: null
+});
+function _export(target, all) {
+    for(var name in all)Object.defineProperty(target, name, {
+        enumerable: true,
+        get: all[name]
+    });
+}
+_export(exports, {
+    FileType: function() {
+        return FileType;
+    },
+    fileExists: function() {
+        return fileExists;
+    }
+});
+const _fs = (()=>{
+    const e = new Error("Cannot find module 'fs'");
+    e.code = 'MODULE_NOT_FOUND';
+    throw e;
+})();
+const _iserror = /*#__PURE__*/ _interop_require_default(__turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/lib/is-error.js [app-client] (ecmascript)"));
+function _interop_require_default(obj) {
+    return obj && obj.__esModule ? obj : {
+        default: obj
+    };
+}
+var FileType = /*#__PURE__*/ function(FileType) {
+    FileType["File"] = "file";
+    FileType["Directory"] = "directory";
+    return FileType;
+}({});
+async function fileExists(fileName, type) {
+    try {
+        if (type === "file") {
+            const stats = await _fs.promises.stat(fileName);
+            return stats.isFile();
+        } else if (type === "directory") {
+            const stats = await _fs.promises.stat(fileName);
+            return stats.isDirectory();
+        }
+        return (0, _fs.existsSync)(fileName);
+    } catch (err) {
+        if ((0, _iserror.default)(err) && (err.code === 'ENOENT' || err.code === 'ENAMETOOLONG')) {
+            return false;
+        }
+        throw err;
+    }
+} //# sourceMappingURL=file-exists.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/non-nullable.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+Object.defineProperty(exports, "nonNullable", {
+    enumerable: true,
+    get: function() {
+        return nonNullable;
+    }
+});
+function nonNullable(value) {
+    return value !== null && value !== undefined;
+} //# sourceMappingURL=non-nullable.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/is-app-route-route.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+Object.defineProperty(exports, "isAppRouteRoute", {
+    enumerable: true,
+    get: function() {
+        return isAppRouteRoute;
+    }
+});
+function isAppRouteRoute(route) {
+    return route.endsWith('/route');
+} //# sourceMappingURL=is-app-route-route.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/metadata/is-metadata-route.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+0 && (module.exports = {
+    DEFAULT_METADATA_ROUTE_EXTENSIONS: null,
+    STATIC_METADATA_IMAGES: null,
+    getExtensionRegexString: null,
+    isMetadataPage: null,
+    isMetadataRoute: null,
+    isMetadataRouteFile: null,
+    isStaticMetadataFile: null,
+    isStaticMetadataRoute: null
+});
+function _export(target, all) {
+    for(var name in all)Object.defineProperty(target, name, {
+        enumerable: true,
+        get: all[name]
+    });
+}
+_export(exports, {
+    DEFAULT_METADATA_ROUTE_EXTENSIONS: function() {
+        return DEFAULT_METADATA_ROUTE_EXTENSIONS;
+    },
+    STATIC_METADATA_IMAGES: function() {
+        return STATIC_METADATA_IMAGES;
+    },
+    getExtensionRegexString: function() {
+        return getExtensionRegexString;
+    },
+    isMetadataPage: function() {
+        return isMetadataPage;
+    },
+    isMetadataRoute: function() {
+        return isMetadataRoute;
+    },
+    isMetadataRouteFile: function() {
+        return isMetadataRouteFile;
+    },
+    isStaticMetadataFile: function() {
+        return isStaticMetadataFile;
+    },
+    isStaticMetadataRoute: function() {
+        return isStaticMetadataRoute;
+    }
+});
+const _normalizepathsep = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/shared/lib/page-path/normalize-path-sep.js [app-client] (ecmascript)");
+const _apppaths = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/shared/lib/router/utils/app-paths.js [app-client] (ecmascript)");
+const _isapprouteroute = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/lib/is-app-route-route.js [app-client] (ecmascript)");
+const STATIC_METADATA_IMAGES = {
+    icon: {
+        filename: 'icon',
+        extensions: [
+            'ico',
+            'jpg',
+            'jpeg',
+            'png',
+            'svg'
+        ]
+    },
+    apple: {
+        filename: 'apple-icon',
+        extensions: [
+            'jpg',
+            'jpeg',
+            'png'
+        ]
+    },
+    favicon: {
+        filename: 'favicon',
+        extensions: [
+            'ico'
+        ]
+    },
+    openGraph: {
+        filename: 'opengraph-image',
+        extensions: [
+            'jpg',
+            'jpeg',
+            'png',
+            'gif'
+        ]
+    },
+    twitter: {
+        filename: 'twitter-image',
+        extensions: [
+            'jpg',
+            'jpeg',
+            'png',
+            'gif'
+        ]
+    }
+};
+const DEFAULT_METADATA_ROUTE_EXTENSIONS = [
+    'js',
+    'jsx',
+    'ts',
+    'tsx'
+];
+const getExtensionRegexString = (staticExtensions, dynamicExtensions)=>{
+    let result;
+    // If there's no possible multi dynamic routes, will not match any <name>[].<ext> files
+    if (!dynamicExtensions || dynamicExtensions.length === 0) {
+        result = `(\\.(?:${staticExtensions.join('|')}))`;
+    } else {
+        result = `(?:\\.(${staticExtensions.join('|')})|(\\.(${dynamicExtensions.join('|')})))`;
+    }
+    return result;
+};
+function isStaticMetadataFile(appDirRelativePath) {
+    return isMetadataRouteFile(appDirRelativePath, [], true);
+}
+// Pre-compiled static regexes for common cases
+const FAVICON_REGEX = /^[\\/]favicon\.ico$/;
+const ROBOTS_TXT_REGEX = /^[\\/]robots\.txt$/;
+const MANIFEST_JSON_REGEX = /^[\\/]manifest\.json$/;
+const MANIFEST_WEBMANIFEST_REGEX = /^[\\/]manifest\.webmanifest$/;
+const SITEMAP_XML_REGEX = /[\\/]sitemap\.xml$/;
+// Cache for compiled regex patterns based on parameters
+const compiledRegexCache = new Map();
+// Fast path checks for common metadata files
+function fastPathCheck(normalizedPath) {
+    // Check favicon.ico first (most common)
+    if (FAVICON_REGEX.test(normalizedPath)) return true;
+    // Check other common static files
+    if (ROBOTS_TXT_REGEX.test(normalizedPath)) return true;
+    if (MANIFEST_JSON_REGEX.test(normalizedPath)) return true;
+    if (MANIFEST_WEBMANIFEST_REGEX.test(normalizedPath)) return true;
+    if (SITEMAP_XML_REGEX.test(normalizedPath)) return true;
+    // Quick negative check - if it doesn't contain any metadata keywords, skip
+    if (!normalizedPath.includes('robots') && !normalizedPath.includes('manifest') && !normalizedPath.includes('sitemap') && !normalizedPath.includes('icon') && !normalizedPath.includes('apple-icon') && !normalizedPath.includes('opengraph-image') && !normalizedPath.includes('twitter-image') && !normalizedPath.includes('favicon')) {
+        return false;
+    }
+    return null // Continue with full regex matching
+    ;
+}
+function getCompiledRegexes(pageExtensions, strictlyMatchExtensions) {
+    // Create cache key
+    const cacheKey = `${pageExtensions.join(',')}|${strictlyMatchExtensions}`;
+    const cached = compiledRegexCache.get(cacheKey);
+    if (cached) {
+        return cached;
+    }
+    // Pre-compute common strings
+    const trailingMatcher = strictlyMatchExtensions ? '$' : '?$';
+    const variantsMatcher = '\\d?';
+    const groupSuffix = strictlyMatchExtensions ? '' : '(-\\w{6})?';
+    const suffixMatcher = variantsMatcher + groupSuffix;
+    // Pre-compute extension arrays to avoid repeated concatenation
+    const robotsExts = pageExtensions.length > 0 ? [
+        ...pageExtensions,
+        'txt'
+    ] : [
+        'txt'
+    ];
+    const manifestExts = pageExtensions.length > 0 ? [
+        ...pageExtensions,
+        'webmanifest',
+        'json'
+    ] : [
+        'webmanifest',
+        'json'
+    ];
+    const regexes = [
+        new RegExp(`^[\\\\/]robots${getExtensionRegexString(robotsExts, null)}${trailingMatcher}`),
+        new RegExp(`^[\\\\/]manifest${getExtensionRegexString(manifestExts, null)}${trailingMatcher}`),
+        // FAVICON_REGEX removed - already handled in fastPathCheck
+        new RegExp(`[\\\\/]sitemap${getExtensionRegexString([
+            'xml'
+        ], pageExtensions)}${trailingMatcher}`),
+        new RegExp(`[\\\\/]icon${suffixMatcher}${getExtensionRegexString(STATIC_METADATA_IMAGES.icon.extensions, pageExtensions)}${trailingMatcher}`),
+        new RegExp(`[\\\\/]apple-icon${suffixMatcher}${getExtensionRegexString(STATIC_METADATA_IMAGES.apple.extensions, pageExtensions)}${trailingMatcher}`),
+        new RegExp(`[\\\\/]opengraph-image${suffixMatcher}${getExtensionRegexString(STATIC_METADATA_IMAGES.openGraph.extensions, pageExtensions)}${trailingMatcher}`),
+        new RegExp(`[\\\\/]twitter-image${suffixMatcher}${getExtensionRegexString(STATIC_METADATA_IMAGES.twitter.extensions, pageExtensions)}${trailingMatcher}`)
+    ];
+    compiledRegexCache.set(cacheKey, regexes);
+    return regexes;
+}
+function isMetadataRouteFile(appDirRelativePath, pageExtensions, strictlyMatchExtensions) {
+    // Early exit for empty or obviously non-metadata paths
+    if (!appDirRelativePath || appDirRelativePath.length < 2) {
+        return false;
+    }
+    const normalizedPath = (0, _normalizepathsep.normalizePathSep)(appDirRelativePath);
+    // Fast path check for common cases
+    const fastResult = fastPathCheck(normalizedPath);
+    if (fastResult !== null) {
+        return fastResult;
+    }
+    // Get compiled regexes from cache
+    const regexes = getCompiledRegexes(pageExtensions, strictlyMatchExtensions);
+    // Use for loop instead of .some() for better performance
+    for(let i = 0; i < regexes.length; i++){
+        if (regexes[i].test(normalizedPath)) {
+            return true;
+        }
+    }
+    return false;
+}
+function isStaticMetadataRoute(route) {
+    // extract ext with regex
+    const pathname = route.replace(/\/route$/, '');
+    const matched = (0, _isapprouteroute.isAppRouteRoute)(route) && isMetadataRouteFile(pathname, [], true) && // These routes can either be built by static or dynamic entrypoints,
+    // so we assume they're dynamic
+    pathname !== '/robots.txt' && pathname !== '/manifest.webmanifest' && !pathname.endsWith('/sitemap.xml');
+    return matched;
+}
+function isMetadataPage(page) {
+    const matched = !(0, _isapprouteroute.isAppRouteRoute)(page) && isMetadataRouteFile(page, [], false);
+    return matched;
+}
+function isMetadataRoute(route) {
+    let page = (0, _apppaths.normalizeAppPath)(route).replace(/^\/?app\//, '') // Remove the dynamic route id
+    .replace('/[__metadata_id__]', '') // Remove the /route suffix
+    .replace(/\/route$/, '');
+    if (page[0] !== '/') page = '/' + page;
+    const matched = (0, _isapprouteroute.isAppRouteRoute)(route) && isMetadataRouteFile(page, [], false);
+    return matched;
+} //# sourceMappingURL=is-metadata-route.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/is-edge-runtime.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+Object.defineProperty(exports, "isEdgeRuntime", {
+    enumerable: true,
+    get: function() {
+        return isEdgeRuntime;
+    }
+});
+const _constants = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/lib/constants.js [app-client] (ecmascript)");
+function isEdgeRuntime(value) {
+    return value === _constants.SERVER_RUNTIME.experimentalEdge || value === _constants.SERVER_RUNTIME.edge;
+} //# sourceMappingURL=is-edge-runtime.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/interop-default.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+Object.defineProperty(exports, "interopDefault", {
+    enumerable: true,
+    get: function() {
+        return interopDefault;
+    }
+});
+function interopDefault(mod) {
+    return mod.default || mod;
+} //# sourceMappingURL=interop-default.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/wait.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+/**
+ * Wait for a given number of milliseconds and then resolve.
+ *
+ * @param ms the number of milliseconds to wait
+ */ Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+Object.defineProperty(exports, "wait", {
+    enumerable: true,
+    get: function() {
+        return wait;
+    }
+});
+async function wait(ms) {
+    return new Promise((resolve)=>setTimeout(resolve, ms));
+} //# sourceMappingURL=wait.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/pick.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+Object.defineProperty(exports, "pick", {
+    enumerable: true,
+    get: function() {
+        return pick;
+    }
+});
+function pick(obj, keys) {
+    const newObj = {};
+    for (const key of keys){
+        newObj[key] = obj[key];
+    }
+    return newObj;
+} //# sourceMappingURL=pick.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/client-and-server-references.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+0 && (module.exports = {
+    getUseCacheFunctionInfo: null,
+    isClientReference: null,
+    isServerReference: null,
+    isUseCacheFunction: null
+});
+function _export(target, all) {
+    for(var name in all)Object.defineProperty(target, name, {
+        enumerable: true,
+        get: all[name]
+    });
+}
+_export(exports, {
+    getUseCacheFunctionInfo: function() {
+        return getUseCacheFunctionInfo;
+    },
+    isClientReference: function() {
+        return isClientReference;
+    },
+    isServerReference: function() {
+        return isServerReference;
+    },
+    isUseCacheFunction: function() {
+        return isUseCacheFunction;
+    }
+});
+const _serverreferenceinfo = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/shared/lib/server-reference-info.js [app-client] (ecmascript)");
+function isServerReference(value) {
+    return value.$$typeof === Symbol.for('react.server.reference');
+}
+function isUseCacheFunction(value) {
+    if (!isServerReference(value)) {
+        return false;
+    }
+    const { type } = (0, _serverreferenceinfo.extractInfoFromServerReferenceId)(value.$$id);
+    return type === 'use-cache';
+}
+function getUseCacheFunctionInfo(value) {
+    if (!isServerReference(value)) {
+        return null;
+    }
+    const info = (0, _serverreferenceinfo.extractInfoFromServerReferenceId)(value.$$id);
+    return info.type === 'use-cache' ? info : null;
+}
+function isClientReference(mod) {
+    const defaultExport = (mod == null ? void 0 : mod.default) || mod;
+    return (defaultExport == null ? void 0 : defaultExport.$$typeof) === Symbol.for('react.client.reference');
+} //# sourceMappingURL=client-and-server-references.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/detached-promise.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+/**
+ * A `Promise.withResolvers` implementation that exposes the `resolve` and
+ * `reject` functions on a `Promise`.
+ *
+ * @see https://tc39.es/proposal-promise-with-resolvers/
+ */ Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+Object.defineProperty(exports, "DetachedPromise", {
+    enumerable: true,
+    get: function() {
+        return DetachedPromise;
+    }
+});
+class DetachedPromise {
+    constructor(){
+        let resolve;
+        let reject;
+        // Create the promise and assign the resolvers to the object.
+        this.promise = new Promise((res, rej)=>{
+            resolve = res;
+            reject = rej;
+        });
+        // We know that resolvers is defined because the Promise constructor runs
+        // synchronously.
+        this.resolve = resolve;
+        this.reject = reject;
+    }
+} //# sourceMappingURL=detached-promise.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/batcher.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+Object.defineProperty(exports, "Batcher", {
+    enumerable: true,
+    get: function() {
+        return Batcher;
+    }
+});
+const _detachedpromise = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/lib/detached-promise.js [app-client] (ecmascript)");
+class Batcher {
+    constructor(cacheKeyFn, /**
+     * A function that will be called to schedule the wrapped function to be
+     * executed. This defaults to a function that will execute the function
+     * immediately.
+     */ schedulerFn = (fn)=>fn()){
+        this.cacheKeyFn = cacheKeyFn;
+        this.schedulerFn = schedulerFn;
+        this.pending = new Map();
+    }
+    static create(options) {
+        return new Batcher(options == null ? void 0 : options.cacheKeyFn, options == null ? void 0 : options.schedulerFn);
+    }
+    /**
+   * Wraps a function in a promise that will be resolved or rejected only once
+   * for a given key. This will allow multiple calls to the function to be
+   * made, but only one will be executed at a time. The result of the first
+   * call will be returned to all callers.
+   *
+   * @param key the key to use for the cache
+   * @param fn the function to wrap
+   * @returns a promise that resolves to the result of the function
+   */ async batch(key, fn) {
+        const cacheKey = this.cacheKeyFn ? await this.cacheKeyFn(key) : key;
+        if (cacheKey === null) {
+            return fn({
+                resolve: (value)=>Promise.resolve(value),
+                key
+            });
+        }
+        const pending = this.pending.get(cacheKey);
+        if (pending) return pending;
+        const { promise, resolve, reject } = new _detachedpromise.DetachedPromise();
+        this.pending.set(cacheKey, promise);
+        this.schedulerFn(async ()=>{
+            try {
+                const result = await fn({
+                    resolve,
+                    key
+                });
+                // Resolving a promise multiple times is a no-op, so we can safely
+                // resolve all pending promises with the same result.
+                resolve(result);
+            } catch (err) {
+                reject(err);
+            } finally{
+                this.pending.delete(cacheKey);
+            }
+        });
+        return promise;
+    }
+} //# sourceMappingURL=batcher.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/multi-file-writer.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+Object.defineProperty(exports, "MultiFileWriter", {
+    enumerable: true,
+    get: function() {
+        return MultiFileWriter;
+    }
+});
+const _path = /*#__PURE__*/ _interop_require_default(__turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/shared/lib/isomorphic/path.js [app-client] (ecmascript)"));
+function _interop_require_default(obj) {
+    return obj && obj.__esModule ? obj : {
+        default: obj
+    };
+}
+class MultiFileWriter {
+    constructor(/**
+     * The file system methods to use.
+     */ fs){
+        this.fs = fs;
+        this.tasks = [];
+    }
+    /**
+   * Finds or creates a task for a directory.
+   *
+   * @param directory - The directory to find or create a task for.
+   * @returns The task for the directory.
+   */ findOrCreateTask(directory) {
+        // See if this directory already has a task to create it.
+        for (const task of this.tasks){
+            if (task[0] === directory) {
+                return task;
+            }
+        }
+        const promise = this.fs.mkdir(directory);
+        // Attach a catch handler so that it doesn't throw an unhandled promise
+        // rejection warning.
+        promise.catch(()=>{});
+        // Otherwise, create a new task for this directory.
+        const task = [
+            directory,
+            promise,
+            []
+        ];
+        this.tasks.push(task);
+        return task;
+    }
+    /**
+   * Appends a file to the writer to be written after its containing directory
+   * is created. The file writer should be awaited after all the files have been
+   * appended. Any async operation that occurs between appending and awaiting
+   * may cause an unhandled promise rejection warning and potentially crash the
+   * process.
+   *
+   * @param filePath - The path to the file to write.
+   * @param data - The data to write to the file.
+   */ append(filePath, data) {
+        // Find or create a task for the directory that contains the file.
+        const task = this.findOrCreateTask(_path.default.dirname(filePath));
+        const promise = task[1].then(()=>this.fs.writeFile(filePath, data));
+        // Attach a catch handler so that it doesn't throw an unhandled promise
+        // rejection warning.
+        promise.catch(()=>{});
+        // Add the file write to the task AFTER the directory promise has resolved.
+        task[2].push(promise);
+    }
+    /**
+   * Returns a promise that resolves when all the files have been written.
+   */ wait() {
+        return Promise.all(this.tasks.flatMap((task)=>task[2]));
+    }
+} //# sourceMappingURL=multi-file-writer.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/route-pattern-normalizer.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+0 && (module.exports = {
+    PARAM_SEPARATOR: null,
+    hasAdjacentParameterIssues: null,
+    normalizeAdjacentParameters: null,
+    normalizeTokensForRegexp: null,
+    stripNormalizedSeparators: null,
+    stripParameterSeparators: null
+});
+function _export(target, all) {
+    for(var name in all)Object.defineProperty(target, name, {
+        enumerable: true,
+        get: all[name]
+    });
+}
+_export(exports, {
+    PARAM_SEPARATOR: function() {
+        return PARAM_SEPARATOR;
+    },
+    hasAdjacentParameterIssues: function() {
+        return hasAdjacentParameterIssues;
+    },
+    normalizeAdjacentParameters: function() {
+        return normalizeAdjacentParameters;
+    },
+    normalizeTokensForRegexp: function() {
+        return normalizeTokensForRegexp;
+    },
+    stripNormalizedSeparators: function() {
+        return stripNormalizedSeparators;
+    },
+    stripParameterSeparators: function() {
+        return stripParameterSeparators;
+    }
+});
+const PARAM_SEPARATOR = '_NEXTSEP_';
+function hasAdjacentParameterIssues(route) {
+    if (typeof route !== 'string') return false;
+    // Check for interception route markers followed immediately by parameters
+    // Pattern: /(.):param, /(..):param, /(...):param, /(.)(.):param etc.
+    // These patterns cause "Must have text between two parameters" errors
+    if (/\/\(\.{1,3}\):[^/\s]+/.test(route)) {
+        return true;
+    }
+    // Check for basic adjacent parameters without separators
+    // Pattern: :param1:param2 (but not :param* or other URL patterns)
+    if (/:[a-zA-Z_][a-zA-Z0-9_]*:[a-zA-Z_][a-zA-Z0-9_]*/.test(route)) {
+        return true;
+    }
+    return false;
+}
+function normalizeAdjacentParameters(route) {
+    let normalized = route;
+    // Handle interception route patterns: (.):param -> (.)_NEXTSEP_:param
+    normalized = normalized.replace(/(\([^)]*\)):([^/\s]+)/g, `$1${PARAM_SEPARATOR}:$2`);
+    // Handle other adjacent parameter patterns: :param1:param2 -> :param1_NEXTSEP_:param2
+    normalized = normalized.replace(/:([^:/\s)]+)(?=:)/g, `:$1${PARAM_SEPARATOR}`);
+    return normalized;
+}
+function normalizeTokensForRegexp(tokens) {
+    return tokens.map((token)=>{
+        // Token union type: Token = string | TokenObject
+        // Literal path segments are strings, parameters/wildcards are objects
+        if (typeof token === 'object' && token !== null && // Not all token objects have 'modifier' property (e.g., simple text tokens)
+        'modifier' in token && // Only repeating modifiers (* or +) cause the validation error
+        // Other modifiers like '?' (optional) are fine
+        (token.modifier === '*' || token.modifier === '+') && // Token objects can have different shapes depending on route pattern
+        'prefix' in token && 'suffix' in token && // Both prefix and suffix must be empty strings
+        // This is what causes the validation error in path-to-regexp
+        token.prefix === '' && token.suffix === '') {
+            // Add minimal prefix to satisfy path-to-regexp validation
+            // We use '/' as it's the most common path delimiter and won't break route matching
+            // The prefix gets used in regex generation but doesn't affect parameter extraction
+            return {
+                ...token,
+                prefix: '/'
+            };
+        }
+        return token;
+    });
+}
+function stripNormalizedSeparators(pathname) {
+    // Remove separator after interception route markers
+    // Pattern: (.)_NEXTSEP_ -> (.), (..)_NEXTSEP_ -> (..), etc.
+    // The separator appears after the closing paren of interception markers
+    return pathname.replace(new RegExp(`\\)${PARAM_SEPARATOR}`, 'g'), ')');
+}
+function stripParameterSeparators(params) {
+    const cleaned = {};
+    for (const [key, value] of Object.entries(params)){
+        if (typeof value === 'string') {
+            // Remove the separator if it appears at the start of parameter values
+            cleaned[key] = value.replace(new RegExp(`^${PARAM_SEPARATOR}`), '');
+        } else if (Array.isArray(value)) {
+            // Handle array parameters (from repeated route segments)
+            cleaned[key] = value.map((item)=>typeof item === 'string' ? item.replace(new RegExp(`^${PARAM_SEPARATOR}`), '') : item);
+        } else {
+            cleaned[key] = value;
+        }
+    }
+    return cleaned;
+} //# sourceMappingURL=route-pattern-normalizer.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/url.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+0 && (module.exports = {
+    isFullStringUrl: null,
+    parseReqUrl: null,
+    parseUrl: null,
+    stripNextRscUnionQuery: null
+});
+function _export(target, all) {
+    for(var name in all)Object.defineProperty(target, name, {
+        enumerable: true,
+        get: all[name]
+    });
+}
+_export(exports, {
+    isFullStringUrl: function() {
+        return isFullStringUrl;
+    },
+    parseReqUrl: function() {
+        return parseReqUrl;
+    },
+    parseUrl: function() {
+        return parseUrl;
+    },
+    stripNextRscUnionQuery: function() {
+        return stripNextRscUnionQuery;
+    }
+});
+const _approuterheaders = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/client/components/app-router-headers.js [app-client] (ecmascript)");
+const DUMMY_ORIGIN = 'http://n';
+function isFullStringUrl(url) {
+    return /https?:\/\//.test(url);
+}
+function parseUrl(url) {
+    let parsed = undefined;
+    try {
+        parsed = new URL(url, DUMMY_ORIGIN);
+    } catch  {}
+    return parsed;
+}
+function parseReqUrl(url) {
+    const parsedUrl = parseUrl(url);
+    if (!parsedUrl) {
+        return;
+    }
+    const query = {};
+    for (const key of parsedUrl.searchParams.keys()){
+        const values = parsedUrl.searchParams.getAll(key);
+        query[key] = values.length > 1 ? values : values[0];
+    }
+    const legacyUrl = {
+        query,
+        hash: parsedUrl.hash,
+        search: parsedUrl.search,
+        path: parsedUrl.pathname,
+        pathname: parsedUrl.pathname,
+        href: `${parsedUrl.pathname}${parsedUrl.search}${parsedUrl.hash}`,
+        host: '',
+        hostname: '',
+        auth: '',
+        protocol: '',
+        slashes: null,
+        port: ''
+    };
+    return legacyUrl;
+}
+function stripNextRscUnionQuery(relativeUrl) {
+    const urlInstance = new URL(relativeUrl, DUMMY_ORIGIN);
+    urlInstance.searchParams.delete(_approuterheaders.NEXT_RSC_UNION_QUERY);
+    return urlInstance.pathname + urlInstance.search;
+} //# sourceMappingURL=url.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/format-dynamic-import-path.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+Object.defineProperty(exports, "formatDynamicImportPath", {
+    enumerable: true,
+    get: function() {
+        return formatDynamicImportPath;
+    }
+});
+const _path = /*#__PURE__*/ _interop_require_default(__turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/compiled/path-browserify/index.js [app-client] (ecmascript)"));
+const _url = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/compiled/native-url/index.js [app-client] (ecmascript)");
+function _interop_require_default(obj) {
+    return obj && obj.__esModule ? obj : {
+        default: obj
+    };
+}
+const formatDynamicImportPath = (dir, filePath)=>{
+    const absoluteFilePath = _path.default.isAbsolute(filePath) ? filePath : _path.default.join(dir, filePath);
+    const formattedFilePath = (0, _url.pathToFileURL)(absoluteFilePath).toString();
+    return formattedFilePath;
+}; //# sourceMappingURL=format-dynamic-import-path.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/fallback.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+/**
+ * Describes the different fallback modes that a given page can have.
+ */ Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+0 && (module.exports = {
+    FallbackMode: null,
+    fallbackModeToFallbackField: null,
+    parseFallbackField: null,
+    parseStaticPathsResult: null
+});
+function _export(target, all) {
+    for(var name in all)Object.defineProperty(target, name, {
+        enumerable: true,
+        get: all[name]
+    });
+}
+_export(exports, {
+    FallbackMode: function() {
+        return FallbackMode;
+    },
+    fallbackModeToFallbackField: function() {
+        return fallbackModeToFallbackField;
+    },
+    parseFallbackField: function() {
+        return parseFallbackField;
+    },
+    parseStaticPathsResult: function() {
+        return parseStaticPathsResult;
+    }
+});
+var FallbackMode = /*#__PURE__*/ function(FallbackMode) {
+    /**
+   * A BLOCKING_STATIC_RENDER fallback will block the request until the page is
+   * generated. No fallback page will be rendered, and users will have to wait
+   * to render the page.
+   */ FallbackMode["BLOCKING_STATIC_RENDER"] = "BLOCKING_STATIC_RENDER";
+    /**
+   * When set to PRERENDER, a fallback page will be sent to users in place of
+   * forcing them to wait for the page to be generated. This allows the user to
+   * see a rendered page earlier.
+   */ FallbackMode["PRERENDER"] = "PRERENDER";
+    /**
+   * When set to NOT_FOUND, pages that are not already prerendered will result
+   * in a not found response.
+   */ FallbackMode["NOT_FOUND"] = "NOT_FOUND";
+    return FallbackMode;
+}({});
+function parseFallbackField(fallbackField) {
+    if (typeof fallbackField === 'string') {
+        return "PRERENDER";
+    } else if (fallbackField === null) {
+        return "BLOCKING_STATIC_RENDER";
+    } else if (fallbackField === false) {
+        return "NOT_FOUND";
+    } else if (fallbackField === undefined) {
+        return undefined;
+    } else {
+        throw Object.defineProperty(new Error(`Invalid fallback option: ${fallbackField}. Fallback option must be a string, null, undefined, or false.`), "__NEXT_ERROR_CODE", {
+            value: "E285",
+            enumerable: false,
+            configurable: true
+        });
+    }
+}
+function fallbackModeToFallbackField(fallback, page) {
+    switch(fallback){
+        case "BLOCKING_STATIC_RENDER":
+            return null;
+        case "NOT_FOUND":
+            return false;
+        case "PRERENDER":
+            if (!page) {
+                throw Object.defineProperty(new Error(`Invariant: expected a page to be provided when fallback mode is "${fallback}"`), "__NEXT_ERROR_CODE", {
+                    value: "E422",
+                    enumerable: false,
+                    configurable: true
+                });
+            }
+            return page;
+        default:
+            throw Object.defineProperty(new Error(`Invalid fallback mode: ${fallback}`), "__NEXT_ERROR_CODE", {
+                value: "E254",
+                enumerable: false,
+                configurable: true
+            });
+    }
+}
+function parseStaticPathsResult(result) {
+    if (result === true) {
+        return "PRERENDER";
+    } else if (result === 'blocking') {
+        return "BLOCKING_STATIC_RENDER";
+    } else {
+        return "NOT_FOUND";
+    }
+} //# sourceMappingURL=fallback.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/helpers/get-pkg-manager.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+var __TURBOPACK__imported__module__$5b$project$5d2f$JobPortal$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/JobPortal/frontend/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
+"use strict";
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+Object.defineProperty(exports, "getPkgManager", {
+    enumerable: true,
+    get: function() {
+        return getPkgManager;
+    }
+});
+const _fs = /*#__PURE__*/ _interop_require_default((()=>{
+    const e = new Error("Cannot find module 'fs'");
+    e.code = 'MODULE_NOT_FOUND';
+    throw e;
+})());
+const _path = /*#__PURE__*/ _interop_require_default(__turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/compiled/path-browserify/index.js [app-client] (ecmascript)"));
+const _child_process = (()=>{
+    const e = new Error("Cannot find module 'child_process'");
+    e.code = 'MODULE_NOT_FOUND';
+    throw e;
+})();
+function _interop_require_default(obj) {
+    return obj && obj.__esModule ? obj : {
+        default: obj
+    };
+}
+function getPkgManager(baseDir) {
+    try {
+        for (const { lockFile, packageManager } of [
+            {
+                lockFile: 'yarn.lock',
+                packageManager: 'yarn'
+            },
+            {
+                lockFile: 'pnpm-lock.yaml',
+                packageManager: 'pnpm'
+            },
+            {
+                lockFile: 'package-lock.json',
+                packageManager: 'npm'
+            }
+        ]){
+            if (_fs.default.existsSync(_path.default.join(baseDir, lockFile))) {
+                return packageManager;
+            }
+        }
+        const userAgent = __TURBOPACK__imported__module__$5b$project$5d2f$JobPortal$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].env.npm_config_user_agent;
+        if (userAgent) {
+            if (userAgent.startsWith('yarn')) {
+                return 'yarn';
+            } else if (userAgent.startsWith('pnpm')) {
+                return 'pnpm';
+            }
+        }
+        try {
+            (0, _child_process.execSync)('yarn --version', {
+                stdio: 'ignore'
+            });
+            return 'yarn';
+        } catch  {
+            (0, _child_process.execSync)('pnpm --version', {
+                stdio: 'ignore'
+            });
+            return 'pnpm';
+        }
+    } catch  {
+        return 'npm';
+    }
+} //# sourceMappingURL=get-pkg-manager.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/helpers/get-registry.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+var __TURBOPACK__imported__module__$5b$project$5d2f$JobPortal$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/JobPortal/frontend/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
+"use strict";
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+Object.defineProperty(exports, "getRegistry", {
+    enumerable: true,
+    get: function() {
+        return getRegistry;
+    }
+});
+const _child_process = (()=>{
+    const e = new Error("Cannot find module 'child_process'");
+    e.code = 'MODULE_NOT_FOUND';
+    throw e;
+})();
+const _getpkgmanager = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/lib/helpers/get-pkg-manager.js [app-client] (ecmascript)");
+const _utils = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/server/lib/utils.js [app-client] (ecmascript)");
+function getRegistry(baseDir = __TURBOPACK__imported__module__$5b$project$5d2f$JobPortal$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].cwd()) {
+    const pkgManager = (0, _getpkgmanager.getPkgManager)(baseDir);
+    // Since `npm config` command fails in npm workspace to prevent workspace config conflicts,
+    // add `--no-workspaces` flag to run under the context of the root project only.
+    // Safe for non-workspace projects as it's equivalent to default `--workspaces=false`.
+    // x-ref: https://github.com/vercel/next.js/issues/47121#issuecomment-1499044345
+    // x-ref: https://github.com/npm/statusboard/issues/371#issue-920669998
+    const resolvedFlags = pkgManager === 'npm' ? '--no-workspaces' : '';
+    let registry = `https://registry.npmjs.org/`;
+    try {
+        const output = (0, _child_process.execSync)(`${pkgManager} config get registry ${resolvedFlags}`, {
+            env: {
+                ...__TURBOPACK__imported__module__$5b$project$5d2f$JobPortal$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].env,
+                NODE_OPTIONS: (0, _utils.getFormattedNodeOptionsWithoutInspect)()
+            }
+        }).toString().trim();
+        if (output.startsWith('http')) {
+            registry = output.endsWith('/') ? output : `${output}/`;
+        }
+    } catch (err) {
+        throw Object.defineProperty(new Error(`Failed to get registry from "${pkgManager}".`, {
+            cause: err
+        }), "__NEXT_ERROR_CODE", {
+            value: "E508",
+            enumerable: false,
+            configurable: true
+        });
+    }
+    return registry;
+} //# sourceMappingURL=get-registry.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/patch-incorrect-lockfile.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+var __TURBOPACK__imported__module__$5b$project$5d2f$JobPortal$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/JobPortal/frontend/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
+"use strict";
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+Object.defineProperty(exports, "patchIncorrectLockfile", {
+    enumerable: true,
+    get: function() {
+        return patchIncorrectLockfile;
+    }
+});
+const _fs = (()=>{
+    const e = new Error("Cannot find module 'fs'");
+    e.code = 'MODULE_NOT_FOUND';
+    throw e;
+})();
+const _log = /*#__PURE__*/ _interop_require_wildcard(__turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/build/output/log.js [app-client] (ecmascript)"));
+const _findup = /*#__PURE__*/ _interop_require_default(__turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/compiled/find-up/index.js [app-client] (ecmascript)"));
+const _packagejson = /*#__PURE__*/ _interop_require_default(__turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/package.json (json)"));
+const _ciinfo = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/server/ci-info.js [app-client] (ecmascript)");
+const _getregistry = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/lib/helpers/get-registry.js [app-client] (ecmascript)");
+function _interop_require_default(obj) {
+    return obj && obj.__esModule ? obj : {
+        default: obj
+    };
+}
+function _getRequireWildcardCache(nodeInterop) {
+    if (typeof WeakMap !== "function") return null;
+    var cacheBabelInterop = new WeakMap();
+    var cacheNodeInterop = new WeakMap();
+    return (_getRequireWildcardCache = function(nodeInterop) {
+        return nodeInterop ? cacheNodeInterop : cacheBabelInterop;
+    })(nodeInterop);
+}
+function _interop_require_wildcard(obj, nodeInterop) {
+    if (!nodeInterop && obj && obj.__esModule) {
+        return obj;
+    }
+    if (obj === null || typeof obj !== "object" && typeof obj !== "function") {
+        return {
+            default: obj
+        };
+    }
+    var cache = _getRequireWildcardCache(nodeInterop);
+    if (cache && cache.has(obj)) {
+        return cache.get(obj);
+    }
+    var newObj = {
+        __proto__: null
+    };
+    var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;
+    for(var key in obj){
+        if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) {
+            var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;
+            if (desc && (desc.get || desc.set)) {
+                Object.defineProperty(newObj, key, desc);
+            } else {
+                newObj[key] = obj[key];
+            }
+        }
+    }
+    newObj.default = obj;
+    if (cache) {
+        cache.set(obj, newObj);
+    }
+    return newObj;
+}
+let registry;
+async function fetchPkgInfo(pkg) {
+    if (!registry) registry = (0, _getregistry.getRegistry)();
+    const res = await fetch(`${registry}${pkg}`);
+    if (!res.ok) {
+        throw Object.defineProperty(new Error(`Failed to fetch registry info for ${pkg}, got status ${res.status}`), "__NEXT_ERROR_CODE", {
+            value: "E172",
+            enumerable: false,
+            configurable: true
+        });
+    }
+    const data = await res.json();
+    const versionData = data.versions[_packagejson.default.version];
+    return {
+        os: versionData.os,
+        cpu: versionData.cpu,
+        engines: versionData.engines,
+        tarball: versionData.dist.tarball,
+        integrity: versionData.dist.integrity
+    };
+}
+async function patchIncorrectLockfile(dir) {
+    if (__TURBOPACK__imported__module__$5b$project$5d2f$JobPortal$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].env.NEXT_IGNORE_INCORRECT_LOCKFILE) {
+        return;
+    }
+    const lockfilePath = await (0, _findup.default)('package-lock.json', {
+        cwd: dir
+    });
+    if (!lockfilePath) {
+        // if no lockfile present there is no action to take
+        return;
+    }
+    const content = await _fs.promises.readFile(lockfilePath, 'utf8');
+    // maintain current line ending
+    const endingNewline = content.endsWith('\r\n') ? '\r\n' : content.endsWith('\n') ? '\n' : '';
+    const lockfileParsed = JSON.parse(content);
+    const lockfileVersion = parseInt(lockfileParsed == null ? void 0 : lockfileParsed.lockfileVersion, 10);
+    const expectedSwcPkgs = Object.keys(_packagejson.default['optionalDependencies'] || {}).filter((pkg)=>pkg.startsWith('@next/swc-'));
+    const patchDependency = (pkg, pkgData)=>{
+        lockfileParsed.dependencies[pkg] = {
+            version: _packagejson.default.version,
+            resolved: pkgData.tarball,
+            integrity: pkgData.integrity,
+            optional: true
+        };
+    };
+    const patchPackage = (pkg, pkgData)=>{
+        lockfileParsed.packages[pkg] = {
+            version: _packagejson.default.version,
+            resolved: pkgData.tarball,
+            integrity: pkgData.integrity,
+            cpu: pkgData.cpu,
+            optional: true,
+            os: pkgData.os,
+            engines: pkgData.engines
+        };
+    };
+    try {
+        const supportedVersions = [
+            1,
+            2,
+            3
+        ];
+        if (!supportedVersions.includes(lockfileVersion)) {
+            // bail on unsupported version
+            return;
+        }
+        // v1 only uses dependencies
+        // v2 uses dependencies and packages
+        // v3 only uses packages
+        const shouldPatchDependencies = lockfileVersion === 1 || lockfileVersion === 2;
+        const shouldPatchPackages = lockfileVersion === 2 || lockfileVersion === 3;
+        if (shouldPatchDependencies && !lockfileParsed.dependencies || shouldPatchPackages && !lockfileParsed.packages) {
+            // invalid lockfile so bail
+            return;
+        }
+        const missingSwcPkgs = [];
+        let pkgPrefix;
+        if (shouldPatchPackages) {
+            pkgPrefix = '';
+            for (const pkg of Object.keys(lockfileParsed.packages)){
+                if (pkg.endsWith('node_modules/next')) {
+                    pkgPrefix = pkg.substring(0, pkg.length - 4);
+                }
+            }
+            if (!pkgPrefix) {
+                // unable to locate the next package so bail
+                return;
+            }
+        }
+        for (const pkg of expectedSwcPkgs){
+            if (shouldPatchDependencies && !lockfileParsed.dependencies[pkg] || shouldPatchPackages && !lockfileParsed.packages[`${pkgPrefix}${pkg}`]) {
+                missingSwcPkgs.push(pkg);
+            }
+        }
+        if (missingSwcPkgs.length === 0) {
+            return;
+        }
+        _log.warn(`Found lockfile missing swc dependencies,`, _ciinfo.isCI ? 'run next locally to automatically patch' : 'patching...');
+        if (_ciinfo.isCI) {
+            // no point in updating in CI as the user can't save the patch
+            return;
+        }
+        const pkgsData = await Promise.all(missingSwcPkgs.map((pkg)=>fetchPkgInfo(pkg)));
+        for(let i = 0; i < pkgsData.length; i++){
+            const pkg = missingSwcPkgs[i];
+            const pkgData = pkgsData[i];
+            if (shouldPatchDependencies) {
+                patchDependency(pkg, pkgData);
+            }
+            if (shouldPatchPackages) {
+                patchPackage(`${pkgPrefix}${pkg}`, pkgData);
+            }
+        }
+        await _fs.promises.writeFile(lockfilePath, JSON.stringify(lockfileParsed, null, 2) + endingNewline);
+        _log.warn('Lockfile was successfully patched, please run "npm install" to ensure @next/swc dependencies are downloaded');
+    } catch (err) {
+        _log.error(`Failed to patch lockfile, please try uninstalling and reinstalling next in this workspace`);
+        console.error(err);
+    }
+} //# sourceMappingURL=patch-incorrect-lockfile.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/helpers/get-cache-directory.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+var __TURBOPACK__imported__module__$5b$project$5d2f$JobPortal$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/JobPortal/frontend/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
+"use strict";
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+Object.defineProperty(exports, "getCacheDirectory", {
+    enumerable: true,
+    get: function() {
+        return getCacheDirectory;
+    }
+});
+const _os = /*#__PURE__*/ _interop_require_default(__turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/compiled/os-browserify/browser.js [app-client] (ecmascript)"));
+const _path = /*#__PURE__*/ _interop_require_default(__turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/compiled/path-browserify/index.js [app-client] (ecmascript)"));
+const _fs = /*#__PURE__*/ _interop_require_default((()=>{
+    const e = new Error("Cannot find module 'fs'");
+    e.code = 'MODULE_NOT_FOUND';
+    throw e;
+})());
+function _interop_require_default(obj) {
+    return obj && obj.__esModule ? obj : {
+        default: obj
+    };
+}
+function getCacheDirectory(fileDirectory, envPath) {
+    let result;
+    if (envPath) {
+        result = envPath;
+    } else {
+        let systemCacheDirectory;
+        if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
+        ;
+        else if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
+        ;
+        else if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
+        ;
+        else {
+            /// Attempt to use generic tmp location for un-handled platform
+            if (!systemCacheDirectory) {
+                for (const dir of [
+                    _path.default.join(_os.default.homedir(), '.cache'),
+                    _path.default.join(_os.default.tmpdir())
+                ]){
+                    if (_fs.default.existsSync(dir)) {
+                        systemCacheDirectory = dir;
+                        break;
+                    }
+                }
+            }
+            if (!systemCacheDirectory) {
+                console.error(Object.defineProperty(new Error('Unsupported platform: ' + __TURBOPACK__imported__module__$5b$project$5d2f$JobPortal$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].platform), "__NEXT_ERROR_CODE", {
+                    value: "E141",
+                    enumerable: false,
+                    configurable: true
+                }));
+                __TURBOPACK__imported__module__$5b$project$5d2f$JobPortal$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].exit(0);
+            }
+        }
+        result = _path.default.join(systemCacheDirectory, fileDirectory);
+    }
+    if (!_path.default.isAbsolute(result)) {
+        // It is important to resolve to the absolute path:
+        //   - for unzipping to work correctly;
+        //   - so that registry directory matches between installation and execution.
+        // INIT_CWD points to the root of `npm/yarn install` and is probably what
+        // the user meant when typing the relative path.
+        result = _path.default.resolve(__TURBOPACK__imported__module__$5b$project$5d2f$JobPortal$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].env['INIT_CWD'] || __TURBOPACK__imported__module__$5b$project$5d2f$JobPortal$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].cwd(), result);
+    }
+    return result;
+} //# sourceMappingURL=get-cache-directory.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/download-swc.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+var __TURBOPACK__imported__module__$5b$project$5d2f$JobPortal$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/JobPortal/frontend/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
+"use strict";
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+0 && (module.exports = {
+    downloadNativeNextSwc: null,
+    downloadWasmSwc: null
+});
+function _export(target, all) {
+    for(var name in all)Object.defineProperty(target, name, {
+        enumerable: true,
+        get: all[name]
+    });
+}
+_export(exports, {
+    downloadNativeNextSwc: function() {
+        return downloadNativeNextSwc;
+    },
+    downloadWasmSwc: function() {
+        return downloadWasmSwc;
+    }
+});
+const _fs = /*#__PURE__*/ _interop_require_default((()=>{
+    const e = new Error("Cannot find module 'fs'");
+    e.code = 'MODULE_NOT_FOUND';
+    throw e;
+})());
+const _path = /*#__PURE__*/ _interop_require_default(__turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/compiled/path-browserify/index.js [app-client] (ecmascript)"));
+const _log = /*#__PURE__*/ _interop_require_wildcard(__turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/build/output/log.js [app-client] (ecmascript)"));
+const _tar = /*#__PURE__*/ _interop_require_default(__turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/compiled/tar/index.js [app-client] (ecmascript)"));
+const _getregistry = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/lib/helpers/get-registry.js [app-client] (ecmascript)");
+const _getcachedirectory = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/lib/helpers/get-cache-directory.js [app-client] (ecmascript)");
+function _interop_require_default(obj) {
+    return obj && obj.__esModule ? obj : {
+        default: obj
+    };
+}
+function _getRequireWildcardCache(nodeInterop) {
+    if (typeof WeakMap !== "function") return null;
+    var cacheBabelInterop = new WeakMap();
+    var cacheNodeInterop = new WeakMap();
+    return (_getRequireWildcardCache = function(nodeInterop) {
+        return nodeInterop ? cacheNodeInterop : cacheBabelInterop;
+    })(nodeInterop);
+}
+function _interop_require_wildcard(obj, nodeInterop) {
+    if (!nodeInterop && obj && obj.__esModule) {
+        return obj;
+    }
+    if (obj === null || typeof obj !== "object" && typeof obj !== "function") {
+        return {
+            default: obj
+        };
+    }
+    var cache = _getRequireWildcardCache(nodeInterop);
+    if (cache && cache.has(obj)) {
+        return cache.get(obj);
+    }
+    var newObj = {
+        __proto__: null
+    };
+    var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;
+    for(var key in obj){
+        if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) {
+            var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;
+            if (desc && (desc.get || desc.set)) {
+                Object.defineProperty(newObj, key, desc);
+            } else {
+                newObj[key] = obj[key];
+            }
+        }
+    }
+    newObj.default = obj;
+    if (cache) {
+        cache.set(obj, newObj);
+    }
+    return newObj;
+}
+const { WritableStream } = (()=>{
+    const e = new Error("Cannot find module 'node:stream/web': Unsupported external type Url for commonjs reference");
+    e.code = 'MODULE_NOT_FOUND';
+    throw e;
+})();
+const MAX_VERSIONS_TO_CACHE = 8;
+async function extractBinary(outputDirectory, pkgName, tarFileName) {
+    const cacheDirectory = (0, _getcachedirectory.getCacheDirectory)('next-swc', __TURBOPACK__imported__module__$5b$project$5d2f$JobPortal$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].env['NEXT_SWC_PATH']);
+    const extractFromTar = ()=>_tar.default.x({
+            file: _path.default.join(cacheDirectory, tarFileName),
+            cwd: outputDirectory,
+            strip: 1
+        });
+    if (!_fs.default.existsSync(_path.default.join(cacheDirectory, tarFileName))) {
+        _log.info(`Downloading swc package ${pkgName}... to ${cacheDirectory}`);
+        await _fs.default.promises.mkdir(cacheDirectory, {
+            recursive: true
+        });
+        const tempFile = _path.default.join(cacheDirectory, `${tarFileName}.temp-${Date.now()}`);
+        const registry = (0, _getregistry.getRegistry)();
+        const downloadUrl = `${registry}${pkgName}/-/${tarFileName}`;
+        await fetch(downloadUrl).then((res)=>{
+            const { ok, body } = res;
+            if (!ok || !body) {
+                _log.error(`Failed to download swc package from ${downloadUrl}`);
+            }
+            if (!ok) {
+                throw Object.defineProperty(new Error(`request failed with status ${res.status}`), "__NEXT_ERROR_CODE", {
+                    value: "E109",
+                    enumerable: false,
+                    configurable: true
+                });
+            }
+            if (!body) {
+                throw Object.defineProperty(new Error('request failed with empty body'), "__NEXT_ERROR_CODE", {
+                    value: "E143",
+                    enumerable: false,
+                    configurable: true
+                });
+            }
+            const cacheWriteStream = _fs.default.createWriteStream(tempFile);
+            return body.pipeTo(new WritableStream({
+                write (chunk) {
+                    return new Promise((resolve, reject)=>cacheWriteStream.write(chunk, (error)=>{
+                            if (error) {
+                                reject(error);
+                                return;
+                            }
+                            resolve();
+                        }));
+                },
+                close () {
+                    return new Promise((resolve, reject)=>cacheWriteStream.close((error)=>{
+                            if (error) {
+                                reject(error);
+                                return;
+                            }
+                            resolve();
+                        }));
+                }
+            }));
+        });
+        await _fs.default.promises.access(tempFile) // ensure the temp file existed
+        ;
+        await _fs.default.promises.rename(tempFile, _path.default.join(cacheDirectory, tarFileName));
+    } else {
+        _log.info(`Using cached swc package ${pkgName}...`);
+    }
+    await extractFromTar();
+    const cacheFiles = await _fs.default.promises.readdir(cacheDirectory);
+    if (cacheFiles.length > MAX_VERSIONS_TO_CACHE) {
+        cacheFiles.sort((a, b)=>{
+            if (a.length < b.length) return -1;
+            return a.localeCompare(b);
+        });
+        // prune oldest versions in cache
+        for(let i = 0; i++; i < cacheFiles.length - MAX_VERSIONS_TO_CACHE){
+            await _fs.default.promises.unlink(_path.default.join(cacheDirectory, cacheFiles[i])).catch(()=>{});
+        }
+    }
+}
+async function downloadNativeNextSwc(version, bindingsDirectory, triplesABI) {
+    for (const triple of triplesABI){
+        const pkgName = `@next/swc-${triple}`;
+        const tarFileName = `${pkgName.substring(6)}-${version}.tgz`;
+        const outputDirectory = _path.default.join(bindingsDirectory, pkgName);
+        if (_fs.default.existsSync(outputDirectory)) {
+            // if the package is already downloaded a different
+            // failure occurred than not being present
+            return;
+        }
+        await _fs.default.promises.mkdir(outputDirectory, {
+            recursive: true
+        });
+        await extractBinary(outputDirectory, pkgName, tarFileName);
+    }
+}
+async function downloadWasmSwc(version, wasmDirectory, variant = 'nodejs') {
+    const pkgName = `@next/swc-wasm-${variant}`;
+    const tarFileName = `${pkgName.substring(6)}-${version}.tgz`;
+    const outputDirectory = _path.default.join(wasmDirectory, pkgName);
+    if (_fs.default.existsSync(outputDirectory)) {
+        // if the package is already downloaded a different
+        // failure occurred than not being present
+        return;
+    }
+    await _fs.default.promises.mkdir(outputDirectory, {
+        recursive: true
+    });
+    await extractBinary(outputDirectory, pkgName, tarFileName);
+} //# sourceMappingURL=download-swc.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/needs-experimental-react.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+Object.defineProperty(exports, "needsExperimentalReact", {
+    enumerable: true,
+    get: function() {
+        return needsExperimentalReact;
+    }
+});
+function needsExperimentalReact(config) {
+    const { taint } = config.experimental || {};
+    return Boolean(taint);
+} //# sourceMappingURL=needs-experimental-react.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/static-env.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+var __TURBOPACK__imported__module__$5b$project$5d2f$JobPortal$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/JobPortal/frontend/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
+"use strict";
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+0 && (module.exports = {
+    getNextConfigEnv: null,
+    getNextPublicEnvironmentVariables: null,
+    getStaticEnv: null,
+    populateStaticEnv: null
+});
+function _export(target, all) {
+    for(var name in all)Object.defineProperty(target, name, {
+        enumerable: true,
+        get: all[name]
+    });
+}
+_export(exports, {
+    getNextConfigEnv: function() {
+        return getNextConfigEnv;
+    },
+    getNextPublicEnvironmentVariables: function() {
+        return getNextPublicEnvironmentVariables;
+    },
+    getStaticEnv: function() {
+        return getStaticEnv;
+    },
+    populateStaticEnv: function() {
+        return populateStaticEnv;
+    }
+});
+function errorIfEnvConflicted(config, key) {
+    const isPrivateKey = /^(?:NODE_.+)|^(?:__.+)$/i.test(key);
+    const hasNextRuntimeKey = key === 'NEXT_RUNTIME';
+    if (isPrivateKey || hasNextRuntimeKey) {
+        throw Object.defineProperty(new Error(`The key "${key}" under "env" in ${config.configFileName} is not allowed. https://nextjs.org/docs/messages/env-key-not-allowed`), "__NEXT_ERROR_CODE", {
+            value: "E170",
+            enumerable: false,
+            configurable: true
+        });
+    }
+}
+function getNextPublicEnvironmentVariables() {
+    const defineEnv = [];
+    for(const key in __TURBOPACK__imported__module__$5b$project$5d2f$JobPortal$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].env){
+        if (key.startsWith('NEXT_PUBLIC_')) {
+            const value = __TURBOPACK__imported__module__$5b$project$5d2f$JobPortal$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].env[key];
+            if (value != null) {
+                defineEnv.push([
+                    `process.env.${key}`,
+                    value
+                ]);
+            }
+        }
+    }
+    defineEnv.sort((a, b)=>a[0].localeCompare(b[0]));
+    return Object.fromEntries(defineEnv);
+}
+function getNextConfigEnv(config) {
+    // Refactored code below to use for-of
+    const defineEnv = {};
+    const env = config.env;
+    for(const key in env){
+        const value = env[key];
+        if (value != null) {
+            errorIfEnvConflicted(config, key);
+            defineEnv[`process.env.${key}`] = value;
+        }
+    }
+    return defineEnv;
+}
+function getStaticEnv(config) {
+    const staticEnv = {
+        ...getNextPublicEnvironmentVariables(),
+        ...getNextConfigEnv(config),
+        'process.env.NEXT_DEPLOYMENT_ID': config.deploymentId || ''
+    };
+    return staticEnv;
+}
+function populateStaticEnv(config) {
+    // since inlining comes after static generation we need
+    // to ensure this value is assigned to process env so it
+    // can still be accessed
+    const staticEnv = getStaticEnv(config);
+    for(const key in staticEnv){
+        const innerKey = key.split('.').pop() || '';
+        if (!__TURBOPACK__imported__module__$5b$project$5d2f$JobPortal$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].env[innerKey]) {
+            __TURBOPACK__imported__module__$5b$project$5d2f$JobPortal$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].env[innerKey] = staticEnv[key] || '';
+        }
+    }
+} //# sourceMappingURL=static-env.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/error-telemetry-utils.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+0 && (module.exports = {
+    createDigestWithErrorCode: null,
+    extractNextErrorCode: null
+});
+function _export(target, all) {
+    for(var name in all)Object.defineProperty(target, name, {
+        enumerable: true,
+        get: all[name]
+    });
+}
+_export(exports, {
+    createDigestWithErrorCode: function() {
+        return createDigestWithErrorCode;
+    },
+    extractNextErrorCode: function() {
+        return extractNextErrorCode;
+    }
+});
+const ERROR_CODE_DELIMITER = '@';
+const createDigestWithErrorCode = (thrownValue, originalDigest)=>{
+    if (typeof thrownValue === 'object' && thrownValue !== null && '__NEXT_ERROR_CODE' in thrownValue) {
+        return `${originalDigest}${ERROR_CODE_DELIMITER}${thrownValue.__NEXT_ERROR_CODE}`;
+    }
+    return originalDigest;
+};
+const extractNextErrorCode = (error)=>{
+    if (typeof error === 'object' && error !== null && '__NEXT_ERROR_CODE' in error && typeof error.__NEXT_ERROR_CODE === 'string') {
+        return error.__NEXT_ERROR_CODE;
+    }
+    if (typeof error === 'object' && error !== null && 'digest' in error && typeof error.digest === 'string') {
+        const segments = error.digest.split(ERROR_CODE_DELIMITER);
+        const errorCode = segments.find((segment)=>segment.startsWith('E'));
+        return errorCode;
+    }
+    return undefined;
+}; //# sourceMappingURL=error-telemetry-utils.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/helpers/install.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+var __TURBOPACK__imported__module__$5b$project$5d2f$JobPortal$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/JobPortal/frontend/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
+"use strict";
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+Object.defineProperty(exports, "install", {
+    enumerable: true,
+    get: function() {
+        return install;
+    }
+});
+const _picocolors = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/lib/picocolors.js [app-client] (ecmascript)");
+const _crossspawn = /*#__PURE__*/ _interop_require_default(__turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/compiled/cross-spawn/index.js [app-client] (ecmascript)"));
+function _interop_require_default(obj) {
+    return obj && obj.__esModule ? obj : {
+        default: obj
+    };
+}
+function install(root, dependencies, { packageManager, isOnline, devDependencies }) {
+    let args = [];
+    if (dependencies.length > 0) {
+        if (packageManager === 'yarn') {
+            args = [
+                'add',
+                '--exact'
+            ];
+            if (devDependencies) args.push('--dev');
+        } else if (packageManager === 'pnpm') {
+            args = [
+                'add',
+                '--save-exact'
+            ];
+            args.push(devDependencies ? '--save-dev' : '--save-prod');
+        } else {
+            // npm
+            args = [
+                'install',
+                '--save-exact'
+            ];
+            args.push(devDependencies ? '--save-dev' : '--save');
+        }
+        args.push(...dependencies);
+    } else {
+        args = [
+            'install'
+        ] // npm, pnpm, and yarn all support `install`
+        ;
+        if (!isOnline) {
+            args.push('--offline');
+            console.log((0, _picocolors.yellow)('You appear to be offline.'));
+            if (packageManager !== 'npm') {
+                console.log((0, _picocolors.yellow)(`Falling back to the local ${packageManager} cache.`));
+            }
+            console.log();
+        }
+    }
+    return new Promise((resolve, reject)=>{
+        /**
+     * Spawn the installation process.
+     */ const child = (0, _crossspawn.default)(packageManager, args, {
+            cwd: root,
+            stdio: 'inherit',
+            env: {
+                ...__TURBOPACK__imported__module__$5b$project$5d2f$JobPortal$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].env,
+                ADBLOCK: '1',
+                // we set NODE_ENV to development as pnpm skips dev
+                // dependencies when production
+                NODE_ENV: 'development',
+                DISABLE_OPENCOLLECTIVE: '1'
+            }
+        });
+        child.on('close', (code)=>{
+            if (code !== 0) {
+                reject({
+                    command: `${packageManager} ${args.join(' ')}`
+                });
+                return;
+            }
+            resolve();
+        });
+    });
+} //# sourceMappingURL=install.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/helpers/get-online.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+var __TURBOPACK__imported__module__$5b$project$5d2f$JobPortal$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/JobPortal/frontend/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
+"use strict";
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+Object.defineProperty(exports, "getOnline", {
+    enumerable: true,
+    get: function() {
+        return getOnline;
+    }
+});
+const _child_process = (()=>{
+    const e = new Error("Cannot find module 'child_process'");
+    e.code = 'MODULE_NOT_FOUND';
+    throw e;
+})();
+const _promises = /*#__PURE__*/ _interop_require_default((()=>{
+    const e = new Error("Cannot find module 'dns/promises'");
+    e.code = 'MODULE_NOT_FOUND';
+    throw e;
+})());
+function _interop_require_default(obj) {
+    return obj && obj.__esModule ? obj : {
+        default: obj
+    };
+}
+function getProxy() {
+    if (__TURBOPACK__imported__module__$5b$project$5d2f$JobPortal$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].env.https_proxy) {
+        return __TURBOPACK__imported__module__$5b$project$5d2f$JobPortal$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].env.https_proxy;
+    }
+    try {
+        const httpsProxy = (0, _child_process.execSync)('npm config get https-proxy', {
+            encoding: 'utf8'
+        }).trim();
+        return httpsProxy !== 'null' ? httpsProxy : undefined;
+    } catch (e) {
+        return;
+    }
+}
+async function getOnline() {
+    try {
+        await _promises.default.lookup('registry.yarnpkg.com');
+        return true;
+    } catch  {
+        const proxy = getProxy();
+        if (!proxy) {
+            return false;
+        }
+        try {
+            const { hostname } = new URL(proxy);
+            await _promises.default.lookup(hostname);
+            return true;
+        } catch  {
+            return false;
+        }
+    }
+} //# sourceMappingURL=get-online.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/install-dependencies.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+Object.defineProperty(exports, "installDependencies", {
+    enumerable: true,
+    get: function() {
+        return installDependencies;
+    }
+});
+const _picocolors = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/lib/picocolors.js [app-client] (ecmascript)");
+const _path = /*#__PURE__*/ _interop_require_default(__turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/compiled/path-browserify/index.js [app-client] (ecmascript)"));
+const _getpkgmanager = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/lib/helpers/get-pkg-manager.js [app-client] (ecmascript)");
+const _install = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/lib/helpers/install.js [app-client] (ecmascript)");
+const _getonline = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/lib/helpers/get-online.js [app-client] (ecmascript)");
+function _interop_require_default(obj) {
+    return obj && obj.__esModule ? obj : {
+        default: obj
+    };
+}
+async function installDependencies(baseDir, deps, dev = false) {
+    const packageManager = (0, _getpkgmanager.getPkgManager)(baseDir);
+    const isOnline = await (0, _getonline.getOnline)();
+    if (deps.length) {
+        console.log();
+        console.log(`Installing ${dev ? 'devDependencies' : 'dependencies'} (${packageManager}):`);
+        for (const dep of deps){
+            console.log(`- ${(0, _picocolors.cyan)(dep.pkg)}`);
+        }
+        console.log();
+        await (0, _install.install)(_path.default.resolve(baseDir), deps.map((dep)=>dep.pkg), {
+            devDependencies: dev,
+            isOnline,
+            packageManager
+        });
+        console.log();
+    }
+} //# sourceMappingURL=install-dependencies.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/find-pages-dir.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+0 && (module.exports = {
+    findDir: null,
+    findPagesDir: null
+});
+function _export(target, all) {
+    for(var name in all)Object.defineProperty(target, name, {
+        enumerable: true,
+        get: all[name]
+    });
+}
+_export(exports, {
+    findDir: function() {
+        return findDir;
+    },
+    findPagesDir: function() {
+        return findPagesDir;
+    }
+});
+const _fs = /*#__PURE__*/ _interop_require_default((()=>{
+    const e = new Error("Cannot find module 'fs'");
+    e.code = 'MODULE_NOT_FOUND';
+    throw e;
+})());
+const _path = /*#__PURE__*/ _interop_require_default(__turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/compiled/path-browserify/index.js [app-client] (ecmascript)"));
+function _interop_require_default(obj) {
+    return obj && obj.__esModule ? obj : {
+        default: obj
+    };
+}
+function findDir(dir, name) {
+    // prioritize ./${name} over ./src/${name}
+    let curDir = _path.default.join(dir, name);
+    if (_fs.default.existsSync(curDir)) return curDir;
+    curDir = _path.default.join(dir, 'src', name);
+    if (_fs.default.existsSync(curDir)) return curDir;
+    return null;
+}
+function findPagesDir(dir) {
+    const pagesDir = findDir(dir, 'pages') || undefined;
+    const appDir = findDir(dir, 'app') || undefined;
+    if (appDir == null && pagesDir == null) {
+        throw Object.defineProperty(new Error("> Couldn't find any `pages` or `app` directory. Please create one under the project root"), "__NEXT_ERROR_CODE", {
+            value: "E144",
+            enumerable: false,
+            configurable: true
+        });
+    }
+    if (pagesDir && appDir) {
+        const pagesParent = _path.default.dirname(pagesDir);
+        const appParent = _path.default.dirname(appDir);
+        if (pagesParent !== appParent) {
+            throw Object.defineProperty(new Error('> `pages` and `app` directories should be under the same folder'), "__NEXT_ERROR_CODE", {
+                value: "E801",
+                enumerable: false,
+                configurable: true
+            });
+        }
+    }
+    return {
+        pagesDir,
+        appDir
+    };
+} //# sourceMappingURL=find-pages-dir.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/detect-typo.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+// the minimum number of operations required to convert string a to string b.
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+Object.defineProperty(exports, "detectTypo", {
+    enumerable: true,
+    get: function() {
+        return detectTypo;
+    }
+});
+function minDistance(a, b, threshold) {
+    const m = a.length;
+    const n = b.length;
+    if (m < n) {
+        return minDistance(b, a, threshold);
+    }
+    if (n === 0) {
+        return m;
+    }
+    let previousRow = Array.from({
+        length: n + 1
+    }, (_, i)=>i);
+    for(let i = 0; i < m; i++){
+        const s1 = a[i];
+        let currentRow = [
+            i + 1
+        ];
+        for(let j = 0; j < n; j++){
+            const s2 = b[j];
+            const insertions = previousRow[j + 1] + 1;
+            const deletions = currentRow[j] + 1;
+            const substitutions = previousRow[j] + Number(s1 !== s2);
+            currentRow.push(Math.min(insertions, deletions, substitutions));
+        }
+        previousRow = currentRow;
+    }
+    return previousRow[previousRow.length - 1];
+}
+function detectTypo(input, options, threshold = 2) {
+    const potentialTypos = options.map((o)=>({
+            option: o,
+            distance: minDistance(o, input, threshold)
+        })).filter(({ distance })=>distance <= threshold && distance > 0).sort((a, b)=>a.distance - b.distance);
+    if (potentialTypos.length) {
+        return potentialTypos[0].option;
+    }
+    return null;
+} //# sourceMappingURL=detect-typo.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/realpath.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+var __TURBOPACK__imported__module__$5b$project$5d2f$JobPortal$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/JobPortal/frontend/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
+"use strict";
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+Object.defineProperty(exports, "realpathSync", {
+    enumerable: true,
+    get: function() {
+        return realpathSync;
+    }
+});
+const _fs = /*#__PURE__*/ _interop_require_default((()=>{
+    const e = new Error("Cannot find module 'fs'");
+    e.code = 'MODULE_NOT_FOUND';
+    throw e;
+})());
+function _interop_require_default(obj) {
+    return obj && obj.__esModule ? obj : {
+        default: obj
+    };
+}
+const isWindows = __TURBOPACK__imported__module__$5b$project$5d2f$JobPortal$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].platform === 'win32';
+const realpathSync = ("TURBOPACK compile-time falsy", 0) ? "TURBOPACK unreachable" : _fs.default.realpathSync.native; //# sourceMappingURL=realpath.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/get-project-dir.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+Object.defineProperty(exports, "getProjectDir", {
+    enumerable: true,
+    get: function() {
+        return getProjectDir;
+    }
+});
+const _path = /*#__PURE__*/ _interop_require_default(__turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/compiled/path-browserify/index.js [app-client] (ecmascript)"));
+const _log = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/build/output/log.js [app-client] (ecmascript)");
+const _detecttypo = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/lib/detect-typo.js [app-client] (ecmascript)");
+const _realpath = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/lib/realpath.js [app-client] (ecmascript)");
+const _utils = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/server/lib/utils.js [app-client] (ecmascript)");
+function _interop_require_default(obj) {
+    return obj && obj.__esModule ? obj : {
+        default: obj
+    };
+}
+function getProjectDir(dir, exitOnEnoent = true) {
+    const resolvedDir = _path.default.resolve(dir || '.');
+    try {
+        const realDir = (0, _realpath.realpathSync)(resolvedDir);
+        if (resolvedDir !== realDir && resolvedDir.toLowerCase() === realDir.toLowerCase()) {
+            (0, _log.warn)(`Invalid casing detected for project dir, received ${resolvedDir} actual path ${realDir}, see more info here https://nextjs.org/docs/messages/invalid-project-dir-casing`);
+        }
+        return realDir;
+    } catch (err) {
+        if (err.code === 'ENOENT' && exitOnEnoent) {
+            if (typeof dir === 'string') {
+                const detectedTypo = (0, _detecttypo.detectTypo)(dir, [
+                    'build',
+                    'dev',
+                    'info',
+                    'lint',
+                    'start',
+                    'telemetry',
+                    'experimental-test'
+                ]);
+                if (detectedTypo) {
+                    return (0, _utils.printAndExit)(`"next ${dir}" does not exist. Did you mean "next ${detectedTypo}"?`);
+                }
+            }
+            return (0, _utils.printAndExit)(`Invalid project directory provided, no such directory: ${resolvedDir}`);
+        }
+        throw err;
+    }
+} //# sourceMappingURL=get-project-dir.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/resolve-from.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+// source: https://github.com/sindresorhus/resolve-from
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+Object.defineProperty(exports, "resolveFrom", {
+    enumerable: true,
+    get: function() {
+        return resolveFrom;
+    }
+});
+const _path = /*#__PURE__*/ _interop_require_default(__turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/compiled/path-browserify/index.js [app-client] (ecmascript)"));
+const _iserror = /*#__PURE__*/ _interop_require_default(__turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/lib/is-error.js [app-client] (ecmascript)"));
+const _realpath = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/lib/realpath.js [app-client] (ecmascript)");
+function _interop_require_default(obj) {
+    return obj && obj.__esModule ? obj : {
+        default: obj
+    };
+}
+const Module = (()=>{
+    const e = new Error("Cannot find module 'module'");
+    e.code = 'MODULE_NOT_FOUND';
+    throw e;
+})();
+const resolveFrom = (fromDirectory, moduleId, silent)=>{
+    if (typeof fromDirectory !== 'string') {
+        throw Object.defineProperty(new TypeError(`Expected \`fromDir\` to be of type \`string\`, got \`${typeof fromDirectory}\``), "__NEXT_ERROR_CODE", {
+            value: "E537",
+            enumerable: false,
+            configurable: true
+        });
+    }
+    if (typeof moduleId !== 'string') {
+        throw Object.defineProperty(new TypeError(`Expected \`moduleId\` to be of type \`string\`, got \`${typeof moduleId}\``), "__NEXT_ERROR_CODE", {
+            value: "E565",
+            enumerable: false,
+            configurable: true
+        });
+    }
+    try {
+        fromDirectory = (0, _realpath.realpathSync)(fromDirectory);
+    } catch (error) {
+        if ((0, _iserror.default)(error) && error.code === 'ENOENT') {
+            fromDirectory = _path.default.resolve(fromDirectory);
+        } else if (silent) {
+            return;
+        } else {
+            throw error;
+        }
+    }
+    const fromFile = _path.default.join(fromDirectory, 'noop.js');
+    const resolveFileName = ()=>Module._resolveFilename(moduleId, {
+            id: fromFile,
+            filename: fromFile,
+            paths: Module._nodeModulePaths(fromDirectory)
+        });
+    if (silent) {
+        try {
+            return resolveFileName();
+        } catch (error) {
+            return;
+        }
+    }
+    return resolveFileName();
+}; //# sourceMappingURL=resolve-from.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/has-necessary-dependencies.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+Object.defineProperty(exports, "hasNecessaryDependencies", {
+    enumerable: true,
+    get: function() {
+        return hasNecessaryDependencies;
+    }
+});
+const _fs = (()=>{
+    const e = new Error("Cannot find module 'fs'");
+    e.code = 'MODULE_NOT_FOUND';
+    throw e;
+})();
+const _resolvefrom = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/lib/resolve-from.js [app-client] (ecmascript)");
+const _path = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/compiled/path-browserify/index.js [app-client] (ecmascript)");
+function hasNecessaryDependencies(baseDir, requiredPackages) {
+    let resolutions = new Map();
+    const missingPackages = [];
+    for (const p of requiredPackages){
+        try {
+            const pkgPath = (0, _fs.realpathSync)((0, _resolvefrom.resolveFrom)(baseDir, `${p.pkg}/package.json`));
+            const pkgDir = (0, _path.dirname)(pkgPath);
+            resolutions.set((0, _path.join)(p.pkg, 'package.json'), pkgPath);
+            if (p.exportsRestrict) {
+                const fileNameToVerify = (0, _path.relative)(p.pkg, p.file);
+                if (fileNameToVerify) {
+                    const fileToVerify = (0, _path.join)(pkgDir, fileNameToVerify);
+                    if ((0, _fs.existsSync)(fileToVerify)) {
+                        resolutions.set(p.pkg, fileToVerify);
+                    } else {
+                        missingPackages.push(p);
+                        continue;
+                    }
+                } else {
+                    resolutions.set(p.pkg, pkgPath);
+                }
+            } else {
+                resolutions.set(p.pkg, (0, _resolvefrom.resolveFrom)(baseDir, p.file));
+            }
+        } catch (_) {
+            missingPackages.push(p);
+            continue;
+        }
+    }
+    return {
+        resolved: resolutions,
+        missing: missingPackages
+    };
+} //# sourceMappingURL=has-necessary-dependencies.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/compile-error.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+Object.defineProperty(exports, "CompileError", {
+    enumerable: true,
+    get: function() {
+        return CompileError;
+    }
+});
+class CompileError extends Error {
+} //# sourceMappingURL=compile-error.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/recursive-readdir.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+Object.defineProperty(exports, "recursiveReadDir", {
+    enumerable: true,
+    get: function() {
+        return recursiveReadDir;
+    }
+});
+const _promises = /*#__PURE__*/ _interop_require_default((()=>{
+    const e = new Error("Cannot find module 'fs/promises'");
+    e.code = 'MODULE_NOT_FOUND';
+    throw e;
+})());
+const _path = /*#__PURE__*/ _interop_require_default(__turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/compiled/path-browserify/index.js [app-client] (ecmascript)"));
+function _interop_require_default(obj) {
+    return obj && obj.__esModule ? obj : {
+        default: obj
+    };
+}
+async function recursiveReadDir(rootDirectory, options = {}) {
+    // Grab our options.
+    const { pathnameFilter, ignoreFilter, ignorePartFilter, sortPathnames = true, relativePathnames = true } = options;
+    // The list of pathnames to return.
+    const pathnames = [];
+    /**
+   * Coerces the pathname to be relative if requested.
+   */ const coerce = relativePathnames ? (pathname)=>pathname.replace(rootDirectory, '') : (pathname)=>pathname;
+    // The queue of directories to scan.
+    let directories = [
+        rootDirectory
+    ];
+    while(directories.length > 0){
+        // Load all the files in each directory at the same time.
+        const results = await Promise.all(directories.map(async (directory)=>{
+            const result = {
+                directories: [],
+                pathnames: [],
+                links: []
+            };
+            try {
+                const dir = await _promises.default.readdir(directory, {
+                    withFileTypes: true
+                });
+                for (const file of dir){
+                    // If enabled, ignore the file if it matches the ignore filter.
+                    if (ignorePartFilter && ignorePartFilter(file.name)) {
+                        continue;
+                    }
+                    // Handle each file.
+                    const absolutePathname = _path.default.join(directory, file.name);
+                    // If enabled, ignore the file if it matches the ignore filter.
+                    if (ignoreFilter && ignoreFilter(absolutePathname)) {
+                        continue;
+                    }
+                    // If the file is a directory, then add it to the list of directories,
+                    // they'll be scanned on a later pass.
+                    if (file.isDirectory()) {
+                        result.directories.push(absolutePathname);
+                    } else if (file.isSymbolicLink()) {
+                        result.links.push(absolutePathname);
+                    } else if (!pathnameFilter || pathnameFilter(absolutePathname)) {
+                        result.pathnames.push(coerce(absolutePathname));
+                    }
+                }
+            } catch (err) {
+                // This can only happen when the underlying directory was removed. If
+                // anything other than this error occurs, re-throw it.
+                // if (err.code !== 'ENOENT') throw err
+                if (err.code !== 'ENOENT' || directory === rootDirectory) throw err;
+                // The error occurred, so abandon reading this directory.
+                return null;
+            }
+            return result;
+        }));
+        // Empty the directories, we'll fill it later if some of the files are
+        // directories.
+        directories = [];
+        // Keep track of any symbolic links we find, we'll resolve them later.
+        const links = [];
+        // For each result of directory scans...
+        for (const result of results){
+            // If the directory was removed, then skip it.
+            if (!result) continue;
+            // Add any directories to the list of directories to scan.
+            directories.push(...result.directories);
+            // Add any symbolic links to the list of symbolic links to resolve.
+            links.push(...result.links);
+            // Add any file pathnames to the list of pathnames.
+            pathnames.push(...result.pathnames);
+        }
+        // Resolve all the symbolic links we found if any.
+        if (links.length > 0) {
+            const resolved = await Promise.all(links.map(async (absolutePathname)=>{
+                try {
+                    return await _promises.default.stat(absolutePathname);
+                } catch (err) {
+                    // This can only happen when the underlying link was removed. If
+                    // anything other than this error occurs, re-throw it.
+                    if (err.code !== 'ENOENT') throw err;
+                    // The error occurred, so abandon reading this directory.
+                    return null;
+                }
+            }));
+            for(let i = 0; i < links.length; i++){
+                const stats = resolved[i];
+                // If the link was removed, then skip it.
+                if (!stats) continue;
+                // We would have already ignored the file if it matched the ignore
+                // filter, so we don't need to check it again.
+                const absolutePathname = links[i];
+                if (stats.isDirectory()) {
+                    directories.push(absolutePathname);
+                } else if (!pathnameFilter || pathnameFilter(absolutePathname)) {
+                    pathnames.push(coerce(absolutePathname));
+                }
+            }
+        }
+    }
+    // Sort the pathnames in place if requested.
+    if (sortPathnames) {
+        pathnames.sort();
+    }
+    return pathnames;
+} //# sourceMappingURL=recursive-readdir.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/typescript/getTypeScriptIntent.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+Object.defineProperty(exports, "getTypeScriptIntent", {
+    enumerable: true,
+    get: function() {
+        return getTypeScriptIntent;
+    }
+});
+const _fs = (()=>{
+    const e = new Error("Cannot find module 'fs'");
+    e.code = 'MODULE_NOT_FOUND';
+    throw e;
+})();
+const _path = /*#__PURE__*/ _interop_require_default(__turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/compiled/path-browserify/index.js [app-client] (ecmascript)"));
+const _recursivereaddir = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/lib/recursive-readdir.js [app-client] (ecmascript)");
+function _interop_require_default(obj) {
+    return obj && obj.__esModule ? obj : {
+        default: obj
+    };
+}
+async function getTypeScriptIntent(baseDir, intentDirs, tsconfigPath) {
+    const resolvedTsConfigPath = _path.default.join(baseDir, tsconfigPath);
+    // The integration turns on if we find a `tsconfig.json` in the user's
+    // project.
+    const hasTypeScriptConfiguration = (0, _fs.existsSync)(resolvedTsConfigPath);
+    if (hasTypeScriptConfiguration) {
+        const content = (0, _fs.readFileSync)(resolvedTsConfigPath, {
+            encoding: 'utf8'
+        }).trim();
+        return {
+            firstTimeSetup: content === '' || content === '{}'
+        };
+    }
+    // Next.js also offers a friendly setup mode that bootstraps a TypeScript
+    // project for the user when we detect TypeScript files. So, we need to check
+    // the `pages/` directory for a TypeScript file.
+    // Checking all directories is too slow, so this is a happy medium.
+    const tsFilesRegex = /.*\.(ts|tsx)$/;
+    const excludedRegex = /(node_modules|.*\.d\.ts$)/;
+    for (const dir of intentDirs){
+        const typescriptFiles = await (0, _recursivereaddir.recursiveReadDir)(dir, {
+            pathnameFilter: (name)=>tsFilesRegex.test(name),
+            ignoreFilter: (name)=>excludedRegex.test(name)
+        });
+        if (typescriptFiles.length) {
+            return {
+                firstTimeSetup: true
+            };
+        }
+    }
+    return false;
+} //# sourceMappingURL=getTypeScriptIntent.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/typescript/writeAppTypeDeclarations.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+Object.defineProperty(exports, "writeAppTypeDeclarations", {
+    enumerable: true,
+    get: function() {
+        return writeAppTypeDeclarations;
+    }
+});
+const _os = /*#__PURE__*/ _interop_require_default(__turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/compiled/os-browserify/browser.js [app-client] (ecmascript)"));
+const _path = /*#__PURE__*/ _interop_require_default(__turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/compiled/path-browserify/index.js [app-client] (ecmascript)"));
+const _fs = (()=>{
+    const e = new Error("Cannot find module 'fs'");
+    e.code = 'MODULE_NOT_FOUND';
+    throw e;
+})();
+function _interop_require_default(obj) {
+    return obj && obj.__esModule ? obj : {
+        default: obj
+    };
+}
+async function writeAppTypeDeclarations({ baseDir, distDir, imageImportsEnabled, hasPagesDir, hasAppDir }) {
+    // Reference `next` types
+    const appTypeDeclarations = _path.default.join(baseDir, 'next-env.d.ts');
+    // Defaults EOL to system default
+    let eol = _os.default.EOL;
+    let currentContent;
+    try {
+        currentContent = await _fs.promises.readFile(appTypeDeclarations, 'utf8');
+        // If file already exists then preserve its line ending
+        const lf = currentContent.indexOf('\n', /* skip first so we can lf - 1 */ 1);
+        if (lf !== -1) {
+            if (currentContent[lf - 1] === '\r') {
+                eol = '\r\n';
+            } else {
+                eol = '\n';
+            }
+        }
+    } catch  {}
+    /**
+   * "Triple-slash directives" used to create typings files for Next.js projects
+   * using Typescript .
+   *
+   * @see https://www.typescriptlang.org/docs/handbook/triple-slash-directives.html
+   */ const directives = [
+        // Include the core Next.js typings.
+        '/// <reference types="next" />'
+    ];
+    if (imageImportsEnabled) {
+        directives.push('/// <reference types="next/image-types/global" />');
+    }
+    if (hasAppDir && hasPagesDir) {
+        directives.push('/// <reference types="next/navigation-types/compat/navigation" />');
+    }
+    const routeTypesPath = _path.default.posix.join(distDir.replaceAll(_path.default.win32.sep, _path.default.posix.sep), 'types/routes.d.ts');
+    // Use ESM import instead of triple-slash reference for better ESLint compatibility
+    directives.push(`import "./${routeTypesPath}";`);
+    // Push the notice in.
+    directives.push('', '// NOTE: This file should not be edited', `// see https://nextjs.org/docs/${hasAppDir ? 'app' : 'pages'}/api-reference/config/typescript for more information.`);
+    const content = directives.join(eol) + eol;
+    // Avoids an un-necessary write on read-only fs
+    if (currentContent === content) {
+        return;
+    }
+    await _fs.promises.writeFile(appTypeDeclarations, content);
+} //# sourceMappingURL=writeAppTypeDeclarations.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/typescript/writeConfigurationDefaults.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+var __TURBOPACK__imported__module__$5b$project$5d2f$JobPortal$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/JobPortal/frontend/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
+"use strict";
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+0 && (module.exports = {
+    getRequiredConfiguration: null,
+    writeConfigurationDefaults: null
+});
+function _export(target, all) {
+    for(var name in all)Object.defineProperty(target, name, {
+        enumerable: true,
+        get: all[name]
+    });
+}
+_export(exports, {
+    getRequiredConfiguration: function() {
+        return getRequiredConfiguration;
+    },
+    writeConfigurationDefaults: function() {
+        return writeConfigurationDefaults;
+    }
+});
+const _fs = (()=>{
+    const e = new Error("Cannot find module 'fs'");
+    e.code = 'MODULE_NOT_FOUND';
+    throw e;
+})();
+const _path = /*#__PURE__*/ _interop_require_wildcard(__turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/compiled/path-browserify/index.js [app-client] (ecmascript)"));
+const _picocolors = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/lib/picocolors.js [app-client] (ecmascript)");
+const _commentjson = /*#__PURE__*/ _interop_require_wildcard(__turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/compiled/comment-json/index.js [app-client] (ecmascript)"));
+const _semver = /*#__PURE__*/ _interop_require_default(__turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/compiled/semver/index.js [app-client] (ecmascript)"));
+const _os = /*#__PURE__*/ _interop_require_default(__turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/compiled/os-browserify/browser.js [app-client] (ecmascript)"));
+const _log = /*#__PURE__*/ _interop_require_wildcard(__turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/build/output/log.js [app-client] (ecmascript)"));
+function _interop_require_default(obj) {
+    return obj && obj.__esModule ? obj : {
+        default: obj
+    };
+}
+function _getRequireWildcardCache(nodeInterop) {
+    if (typeof WeakMap !== "function") return null;
+    var cacheBabelInterop = new WeakMap();
+    var cacheNodeInterop = new WeakMap();
+    return (_getRequireWildcardCache = function(nodeInterop) {
+        return nodeInterop ? cacheNodeInterop : cacheBabelInterop;
+    })(nodeInterop);
+}
+function _interop_require_wildcard(obj, nodeInterop) {
+    if (!nodeInterop && obj && obj.__esModule) {
+        return obj;
+    }
+    if (obj === null || typeof obj !== "object" && typeof obj !== "function") {
+        return {
+            default: obj
+        };
+    }
+    var cache = _getRequireWildcardCache(nodeInterop);
+    if (cache && cache.has(obj)) {
+        return cache.get(obj);
+    }
+    var newObj = {
+        __proto__: null
+    };
+    var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;
+    for(var key in obj){
+        if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) {
+            var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;
+            if (desc && (desc.get || desc.set)) {
+                Object.defineProperty(newObj, key, desc);
+            } else {
+                newObj[key] = obj[key];
+            }
+        }
+    }
+    newObj.default = obj;
+    if (cache) {
+        cache.set(obj, newObj);
+    }
+    return newObj;
+}
+function getDesiredCompilerOptions(typescriptVersion, userTsConfig) {
+    var _userTsConfig_compilerOptions_module, _userTsConfig_compilerOptions, _userTsConfig_compilerOptions1;
+    // ModuleKind
+    const moduleKindESNext = 'esnext';
+    const moduleKindES2020 = 'es2020';
+    const moduleKindPreserve = 'preserve';
+    const moduleKindNodeNext = 'nodenext';
+    const moduleKindNode16 = 'node16';
+    const moduleKindCommonJS = 'commonjs';
+    const moduleKindAMD = 'amd';
+    // ModuleResolutionKind
+    const moduleResolutionKindBundler = 'bundler';
+    const moduleResolutionKindNode10 = 'node10';
+    const moduleResolutionKindNode12 = 'node12';
+    const moduleResolutionKindNodeJs = 'node';
+    // Jsx
+    const jsxEmitReactJSX = 'react-jsx';
+    return {
+        target: {
+            suggested: 'ES2017',
+            reason: 'For top-level `await`. Note: Next.js only polyfills for the esmodules target.'
+        },
+        // These are suggested values and will be set when not present in the
+        // tsconfig.json
+        lib: {
+            suggested: [
+                'dom',
+                'dom.iterable',
+                'esnext'
+            ]
+        },
+        allowJs: {
+            suggested: true
+        },
+        skipLibCheck: {
+            suggested: true
+        },
+        strict: {
+            suggested: false
+        },
+        noEmit: {
+            suggested: true
+        },
+        incremental: {
+            suggested: true
+        },
+        // These values are required and cannot be changed by the user
+        // Keep this in sync with the webpack config
+        // 'parsedValue' matches the output value from ts.parseJsonConfigFileContent()
+        module: {
+            parsedValue: moduleKindESNext,
+            // All of these values work:
+            parsedValues: [
+                _semver.default.gte(typescriptVersion, '5.4.0') && moduleKindPreserve,
+                moduleKindES2020,
+                moduleKindESNext,
+                moduleKindCommonJS,
+                moduleKindAMD,
+                moduleKindNodeNext,
+                moduleKindNode16
+            ],
+            value: 'esnext',
+            reason: 'for dynamic import() support'
+        },
+        // TODO: Semver check not needed once Next.js repo uses 5.4.
+        ..._semver.default.gte(typescriptVersion, '5.4.0') && (userTsConfig == null ? void 0 : (_userTsConfig_compilerOptions = userTsConfig.compilerOptions) == null ? void 0 : (_userTsConfig_compilerOptions_module = _userTsConfig_compilerOptions.module) == null ? void 0 : _userTsConfig_compilerOptions_module.toLowerCase()) === moduleKindPreserve ? {} : {
+            esModuleInterop: {
+                value: true,
+                reason: 'requirement for SWC / babel'
+            },
+            moduleResolution: {
+                // In TypeScript 5.0, `NodeJs` has renamed to `Node10`
+                parsedValue: moduleResolutionKindBundler,
+                // All of these values work:
+                parsedValues: [
+                    moduleResolutionKindNode10,
+                    moduleResolutionKindNodeJs,
+                    // only newer TypeScript versions have this field, it
+                    // will be filtered for new versions of TypeScript
+                    moduleResolutionKindNode12,
+                    moduleKindNode16,
+                    moduleKindNodeNext,
+                    moduleResolutionKindBundler
+                ].filter((val)=>typeof val !== 'undefined'),
+                value: 'node',
+                reason: 'to match webpack resolution'
+            },
+            resolveJsonModule: {
+                value: true,
+                reason: 'to match webpack resolution'
+            }
+        },
+        ...(userTsConfig == null ? void 0 : (_userTsConfig_compilerOptions1 = userTsConfig.compilerOptions) == null ? void 0 : _userTsConfig_compilerOptions1.verbatimModuleSyntax) === true ? undefined : {
+            isolatedModules: {
+                value: true,
+                reason: 'requirement for SWC / Babel'
+            }
+        },
+        jsx: {
+            parsedValue: jsxEmitReactJSX,
+            value: 'react-jsx',
+            reason: 'next.js uses the React automatic runtime'
+        }
+    };
+}
+function getRequiredConfiguration(typescript) {
+    const res = {};
+    const typescriptVersion = typescript.version;
+    const desiredCompilerOptions = getDesiredCompilerOptions(typescriptVersion);
+    for (const optionKey of Object.keys(desiredCompilerOptions)){
+        const ev = desiredCompilerOptions[optionKey];
+        if (!('value' in ev)) {
+            continue;
+        }
+        const value = ev.parsedValue ?? ev.value;
+        // Convert string values back to TypeScript enum values
+        if (optionKey === 'module' && typeof value === 'string') {
+            const moduleMap = {
+                esnext: typescript.ModuleKind.ESNext,
+                es2020: typescript.ModuleKind.ES2020,
+                ...typescript.ModuleKind.Preserve !== undefined ? {
+                    preserve: typescript.ModuleKind.Preserve
+                } : {},
+                nodenext: typescript.ModuleKind.NodeNext,
+                node16: typescript.ModuleKind.Node16,
+                commonjs: typescript.ModuleKind.CommonJS,
+                amd: typescript.ModuleKind.AMD
+            };
+            res[optionKey] = moduleMap[value.toLowerCase()] ?? value;
+        } else if (optionKey === 'moduleResolution' && typeof value === 'string') {
+            const moduleResolutionMap = {
+                bundler: typescript.ModuleResolutionKind.Bundler,
+                node10: typescript.ModuleResolutionKind.Node10,
+                node12: typescript.ModuleResolutionKind.Node12,
+                node: typescript.ModuleResolutionKind.NodeJs
+            };
+            res[optionKey] = moduleResolutionMap[value.toLowerCase()] ?? value;
+        } else if (optionKey === 'jsx' && typeof value === 'string') {
+            const jsxMap = {
+                'react-jsx': typescript.JsxEmit.ReactJSX
+            };
+            res[optionKey] = jsxMap[value.toLowerCase()] ?? value;
+        } else {
+            res[optionKey] = value;
+        }
+    }
+    return res;
+}
+const localDevTestFilesExcludeAction = 'NEXT_PRIVATE_LOCAL_DEV_TEST_FILES_EXCLUDE';
+async function writeConfigurationDefaults(typescriptVersion, tsConfigPath, isFirstTimeSetup, hasAppDir, distDir, hasPagesDir, isolatedDevBuild) {
+    var _userTsConfig_compilerOptions;
+    if (isFirstTimeSetup) {
+        (0, _fs.writeFileSync)(tsConfigPath, '{}' + _os.default.EOL);
+    }
+    const userTsConfigContent = (0, _fs.readFileSync)(tsConfigPath, {
+        encoding: 'utf8'
+    });
+    const userTsConfig = _commentjson.parse(userTsConfigContent);
+    // Bail automatic setup when the user has extended or referenced another config
+    if ('extends' in userTsConfig || 'references' in userTsConfig) {
+        return;
+    }
+    if ((userTsConfig == null ? void 0 : userTsConfig.compilerOptions) == null) {
+        userTsConfig.compilerOptions = {};
+        isFirstTimeSetup = true;
+    }
+    const desiredCompilerOptions = getDesiredCompilerOptions(typescriptVersion, userTsConfig);
+    const suggestedActions = [];
+    const requiredActions = [];
+    for(const optionKey in desiredCompilerOptions){
+        const check = desiredCompilerOptions[optionKey];
+        if ('suggested' in check) {
+            if (!(optionKey in (userTsConfig == null ? void 0 : userTsConfig.compilerOptions))) {
+                userTsConfig.compilerOptions[optionKey] = check.suggested;
+                suggestedActions.push((0, _picocolors.cyan)(optionKey) + ' was set to ' + (0, _picocolors.bold)(check.suggested) + (check.reason ? ` (${check.reason})` : ''));
+            }
+        } else if ('value' in check) {
+            var _userTsConfig_compilerOptions1;
+            let existingValue = userTsConfig == null ? void 0 : (_userTsConfig_compilerOptions1 = userTsConfig.compilerOptions) == null ? void 0 : _userTsConfig_compilerOptions1[optionKey];
+            if (typeof existingValue === 'string') {
+                existingValue = existingValue.toLowerCase();
+            }
+            const shouldWriteRequiredValue = ()=>{
+                // Check if the option has multiple allowed values
+                if (check.parsedValues) {
+                    return !check.parsedValues.includes(existingValue);
+                }
+                // Check if the option has a single parsed value
+                if (check.parsedValue) {
+                    return check.parsedValue !== existingValue;
+                }
+                // Fall back to direct value comparison
+                return check.value !== existingValue;
+            };
+            if (shouldWriteRequiredValue()) {
+                if (!userTsConfig.compilerOptions) {
+                    userTsConfig.compilerOptions = {};
+                }
+                userTsConfig.compilerOptions[optionKey] = check.value;
+                requiredActions.push((0, _picocolors.cyan)(optionKey) + ' was set to ' + (0, _picocolors.bold)(check.value) + ` (${check.reason})`);
+            }
+        } else {
+            const _ = check;
+        }
+    }
+    const distDirPosix = _path.win32.sep === _path.sep ? distDir.replaceAll(_path.win32.sep, _path.posix.sep) : distDir;
+    const nextAppTypes = [
+        `${distDirPosix}/types/**/*.ts`
+    ];
+    // When isolatedDevBuild is enabled, Next.js uses different distDir paths:
+    // - Development: "{distDir}/dev"
+    // - Production: "{distDir}"
+    // To prevent tsconfig updates when switching between dev/build modes,
+    // we proactively include both type paths regardless of current environment.
+    if (isolatedDevBuild !== false) {
+        nextAppTypes.push(("TURBOPACK compile-time truthy", 1) ? `${distDirPosix.replace(/\/dev$/, '')}/types/**/*.ts` : "TURBOPACK unreachable");
+        // Sort the array to ensure consistent order.
+        nextAppTypes.sort((a, b)=>a.length - b.length);
+    }
+    if (!('include' in userTsConfig)) {
+        userTsConfig.include = hasAppDir ? [
+            'next-env.d.ts',
+            ...nextAppTypes,
+            '**/*.mts',
+            '**/*.ts',
+            '**/*.tsx'
+        ] : [
+            'next-env.d.ts',
+            '**/*.mts',
+            '**/*.ts',
+            '**/*.tsx'
+        ];
+        suggestedActions.push((0, _picocolors.cyan)('include') + ' was set to ' + (0, _picocolors.bold)(hasAppDir ? `['next-env.d.ts', ${nextAppTypes.map((type)=>`'${type}'`).join(', ')}, '**/*.mts', '**/*.ts', '**/*.tsx']` : `['next-env.d.ts', '**/*.mts', '**/*.ts', '**/*.tsx']`));
+    } else if (hasAppDir) {
+        const missingFromResolved = [];
+        for (const type of nextAppTypes){
+            if (!userTsConfig.include.includes(type)) {
+                missingFromResolved.push(type);
+            }
+        }
+        if (missingFromResolved.length > 0) {
+            if (!Array.isArray(userTsConfig.include)) {
+                userTsConfig.include = [];
+            }
+            missingFromResolved.forEach((item)=>{
+                userTsConfig.include.push(item);
+                suggestedActions.push((0, _picocolors.cyan)('include') + ' was updated to add ' + (0, _picocolors.bold)(`'${item}'`));
+            });
+        }
+    }
+    // Enable the Next.js typescript plugin.
+    if (hasAppDir) {
+        var _userTsConfig_compilerOptions2;
+        // Check if the config or the resolved config has the plugin already.
+        const plugins = [
+            ...Array.isArray(userTsConfig == null ? void 0 : userTsConfig.plugins) ? userTsConfig.plugins : [],
+            ...userTsConfig.compilerOptions && Array.isArray(userTsConfig.compilerOptions.plugins) ? userTsConfig.compilerOptions.plugins : []
+        ];
+        const hasNextPlugin = plugins.some(({ name })=>name === 'next');
+        // If the TS config extends on another config, we can't add the `plugin` field
+        // because that will override the parent config's plugins.
+        // Instead we have to show a message to the user to add the plugin manually.
+        if (!userTsConfig.compilerOptions || plugins.length && !hasNextPlugin && 'extends' in userTsConfig && (!userTsConfig.compilerOptions || !userTsConfig.compilerOptions.plugins)) {
+            _log.info(`\nYour ${(0, _picocolors.bold)('tsconfig.json')} extends another configuration, which means we cannot add the Next.js TypeScript plugin automatically. To improve your development experience, we recommend adding the Next.js plugin (\`${(0, _picocolors.cyan)('"plugins": [{ "name": "next" }]')}\`) manually to your TypeScript configuration. Learn more: https://nextjs.org/docs/app/api-reference/config/typescript#the-typescript-plugin\n`);
+        } else if (!hasNextPlugin) {
+            if (!('plugins' in userTsConfig.compilerOptions)) {
+                userTsConfig.compilerOptions.plugins = [];
+            }
+            userTsConfig.compilerOptions.plugins.push({
+                name: 'next'
+            });
+            suggestedActions.push((0, _picocolors.cyan)('plugins') + ' was updated to add ' + (0, _picocolors.bold)(`{ name: 'next' }`));
+        }
+        // If `strict` is set to `false` and `strictNullChecks` is set to `false`,
+        // then set `strictNullChecks` to `true`.
+        if (hasPagesDir && hasAppDir && !(userTsConfig == null ? void 0 : (_userTsConfig_compilerOptions2 = userTsConfig.compilerOptions) == null ? void 0 : _userTsConfig_compilerOptions2.strict) && !('strictNullChecks' in (userTsConfig == null ? void 0 : userTsConfig.compilerOptions))) {
+            userTsConfig.compilerOptions.strictNullChecks = true;
+            suggestedActions.push((0, _picocolors.cyan)('strictNullChecks') + ' was set to ' + (0, _picocolors.bold)(`true`));
+        }
+    }
+    if (!('exclude' in userTsConfig)) {
+        userTsConfig.exclude = [
+            'node_modules'
+        ];
+        suggestedActions.push((0, _picocolors.cyan)('exclude') + ' was set to ' + (0, _picocolors.bold)(`['node_modules']`));
+    }
+    // During local development inside Next.js repo, exclude the test files coverage by the local tsconfig
+    if (__TURBOPACK__imported__module__$5b$project$5d2f$JobPortal$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].env.NEXT_PRIVATE_LOCAL_DEV && userTsConfig.exclude) {
+        const tsGlob = '**/*.test.ts';
+        const tsxGlob = '**/*.test.tsx';
+        let hasUpdates = false;
+        if (!userTsConfig.exclude.includes(tsGlob)) {
+            userTsConfig.exclude.push(tsGlob);
+            hasUpdates = true;
+        }
+        if (!userTsConfig.exclude.includes(tsxGlob)) {
+            userTsConfig.exclude.push(tsxGlob);
+            hasUpdates = true;
+        }
+        if (hasUpdates) {
+            requiredActions.push(localDevTestFilesExcludeAction);
+        }
+    }
+    if (suggestedActions.length < 1 && requiredActions.length < 1) {
+        return;
+    }
+    (0, _fs.writeFileSync)(tsConfigPath, _commentjson.stringify(userTsConfig, null, 2) + _os.default.EOL);
+    _log.info('');
+    if (isFirstTimeSetup) {
+        _log.info(`We detected TypeScript in your project and created a ${(0, _picocolors.cyan)('tsconfig.json')} file for you.`);
+        return;
+    }
+    _log.info(`We detected TypeScript in your project and reconfigured your ${(0, _picocolors.cyan)('tsconfig.json')} file for you.${((_userTsConfig_compilerOptions = userTsConfig.compilerOptions) == null ? void 0 : _userTsConfig_compilerOptions.strict) ? '' : ` Strict-mode is set to ${(0, _picocolors.cyan)('false')} by default.`}`);
+    if (suggestedActions.length) {
+        _log.info(`The following suggested values were added to your ${(0, _picocolors.cyan)('tsconfig.json')}. These values ${(0, _picocolors.cyan)('can be changed')} to fit your project's needs:\n`);
+        suggestedActions.forEach((action)=>_log.info(`\t- ${action}`));
+        _log.info('');
+    }
+    const requiredActionsToBeLogged = __TURBOPACK__imported__module__$5b$project$5d2f$JobPortal$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].env.NEXT_PRIVATE_LOCAL_DEV ? requiredActions.filter((action)=>action !== localDevTestFilesExcludeAction) : requiredActions;
+    if (requiredActionsToBeLogged.length) {
+        _log.info(`The following ${(0, _picocolors.white)('mandatory changes')} were made to your ${(0, _picocolors.cyan)('tsconfig.json')}:\n`);
+        requiredActionsToBeLogged.forEach((action)=>_log.info(`\t- ${action}`));
+        _log.info('');
+    }
+} //# sourceMappingURL=writeConfigurationDefaults.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/oxford-comma-list.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+Object.defineProperty(exports, "getOxfordCommaList", {
+    enumerable: true,
+    get: function() {
+        return getOxfordCommaList;
+    }
+});
+function getOxfordCommaList(items) {
+    return items.map((v, index, { length })=>(index > 0 ? index === length - 1 ? length > 2 ? ', and ' : ' and ' : ', ' : '') + v).join('');
+} //# sourceMappingURL=oxford-comma-list.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/fatal-error.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+Object.defineProperty(exports, "FatalError", {
+    enumerable: true,
+    get: function() {
+        return FatalError;
+    }
+});
+class FatalError extends Error {
+} //# sourceMappingURL=fatal-error.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/typescript/missingDependencyError.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+Object.defineProperty(exports, "missingDepsError", {
+    enumerable: true,
+    get: function() {
+        return missingDepsError;
+    }
+});
+const _picocolors = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/lib/picocolors.js [app-client] (ecmascript)");
+const _oxfordcommalist = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/lib/oxford-comma-list.js [app-client] (ecmascript)");
+const _fatalerror = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/lib/fatal-error.js [app-client] (ecmascript)");
+const _getpkgmanager = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/lib/helpers/get-pkg-manager.js [app-client] (ecmascript)");
+function missingDepsError(dir, missingPackages) {
+    const packagesHuman = (0, _oxfordcommalist.getOxfordCommaList)(missingPackages.map((p)=>p.pkg));
+    const packagesCli = missingPackages.map((p)=>p.pkg).join(' ');
+    const packageManager = (0, _getpkgmanager.getPkgManager)(dir);
+    const removalMsg = '\n\n' + (0, _picocolors.bold)('If you are not trying to use TypeScript, please remove the ' + (0, _picocolors.cyan)('tsconfig.json') + ' file from your package root (and any TypeScript files in your app and pages directories).');
+    throw Object.defineProperty(new _fatalerror.FatalError((0, _picocolors.bold)((0, _picocolors.red)(`It looks like you're trying to use TypeScript but do not have the required package(s) installed.`)) + '\n\n' + (0, _picocolors.bold)(`Please install ${(0, _picocolors.bold)(packagesHuman)} by running:`) + '\n\n' + `\t${(0, _picocolors.bold)((0, _picocolors.cyan)((packageManager === 'yarn' ? 'yarn add --dev' : packageManager === 'pnpm' ? 'pnpm install --save-dev' : 'npm install --save-dev') + ' ' + packagesCli))}` + removalMsg + '\n'), "__NEXT_ERROR_CODE", {
+        value: "E532",
+        enumerable: false,
+        configurable: true
+    });
+} //# sourceMappingURL=missingDependencyError.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/typescript/diagnosticFormatter.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+Object.defineProperty(exports, "getFormattedDiagnostic", {
+    enumerable: true,
+    get: function() {
+        return getFormattedDiagnostic;
+    }
+});
+const _picocolors = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/lib/picocolors.js [app-client] (ecmascript)");
+const _path = /*#__PURE__*/ _interop_require_default(__turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/compiled/path-browserify/index.js [app-client] (ecmascript)"));
+function _interop_require_default(obj) {
+    return obj && obj.__esModule ? obj : {
+        default: obj
+    };
+}
+function getFormattedLinkDiagnosticMessageText(diagnostic) {
+    const message = diagnostic.messageText;
+    if (typeof message === 'string' && diagnostic.code === 2322) {
+        const match = message.match(/Type '"(.+)"' is not assignable to type 'RouteImpl<.+> \| UrlObject'\./) || message.match(/Type '"(.+)"' is not assignable to type 'UrlObject \| RouteImpl<.+>'\./);
+        if (match) {
+            const [, href] = match;
+            return `"${(0, _picocolors.bold)(href)}" is not an existing route. If it is intentional, please type it explicitly with \`as Route\`.`;
+        } else if (message === "Type 'string' is not assignable to type 'UrlObject'.") {
+            var _diagnostic_relatedInformation_, _diagnostic_relatedInformation;
+            const relatedMessage = (_diagnostic_relatedInformation = diagnostic.relatedInformation) == null ? void 0 : (_diagnostic_relatedInformation_ = _diagnostic_relatedInformation[0]) == null ? void 0 : _diagnostic_relatedInformation_.messageText;
+            if (typeof relatedMessage === 'string' && relatedMessage.match(/The expected type comes from property 'href' which is declared here on type 'IntrinsicAttributes & /)) {
+                return `Invalid \`href\` property of \`Link\`: the route does not exist. If it is intentional, please type it explicitly with \`as Route\`.`;
+            }
+        }
+    } else if (typeof message === 'string' && diagnostic.code === 2820) {
+        const match = message.match(/Type '"(.+)"' is not assignable to type 'RouteImpl<.+> \| UrlObject'\. Did you mean '"(.+)"'?/) || message.match(/Type '"(.+)"' is not assignable to type 'UrlObject \| RouteImpl<.+>'\. Did you mean '"(.+)"'?/);
+        if (match) {
+            const [, href, suggestion] = match;
+            return `"${(0, _picocolors.bold)(href)}" is not an existing route. Did you mean "${(0, _picocolors.bold)(suggestion)}" instead? If it is intentional, please type it explicitly with \`as Route\`.`;
+        }
+    }
+}
+function getFormattedLayoutAndPageDiagnosticMessageText(relativeSourceFilepath, diagnostic) {
+    const message = typeof diagnostic.messageText === 'string' ? diagnostic : diagnostic.messageText;
+    const messageText = message.messageText;
+    if (typeof messageText === 'string') {
+        const type = /page\.[^.]+$/.test(relativeSourceFilepath) ? 'Page' : /route\.[^.]+$/.test(relativeSourceFilepath) ? 'Route' : 'Layout';
+        // Reference of error codes:
+        // https://github.com/Microsoft/TypeScript/blob/main/src/compiler/diagnosticMessages.json
+        switch(message.code){
+            case 2344:
+                const filepathAndType = messageText.match(/typeof import\("(.+)"\)/);
+                if (filepathAndType) {
+                    let main = `${type} "${(0, _picocolors.bold)(relativeSourceFilepath)}" does not match the required types of a Next.js ${type}.`;
+                    function processNext(indent, next) {
+                        if (!next) return;
+                        for (const item of next){
+                            switch(item.code){
+                                case 2200:
+                                    const mismatchedField = item.messageText.match(/The types of '(.+)'/);
+                                    if (mismatchedField) {
+                                        main += '\n' + ' '.repeat(indent * 2);
+                                        main += `"${(0, _picocolors.bold)(mismatchedField[1])}" has the wrong type:`;
+                                    }
+                                    break;
+                                case 2322:
+                                    const types = item.messageText.match(/Type '(.+)' is not assignable to type '(.+)'./);
+                                    if (types) {
+                                        main += '\n' + ' '.repeat(indent * 2);
+                                        if (types[2] === 'PageComponent' || types[2] === 'LayoutComponent') {
+                                            main += `The exported ${type} component isn't correctly typed.`;
+                                        } else {
+                                            main += `Expected "${(0, _picocolors.bold)(types[2].replace('"__invalid_negative_number__"', 'number (>= 0)'))}", got "${(0, _picocolors.bold)(types[1])}".`;
+                                        }
+                                    }
+                                    break;
+                                case 2326:
+                                    const invalidConfig = item.messageText.match(/Types of property '(.+)' are incompatible\./);
+                                    main += '\n' + ' '.repeat(indent * 2);
+                                    main += `Invalid configuration${invalidConfig ? ` "${(0, _picocolors.bold)(invalidConfig[1])}"` : ''}:`;
+                                    break;
+                                case 2530:
+                                    const invalidField = item.messageText.match(/Property '(.+)' is incompatible with index signature/);
+                                    if (invalidField) {
+                                        main += '\n' + ' '.repeat(indent * 2);
+                                        main += `"${(0, _picocolors.bold)(invalidField[1])}" is not a valid ${type} export field.`;
+                                    }
+                                    return;
+                                case 2739:
+                                    const invalidProp = item.messageText.match(/Type '(.+)' is missing the following properties from type '(.+)'/);
+                                    if (invalidProp) {
+                                        if (invalidProp[1] === 'LayoutProps' || invalidProp[1] === 'PageProps') {
+                                            main += '\n' + ' '.repeat(indent * 2);
+                                            main += `Prop "${invalidProp[2]}" is incompatible with the ${type}.`;
+                                        }
+                                    }
+                                    break;
+                                case 2559:
+                                    const invalid = item.messageText.match(/Type '(.+)' has/);
+                                    if (invalid) {
+                                        main += '\n' + ' '.repeat(indent * 2);
+                                        main += `Type "${(0, _picocolors.bold)(invalid[1])}" isn't allowed.`;
+                                    }
+                                    break;
+                                case 2741:
+                                    const incompatPageProp = item.messageText.match(/Property '(.+)' is missing in type 'PageProps'/);
+                                    if (incompatPageProp) {
+                                        main += '\n' + ' '.repeat(indent * 2);
+                                        main += `Prop "${(0, _picocolors.bold)(incompatPageProp[1])}" will never be passed. Remove it from the component's props.`;
+                                    } else {
+                                        const extraLayoutProp = item.messageText.match(/Property '(.+)' is missing in type 'LayoutProps' but required in type '(.+)'/);
+                                        if (extraLayoutProp) {
+                                            main += '\n' + ' '.repeat(indent * 2);
+                                            main += `Prop "${(0, _picocolors.bold)(extraLayoutProp[1])}" is not valid for this Layout, remove it to fix.`;
+                                        }
+                                    }
+                                    break;
+                                default:
+                            }
+                            processNext(indent + 1, item.next);
+                        }
+                    }
+                    if ('next' in message) processNext(1, message.next);
+                    return main;
+                }
+                const invalidExportFnArg = messageText.match(/Type 'OmitWithTag<(.+), .+, "(.+)">' does not satisfy the constraint/);
+                if (invalidExportFnArg) {
+                    const main = `${type} "${(0, _picocolors.bold)(relativeSourceFilepath)}" has an invalid "${(0, _picocolors.bold)(invalidExportFnArg[2])}" export:\n  Type "${(0, _picocolors.bold)(invalidExportFnArg[1])}" is not valid.`;
+                    return main;
+                }
+                function processNextItems(indent, next) {
+                    if (!next) return '';
+                    let result = '';
+                    for (const item of next){
+                        switch(item.code){
+                            case 2322:
+                                const types = item.messageText.match(/Type '(.+)' is not assignable to type '(.+)'./);
+                                if (types) {
+                                    result += '\n' + ' '.repeat(indent * 2);
+                                    result += `Expected "${(0, _picocolors.bold)(types[2])}", got "${(0, _picocolors.bold)(types[1])}".`;
+                                }
+                                break;
+                            default:
+                        }
+                        result += processNextItems(indent + 1, item.next);
+                    }
+                    return result;
+                }
+                const invalidParamFn = messageText.match(/Type '{ __tag__: (.+); __param_position__: "(.*)"; __param_type__: (.+); }' does not satisfy/);
+                if (invalidParamFn) {
+                    let main = `${type} "${(0, _picocolors.bold)(relativeSourceFilepath)}" has an invalid ${invalidParamFn[1]} export:\n  Type "${(0, _picocolors.bold)(invalidParamFn[3])}" is not a valid type for the function's ${invalidParamFn[2]} argument.`;
+                    if ('next' in message) main += processNextItems(1, message.next);
+                    return main;
+                }
+                const invalidExportFnReturn = messageText.match(/Type '{ __tag__: "(.+)"; __return_type__: (.+); }' does not satisfy/);
+                if (invalidExportFnReturn) {
+                    let main = `${type} "${(0, _picocolors.bold)(relativeSourceFilepath)}" has an invalid export:\n  "${(0, _picocolors.bold)(invalidExportFnReturn[2])}" is not a valid ${invalidExportFnReturn[1]} return type:`;
+                    if ('next' in message) main += processNextItems(1, message.next);
+                    return main;
+                }
+                break;
+            case 2345:
+                const filepathAndInvalidExport = messageText.match(/'typeof import\("(.+)"\)'.+Impossible<"(.+)">/);
+                if (filepathAndInvalidExport) {
+                    const main = `${type} "${(0, _picocolors.bold)(relativeSourceFilepath)}" exports an invalid "${(0, _picocolors.bold)(filepathAndInvalidExport[2])}" field. ${type} should only export a default React component and configuration options. Learn more: https://nextjs.org/docs/messages/invalid-segment-export`;
+                    return main;
+                }
+                break;
+            case 2559:
+                const invalid = messageText.match(/Type '(.+)' has no properties in common with type '(.+)'/);
+                if (invalid) {
+                    const main = `${type} "${(0, _picocolors.bold)(relativeSourceFilepath)}" contains an invalid type "${(0, _picocolors.bold)(invalid[1])}" as ${invalid[2]}.`;
+                    return main;
+                }
+                break;
+            default:
+        }
+    }
+}
+function getAppEntrySourceFilePath(baseDir, diagnostic) {
+    var _diagnostic_file_text_trim_match, _diagnostic_file;
+    const sourceFilepath = ((_diagnostic_file = diagnostic.file) == null ? void 0 : (_diagnostic_file_text_trim_match = _diagnostic_file.text.trim().match(/^\/\/ File: (.+)\n/)) == null ? void 0 : _diagnostic_file_text_trim_match[1]) || '';
+    return _path.default.relative(baseDir, sourceFilepath);
+}
+function getFormattedDiagnostic(ts, baseDir, distDir, diagnostic, isAppDirEnabled) {
+    var _diagnostic_file;
+    // If the error comes from .next/types/, we handle it specially.
+    const isLayoutOrPageError = isAppDirEnabled && ((_diagnostic_file = diagnostic.file) == null ? void 0 : _diagnostic_file.fileName.startsWith(_path.default.join(baseDir, distDir, 'types')));
+    let message = '';
+    const appPath = isLayoutOrPageError ? getAppEntrySourceFilePath(baseDir, diagnostic) : null;
+    const linkReason = getFormattedLinkDiagnosticMessageText(diagnostic);
+    const appReason = !linkReason && isLayoutOrPageError && appPath ? getFormattedLayoutAndPageDiagnosticMessageText(appPath, diagnostic) : null;
+    const reason = linkReason || appReason || ts.flattenDiagnosticMessageText(diagnostic.messageText, '\n');
+    const category = diagnostic.category;
+    switch(category){
+        // Warning
+        case ts.DiagnosticCategory.Warning:
+            {
+                message += (0, _picocolors.yellow)((0, _picocolors.bold)('Type warning')) + ': ';
+                break;
+            }
+        // Error
+        case ts.DiagnosticCategory.Error:
+            {
+                message += (0, _picocolors.red)((0, _picocolors.bold)('Type error')) + ': ';
+                break;
+            }
+        // 2 = Suggestion, 3 = Message
+        case ts.DiagnosticCategory.Suggestion:
+        case ts.DiagnosticCategory.Message:
+            message += (0, _picocolors.cyan)((0, _picocolors.bold)(category === 2 ? 'Suggestion' : 'Info')) + ': ';
+            break;
+        default:
+            {
+                category;
+            }
+    }
+    message += reason + '\n';
+    if (!isLayoutOrPageError && diagnostic.file) {
+        const { codeFrameColumns } = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/compiled/babel/code-frame.js [app-client] (ecmascript)");
+        const pos = diagnostic.file.getLineAndCharacterOfPosition(diagnostic.start);
+        const line = pos.line + 1;
+        const character = pos.character + 1;
+        let fileName = _path.default.posix.normalize(_path.default.relative(baseDir, diagnostic.file.fileName).replace(/\\/g, '/'));
+        if (!fileName.startsWith('.')) {
+            fileName = './' + fileName;
+        }
+        message = (0, _picocolors.cyan)(fileName) + ':' + (0, _picocolors.yellow)(line.toString()) + ':' + (0, _picocolors.yellow)(character.toString()) + '\n' + message;
+        message += '\n' + codeFrameColumns(diagnostic.file.getFullText(diagnostic.file.getSourceFile()), {
+            start: {
+                line: line,
+                column: character
+            }
+        }, {
+            forceColor: true
+        });
+    } else if (isLayoutOrPageError && appPath) {
+        message = (0, _picocolors.cyan)(appPath) + '\n' + message;
+    }
+    return message;
+} //# sourceMappingURL=diagnosticFormatter.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/typescript/getTypeScriptConfiguration.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+Object.defineProperty(exports, "getTypeScriptConfiguration", {
+    enumerable: true,
+    get: function() {
+        return getTypeScriptConfiguration;
+    }
+});
+const _picocolors = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/lib/picocolors.js [app-client] (ecmascript)");
+const _os = /*#__PURE__*/ _interop_require_default(__turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/compiled/os-browserify/browser.js [app-client] (ecmascript)"));
+const _path = /*#__PURE__*/ _interop_require_default(__turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/compiled/path-browserify/index.js [app-client] (ecmascript)"));
+const _fatalerror = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/lib/fatal-error.js [app-client] (ecmascript)");
+const _iserror = /*#__PURE__*/ _interop_require_default(__turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/lib/is-error.js [app-client] (ecmascript)"));
+function _interop_require_default(obj) {
+    return obj && obj.__esModule ? obj : {
+        default: obj
+    };
+}
+async function getTypeScriptConfiguration(typescript, tsConfigPath, metaOnly) {
+    try {
+        var _result_errors;
+        const formatDiagnosticsHost = {
+            getCanonicalFileName: (fileName)=>fileName,
+            getCurrentDirectory: typescript.sys.getCurrentDirectory,
+            getNewLine: ()=>_os.default.EOL
+        };
+        const { config, error } = typescript.readConfigFile(tsConfigPath, typescript.sys.readFile);
+        if (error) {
+            throw Object.defineProperty(new _fatalerror.FatalError(typescript.formatDiagnostic(error, formatDiagnosticsHost)), "__NEXT_ERROR_CODE", {
+                value: "E394",
+                enumerable: false,
+                configurable: true
+            });
+        }
+        let configToParse = config;
+        const result = typescript.parseJsonConfigFileContent(configToParse, // avoid enumerating all files (for performance reasons)
+        metaOnly ? {
+            ...typescript.sys,
+            readDirectory (_path, extensions, _excludes, _includes, _depth) {
+                return [
+                    extensions ? `file${extensions[0]}` : `file.ts`
+                ];
+            }
+        } : typescript.sys, _path.default.dirname(tsConfigPath));
+        if (result.errors) {
+            result.errors = result.errors.filter(({ code })=>code !== 18003);
+        }
+        if ((_result_errors = result.errors) == null ? void 0 : _result_errors.length) {
+            throw Object.defineProperty(new _fatalerror.FatalError(typescript.formatDiagnostic(result.errors[0], formatDiagnosticsHost)), "__NEXT_ERROR_CODE", {
+                value: "E394",
+                enumerable: false,
+                configurable: true
+            });
+        }
+        return result;
+    } catch (err) {
+        if ((0, _iserror.default)(err) && err.name === 'SyntaxError') {
+            const reason = '\n' + (err.message ?? '');
+            throw Object.defineProperty(new _fatalerror.FatalError((0, _picocolors.bold)('Could not parse' + (0, _picocolors.cyan)('tsconfig.json') + '.' + ' Please make sure it contains syntactically correct JSON.') + reason), "__NEXT_ERROR_CODE", {
+                value: "E339",
+                enumerable: false,
+                configurable: true
+            });
+        }
+        throw err;
+    }
+} //# sourceMappingURL=getTypeScriptConfiguration.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/typescript/runTypeCheck.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+var __TURBOPACK__imported__module__$5b$project$5d2f$JobPortal$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/JobPortal/frontend/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
+"use strict";
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+Object.defineProperty(exports, "runTypeCheck", {
+    enumerable: true,
+    get: function() {
+        return runTypeCheck;
+    }
+});
+const _path = /*#__PURE__*/ _interop_require_default(__turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/compiled/path-browserify/index.js [app-client] (ecmascript)"));
+const _diagnosticFormatter = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/lib/typescript/diagnosticFormatter.js [app-client] (ecmascript)");
+const _getTypeScriptConfiguration = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/lib/typescript/getTypeScriptConfiguration.js [app-client] (ecmascript)");
+const _writeConfigurationDefaults = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/lib/typescript/writeConfigurationDefaults.js [app-client] (ecmascript)");
+const _compileerror = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/lib/compile-error.js [app-client] (ecmascript)");
+const _log = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/build/output/log.js [app-client] (ecmascript)");
+function _interop_require_default(obj) {
+    return obj && obj.__esModule ? obj : {
+        default: obj
+    };
+}
+async function runTypeCheck(typescript, baseDir, distDir, tsConfigPath, cacheDir, isAppDirEnabled) {
+    const effectiveConfiguration = await (0, _getTypeScriptConfiguration.getTypeScriptConfiguration)(typescript, tsConfigPath);
+    if (effectiveConfiguration.fileNames.length < 1) {
+        return {
+            hasWarnings: false,
+            inputFilesCount: 0,
+            totalFilesCount: 0,
+            incremental: false
+        };
+    }
+    const requiredConfig = (0, _writeConfigurationDefaults.getRequiredConfiguration)(typescript);
+    const options = {
+        ...requiredConfig,
+        ...effectiveConfiguration.options,
+        declarationMap: false,
+        emitDeclarationOnly: false,
+        noEmit: true
+    };
+    let program;
+    let incremental = false;
+    if ((options.incremental || options.composite) && cacheDir) {
+        if (options.composite) {
+            (0, _log.warn)('TypeScript project references are not fully supported. Attempting to build in incremental mode.');
+        }
+        incremental = true;
+        program = typescript.createIncrementalProgram({
+            rootNames: effectiveConfiguration.fileNames,
+            options: {
+                ...options,
+                composite: false,
+                incremental: true,
+                tsBuildInfoFile: _path.default.join(cacheDir, '.tsbuildinfo')
+            }
+        });
+    } else {
+        program = typescript.createProgram(effectiveConfiguration.fileNames, options);
+    }
+    const result = program.emit();
+    const ignoreRegex = [
+        // matches **/__(tests|mocks)__/**
+        /[\\/]__(?:tests|mocks)__[\\/]/,
+        // matches **/*.(spec|test).*
+        /(?<=[\\/.])(?:spec|test)\.[^\\/]+$/
+    ];
+    const regexIgnoredFile = new RegExp(ignoreRegex.map((r)=>r.source).join('|'));
+    const allDiagnostics = typescript.getPreEmitDiagnostics(program).concat(result.diagnostics).filter((d)=>!(d.file && regexIgnoredFile.test(d.file.fileName)));
+    const firstError = allDiagnostics.find((d)=>d.category === typescript.DiagnosticCategory.Error && Boolean(d.file)) ?? allDiagnostics.find((d)=>d.category === typescript.DiagnosticCategory.Error);
+    // In test mode, we want to check all diagnostics, not just the first one.
+    if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
+    ;
+    if (firstError) {
+        throw Object.defineProperty(new _compileerror.CompileError((0, _diagnosticFormatter.getFormattedDiagnostic)(typescript, baseDir, distDir, firstError, isAppDirEnabled)), "__NEXT_ERROR_CODE", {
+            value: "E394",
+            enumerable: false,
+            configurable: true
+        });
+    }
+    const warnings = allDiagnostics.filter((d)=>d.category === typescript.DiagnosticCategory.Warning).map((d)=>(0, _diagnosticFormatter.getFormattedDiagnostic)(typescript, baseDir, distDir, d, isAppDirEnabled));
+    return {
+        hasWarnings: true,
+        warnings,
+        inputFilesCount: effectiveConfiguration.fileNames.length,
+        totalFilesCount: program.getSourceFiles().length,
+        incremental
+    };
+} //# sourceMappingURL=runTypeCheck.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/verify-typescript-setup.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+var __TURBOPACK__imported__module__$5b$project$5d2f$JobPortal$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/JobPortal/frontend/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
+"use strict";
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+Object.defineProperty(exports, "verifyTypeScriptSetup", {
+    enumerable: true,
+    get: function() {
+        return verifyTypeScriptSetup;
+    }
+});
+const _picocolors = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/lib/picocolors.js [app-client] (ecmascript)");
+const _path = /*#__PURE__*/ _interop_require_wildcard(__turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/compiled/path-browserify/index.js [app-client] (ecmascript)"));
+const _hasnecessarydependencies = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/lib/has-necessary-dependencies.js [app-client] (ecmascript)");
+const _semver = /*#__PURE__*/ _interop_require_default(__turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/compiled/semver/index.js [app-client] (ecmascript)"));
+const _compileerror = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/lib/compile-error.js [app-client] (ecmascript)");
+const _log = /*#__PURE__*/ _interop_require_wildcard(__turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/build/output/log.js [app-client] (ecmascript)"));
+const _getTypeScriptIntent = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/lib/typescript/getTypeScriptIntent.js [app-client] (ecmascript)");
+const _writeAppTypeDeclarations = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/lib/typescript/writeAppTypeDeclarations.js [app-client] (ecmascript)");
+const _writeConfigurationDefaults = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/lib/typescript/writeConfigurationDefaults.js [app-client] (ecmascript)");
+const _installdependencies = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/lib/install-dependencies.js [app-client] (ecmascript)");
+const _ciinfo = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/server/ci-info.js [app-client] (ecmascript)");
+const _missingDependencyError = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/lib/typescript/missingDependencyError.js [app-client] (ecmascript)");
+function _interop_require_default(obj) {
+    return obj && obj.__esModule ? obj : {
+        default: obj
+    };
+}
+function _getRequireWildcardCache(nodeInterop) {
+    if (typeof WeakMap !== "function") return null;
+    var cacheBabelInterop = new WeakMap();
+    var cacheNodeInterop = new WeakMap();
+    return (_getRequireWildcardCache = function(nodeInterop) {
+        return nodeInterop ? cacheNodeInterop : cacheBabelInterop;
+    })(nodeInterop);
+}
+function _interop_require_wildcard(obj, nodeInterop) {
+    if (!nodeInterop && obj && obj.__esModule) {
+        return obj;
+    }
+    if (obj === null || typeof obj !== "object" && typeof obj !== "function") {
+        return {
+            default: obj
+        };
+    }
+    var cache = _getRequireWildcardCache(nodeInterop);
+    if (cache && cache.has(obj)) {
+        return cache.get(obj);
+    }
+    var newObj = {
+        __proto__: null
+    };
+    var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;
+    for(var key in obj){
+        if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) {
+            var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;
+            if (desc && (desc.get || desc.set)) {
+                Object.defineProperty(newObj, key, desc);
+            } else {
+                newObj[key] = obj[key];
+            }
+        }
+    }
+    newObj.default = obj;
+    if (cache) {
+        cache.set(obj, newObj);
+    }
+    return newObj;
+}
+const requiredPackages = [
+    {
+        file: 'typescript/lib/typescript.js',
+        pkg: 'typescript',
+        exportsRestrict: true
+    },
+    {
+        file: '@types/react/index.d.ts',
+        pkg: '@types/react',
+        exportsRestrict: true
+    },
+    {
+        file: '@types/node/index.d.ts',
+        pkg: '@types/node',
+        exportsRestrict: true
+    }
+];
+async function verifyTypeScriptSetup({ dir, distDir, cacheDir, intentDirs, tsconfigPath, typeCheckPreflight, disableStaticImages, hasAppDir, hasPagesDir, isolatedDevBuild }) {
+    const tsConfigFileName = tsconfigPath || 'tsconfig.json';
+    const resolvedTsConfigPath = _path.default.join(dir, tsConfigFileName);
+    try {
+        var _deps_missing;
+        // Check if the project uses TypeScript:
+        const intent = await (0, _getTypeScriptIntent.getTypeScriptIntent)(dir, intentDirs, tsConfigFileName);
+        if (!intent) {
+            return {
+                version: null
+            };
+        }
+        // Ensure TypeScript and necessary `@types/*` are installed:
+        let deps = (0, _hasnecessarydependencies.hasNecessaryDependencies)(dir, requiredPackages);
+        if (((_deps_missing = deps.missing) == null ? void 0 : _deps_missing.length) > 0) {
+            if (_ciinfo.isCI) {
+                // we don't attempt auto install in CI to avoid side-effects
+                // and instead log the error for installing needed packages
+                (0, _missingDependencyError.missingDepsError)(dir, deps.missing);
+            }
+            console.log((0, _picocolors.bold)((0, _picocolors.yellow)(`It looks like you're trying to use TypeScript but do not have the required package(s) installed.`)) + '\n' + 'Installing dependencies' + '\n\n' + (0, _picocolors.bold)('If you are not trying to use TypeScript, please remove the ' + (0, _picocolors.cyan)('tsconfig.json') + ' file from your package root (and any TypeScript files in your app and pages directories).') + '\n');
+            await (0, _installdependencies.installDependencies)(dir, deps.missing, true).catch((err)=>{
+                if (err && typeof err === 'object' && 'command' in err) {
+                    console.error(`Failed to install required TypeScript dependencies, please install them manually to continue:\n` + err.command + '\n');
+                }
+                throw err;
+            });
+            deps = (0, _hasnecessarydependencies.hasNecessaryDependencies)(dir, requiredPackages);
+        }
+        // Load TypeScript after we're sure it exists:
+        const tsPackageJsonPath = deps.resolved.get((0, _path.join)('typescript', 'package.json'));
+        const typescriptPackageJson = (()=>{
+            const e = new Error("Cannot find module as expression is too dynamic");
+            e.code = 'MODULE_NOT_FOUND';
+            throw e;
+        })();
+        const typescriptVersion = typescriptPackageJson.version;
+        if (_semver.default.lt(typescriptVersion, '5.1.0')) {
+            _log.warn(`Minimum recommended TypeScript version is v5.1.0, older versions can potentially be incompatible with Next.js. Detected: ${typescriptVersion}`);
+        }
+        // Reconfigure (or create) the user's `tsconfig.json` for them:
+        await (0, _writeConfigurationDefaults.writeConfigurationDefaults)(typescriptVersion, resolvedTsConfigPath, intent.firstTimeSetup, hasAppDir, distDir, hasPagesDir, isolatedDevBuild);
+        // Write out the necessary `next-env.d.ts` file to correctly register
+        // Next.js' types:
+        await (0, _writeAppTypeDeclarations.writeAppTypeDeclarations)({
+            baseDir: dir,
+            distDir,
+            imageImportsEnabled: !disableStaticImages,
+            hasPagesDir,
+            hasAppDir
+        });
+        let result;
+        if (typeCheckPreflight) {
+            const { runTypeCheck } = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/lib/typescript/runTypeCheck.js [app-client] (ecmascript)");
+            const tsPath = deps.resolved.get('typescript');
+            const typescript = await Promise.resolve((()=>{
+                const e = new Error("Cannot find module as expression is too dynamic");
+                e.code = 'MODULE_NOT_FOUND';
+                throw e;
+            })());
+            // Verify the project passes type-checking before we go to webpack phase:
+            result = await runTypeCheck(typescript, dir, distDir, resolvedTsConfigPath, cacheDir, hasAppDir);
+        }
+        return {
+            result,
+            version: typescriptVersion
+        };
+    } catch (err) {
+        // These are special errors that should not show a stack trace:
+        if (err instanceof _compileerror.CompileError) {
+            console.error((0, _picocolors.red)('Failed to compile.\n'));
+            console.error(err.message);
+            __TURBOPACK__imported__module__$5b$project$5d2f$JobPortal$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].exit(1);
+        }
+        /**
+     * verifyTypeScriptSetup can be either invoked directly in the main thread (during next dev / next lint)
+     * or run in a worker (during next build). In the latter case, we need to print the error message, as the
+     * parent process will only receive an `Jest worker encountered 1 child process exceptions, exceeding retry limit`.
+     */ // we are in a worker, print the error message and exit the process
+        if (__TURBOPACK__imported__module__$5b$project$5d2f$JobPortal$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].env.IS_NEXT_WORKER) {
+            if (err instanceof Error) {
+                console.error(err.message);
+            } else {
+                console.error(err);
+            }
+            __TURBOPACK__imported__module__$5b$project$5d2f$JobPortal$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].exit(1);
+        }
+        // we are in the main thread, throw the error and it will be handled by the caller
+        throw err;
+    }
+} //# sourceMappingURL=verify-typescript-setup.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/format-server-error.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+0 && (module.exports = {
+    formatServerError: null,
+    getStackWithoutErrorMessage: null
+});
+function _export(target, all) {
+    for(var name in all)Object.defineProperty(target, name, {
+        enumerable: true,
+        get: all[name]
+    });
+}
+_export(exports, {
+    formatServerError: function() {
+        return formatServerError;
+    },
+    getStackWithoutErrorMessage: function() {
+        return getStackWithoutErrorMessage;
+    }
+});
+const invalidServerComponentReactHooks = [
+    'useDeferredValue',
+    'useEffect',
+    'useImperativeHandle',
+    'useInsertionEffect',
+    'useLayoutEffect',
+    'useReducer',
+    'useRef',
+    'useState',
+    'useSyncExternalStore',
+    'useTransition',
+    'experimental_useOptimistic',
+    'useOptimistic'
+];
+function setMessage(error, message) {
+    error.message = message;
+    if (error.stack) {
+        const lines = error.stack.split('\n');
+        lines[0] = message;
+        error.stack = lines.join('\n');
+    }
+}
+function getStackWithoutErrorMessage(error) {
+    const stack = error.stack;
+    if (!stack) return '';
+    return stack.replace(/^[^\n]*\n/, '');
+}
+function formatServerError(error) {
+    if (typeof (error == null ? void 0 : error.message) !== 'string') return;
+    if (error.message.includes('Class extends value undefined is not a constructor or null')) {
+        const addedMessage = 'This might be caused by a React Class Component being rendered in a Server Component, React Class Components only works in Client Components. Read more: https://nextjs.org/docs/messages/class-component-in-server-component';
+        // If this error instance already has the message, don't add it again
+        if (error.message.includes(addedMessage)) return;
+        setMessage(error, `${error.message}
+
+${addedMessage}`);
+        return;
+    }
+    if (error.message.includes('createContext is not a function')) {
+        setMessage(error, 'createContext only works in Client Components. Add the "use client" directive at the top of the file to use it. Read more: https://nextjs.org/docs/messages/context-in-server-component');
+        return;
+    }
+    for (const clientHook of invalidServerComponentReactHooks){
+        const regex = new RegExp(`\\b${clientHook}\\b.*is not a function`);
+        if (regex.test(error.message)) {
+            setMessage(error, `${clientHook} only works in Client Components. Add the "use client" directive at the top of the file to use it. Read more: https://nextjs.org/docs/messages/react-client-hook-in-server-component`);
+            return;
+        }
+    }
+} //# sourceMappingURL=format-server-error.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/is-app-page-route.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+Object.defineProperty(exports, "isAppPageRoute", {
+    enumerable: true,
+    get: function() {
+        return isAppPageRoute;
+    }
+});
+function isAppPageRoute(route) {
+    return route.endsWith('/page');
+} //# sourceMappingURL=is-app-page-route.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/page-types.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+Object.defineProperty(exports, "PAGE_TYPES", {
+    enumerable: true,
+    get: function() {
+        return PAGE_TYPES;
+    }
+});
+var PAGE_TYPES = /*#__PURE__*/ function(PAGE_TYPES) {
+    PAGE_TYPES["PAGES"] = "pages";
+    PAGE_TYPES["ROOT"] = "root";
+    PAGE_TYPES["APP"] = "app";
+    return PAGE_TYPES;
+}({}); //# sourceMappingURL=page-types.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/metadata/get-metadata-route.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+0 && (module.exports = {
+    fillMetadataSegment: null,
+    normalizeMetadataPageToRoute: null,
+    normalizeMetadataRoute: null
+});
+function _export(target, all) {
+    for(var name in all)Object.defineProperty(target, name, {
+        enumerable: true,
+        get: all[name]
+    });
+}
+_export(exports, {
+    fillMetadataSegment: function() {
+        return fillMetadataSegment;
+    },
+    normalizeMetadataPageToRoute: function() {
+        return normalizeMetadataPageToRoute;
+    },
+    normalizeMetadataRoute: function() {
+        return normalizeMetadataRoute;
+    }
+});
+const _ismetadataroute = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/lib/metadata/is-metadata-route.js [app-client] (ecmascript)");
+const _path = /*#__PURE__*/ _interop_require_default(__turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/shared/lib/isomorphic/path.js [app-client] (ecmascript)"));
+const _serverutils = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/server/server-utils.js [app-client] (ecmascript)");
+const _routeregex = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/shared/lib/router/utils/route-regex.js [app-client] (ecmascript)");
+const _hash = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/shared/lib/hash.js [app-client] (ecmascript)");
+const _apppaths = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/shared/lib/router/utils/app-paths.js [app-client] (ecmascript)");
+const _normalizepathsep = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/shared/lib/page-path/normalize-path-sep.js [app-client] (ecmascript)");
+const _segment = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/shared/lib/segment.js [app-client] (ecmascript)");
+function _interop_require_default(obj) {
+    return obj && obj.__esModule ? obj : {
+        default: obj
+    };
+}
+/*
+ * If there's special convention like (...) or @ in the page path,
+ * Give it a unique hash suffix to avoid conflicts
+ *
+ * e.g.
+ * /opengraph-image -> /opengraph-image
+ * /(post)/opengraph-image.tsx -> /opengraph-image-[0-9a-z]{6}
+ *
+ * Sitemap is an exception, it should not have a suffix.
+ * Each sitemap contains all the urls of sub routes, we don't have the case of duplicates `/(group)/sitemap.[ext]` and `/sitemap.[ext]` since they should be the same.
+ * Hence we always normalize the urls for sitemap and do not append hash suffix, and ensure user-land only contains one sitemap per pathname.
+ *
+ * /sitemap -> /sitemap
+ * /(post)/sitemap -> /sitemap
+ */ function getMetadataRouteSuffix(page) {
+    // Remove the last segment and get the parent pathname
+    // e.g. /parent/a/b/c -> /parent/a/b
+    // e.g. /parent/opengraph-image -> /parent
+    const parentPathname = _path.default.dirname(page);
+    // Only apply suffix to metadata routes except for sitemaps
+    if (page.endsWith('/sitemap') || page.endsWith('/sitemap.xml')) {
+        return '';
+    }
+    // Calculate the hash suffix based on the parent path
+    let suffix = '';
+    // Check if there's any special characters in the parent pathname.
+    const segments = parentPathname.split('/');
+    if (segments.some((seg)=>(0, _segment.isGroupSegment)(seg) || (0, _segment.isParallelRouteSegment)(seg))) {
+        // Hash the parent path to get a unique suffix
+        suffix = (0, _hash.djb2Hash)(parentPathname).toString(36).slice(0, 6);
+    }
+    return suffix;
+}
+function fillMetadataSegment(segment, params, lastSegment) {
+    const pathname = (0, _apppaths.normalizeAppPath)(segment);
+    const routeRegex = (0, _routeregex.getNamedRouteRegex)(pathname, {
+        prefixRouteKeys: false
+    });
+    const route = (0, _serverutils.interpolateDynamicPath)(pathname, params, routeRegex);
+    const { name, ext } = _path.default.parse(lastSegment);
+    const pagePath = _path.default.posix.join(segment, name);
+    const suffix = getMetadataRouteSuffix(pagePath);
+    const routeSuffix = suffix ? `-${suffix}` : '';
+    return (0, _normalizepathsep.normalizePathSep)(_path.default.join(route, `${name}${routeSuffix}${ext}`));
+}
+function normalizeMetadataRoute(page) {
+    if (!(0, _ismetadataroute.isMetadataPage)(page)) {
+        return page;
+    }
+    let route = page;
+    let suffix = '';
+    if (page === '/robots') {
+        route += '.txt';
+    } else if (page === '/manifest') {
+        route += '.webmanifest';
+    } else {
+        suffix = getMetadataRouteSuffix(page);
+    }
+    // Support both /<metadata-route.ext> and custom routes /<metadata-route>/route.ts.
+    // If it's a metadata file route, we need to append /[id]/route to the page.
+    if (!route.endsWith('/route')) {
+        const { dir, name: baseName, ext } = _path.default.parse(route);
+        route = _path.default.posix.join(dir, `${baseName}${suffix ? `-${suffix}` : ''}${ext}`, 'route');
+    }
+    return route;
+}
+function normalizeMetadataPageToRoute(page, isDynamic) {
+    const isRoute = page.endsWith('/route');
+    const routePagePath = isRoute ? page.slice(0, -'/route'.length) : page;
+    const metadataRouteExtension = routePagePath.endsWith('/sitemap') ? '.xml' : '';
+    const mapped = isDynamic ? `${routePagePath}/[__metadata_id__]` : `${routePagePath}${metadataRouteExtension}`;
+    return mapped + (isRoute ? '/route' : '');
+} //# sourceMappingURL=get-metadata-route.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/is-api-route.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+Object.defineProperty(exports, "isAPIRoute", {
+    enumerable: true,
+    get: function() {
+        return isAPIRoute;
+    }
+});
+function isAPIRoute(value) {
+    return value === '/api' || Boolean(value == null ? void 0 : value.startsWith('/api/'));
+} //# sourceMappingURL=is-api-route.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/semver-noop.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+// DO NOT MODIFY THIS FILE DIRECTLY
+// It's for aliasing the `semver` package to be a noop for the `jsonwebtoken` package.
+// We're trying to minimize the size of the worker bundle.
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+Object.defineProperty(exports, "satisfies", {
+    enumerable: true,
+    get: function() {
+        return satisfies;
+    }
+});
+function satisfies() {
+    return true;
+} //# sourceMappingURL=semver-noop.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/generate-interception-routes-rewrites.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+0 && (module.exports = {
+    generateInterceptionRoutesRewrites: null,
+    isInterceptionRouteRewrite: null
+});
+function _export(target, all) {
+    for(var name in all)Object.defineProperty(target, name, {
+        enumerable: true,
+        get: all[name]
+    });
+}
+_export(exports, {
+    generateInterceptionRoutesRewrites: function() {
+        return generateInterceptionRoutesRewrites;
+    },
+    isInterceptionRouteRewrite: function() {
+        return isInterceptionRouteRewrite;
+    }
+});
+const _approuterheaders = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/client/components/app-router-headers.js [app-client] (ecmascript)");
+const _interceptionroutes = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/shared/lib/router/utils/interception-routes.js [app-client] (ecmascript)");
+const _routeregex = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/shared/lib/router/utils/route-regex.js [app-client] (ecmascript)");
+function generateInterceptionRoutesRewrites(appPaths, basePath = '') {
+    const rewrites = [];
+    for (const appPath of appPaths){
+        if ((0, _interceptionroutes.isInterceptionRouteAppPath)(appPath)) {
+            const { interceptingRoute, interceptedRoute } = (0, _interceptionroutes.extractInterceptionRouteInformation)(appPath);
+            const destination = (0, _routeregex.getNamedRouteRegex)(basePath + appPath, {
+                prefixRouteKeys: true
+            });
+            const header = (0, _routeregex.getNamedRouteRegex)(interceptingRoute, {
+                prefixRouteKeys: true,
+                reference: destination.reference
+            });
+            const source = (0, _routeregex.getNamedRouteRegex)(basePath + interceptedRoute, {
+                prefixRouteKeys: true,
+                reference: header.reference
+            });
+            const headerRegex = header.namedRegex // Strip ^ and $ anchors since matchHas() will add them automatically
+            .replace(/^\^/, '').replace(/\$$/, '') // Replace matching the `/` with matching any route segment.
+            .replace(/^\/\(\?:\/\)\?$/, '/.*') // Replace the optional trailing with slash capture group with one that
+            // will match any descendants.
+            .replace(/\(\?:\/\)\?$/, '(?:/.*)?');
+            rewrites.push({
+                source: source.pathToRegexpPattern,
+                destination: destination.pathToRegexpPattern,
+                has: [
+                    {
+                        type: 'header',
+                        key: _approuterheaders.NEXT_URL,
+                        value: headerRegex
+                    }
+                ],
+                internal: true,
+                regex: source.namedRegex
+            });
+        }
+    }
+    return rewrites;
+}
+function isInterceptionRouteRewrite(route) {
+    var _route_has_, _route_has;
+    // When we generate interception rewrites in the above implementation, we always do so with only a single `has` condition.
+    return ((_route_has = route.has) == null ? void 0 : (_route_has_ = _route_has[0]) == null ? void 0 : _route_has_.key) === _approuterheaders.NEXT_URL;
+} //# sourceMappingURL=generate-interception-routes-rewrites.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/coalesced-function.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+Object.defineProperty(exports, "withCoalescedInvoke", {
+    enumerable: true,
+    get: function() {
+        return withCoalescedInvoke;
+    }
+});
+const globalInvokeCache = new Map();
+function withCoalescedInvoke(func) {
+    return async function(key, args) {
+        const entry = globalInvokeCache.get(key);
+        if (entry) {
+            return entry.then((res)=>({
+                    isOrigin: false,
+                    value: res.value
+                }));
+        }
+        async function __wrapper() {
+            return await func.apply(undefined, args);
+        }
+        const future = __wrapper().then((res)=>{
+            globalInvokeCache.delete(key);
+            return {
+                isOrigin: true,
+                value: res
+            };
+        }).catch((err)=>{
+            globalInvokeCache.delete(key);
+            return Promise.reject(err);
+        });
+        globalInvokeCache.set(key, future);
+        return future;
+    };
+} //# sourceMappingURL=coalesced-function.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/pretty-bytes.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+/*
+MIT License
+
+Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/ Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+Object.defineProperty(exports, "default", {
+    enumerable: true,
+    get: function() {
+        return prettyBytes;
+    }
+});
+const UNITS = [
+    'B',
+    'kB',
+    'MB',
+    'GB',
+    'TB',
+    'PB',
+    'EB',
+    'ZB',
+    'YB'
+];
+/*
+Formats the given number using `Number#toLocaleString`.
+- If locale is a string, the value is expected to be a locale-key (for example: `de`).
+- If locale is true, the system default locale is used for translation.
+- If no value for locale is specified, the number is returned unmodified.
+*/ const toLocaleString = (number, locale)=>{
+    let result = number;
+    if (typeof locale === 'string') {
+        result = number.toLocaleString(locale);
+    } else if (locale === true) {
+        result = number.toLocaleString();
+    }
+    return result;
+};
+function prettyBytes(number, options) {
+    if (!Number.isFinite(number)) {
+        throw Object.defineProperty(new TypeError(`Expected a finite number, got ${typeof number}: ${number}`), "__NEXT_ERROR_CODE", {
+            value: "E572",
+            enumerable: false,
+            configurable: true
+        });
+    }
+    options = Object.assign({}, options);
+    if (options.signed && number === 0) {
+        return ' 0 B';
+    }
+    const isNegative = number < 0;
+    const prefix = isNegative ? '-' : options.signed ? '+' : '';
+    if (isNegative) {
+        number = -number;
+    }
+    if (number < 1) {
+        const numberString = toLocaleString(number, options.locale);
+        return prefix + numberString + ' B';
+    }
+    const exponent = Math.min(Math.floor(Math.log10(number) / 3), UNITS.length - 1);
+    number = Number((number / Math.pow(1000, exponent)).toPrecision(3));
+    const numberString = toLocaleString(number, options.locale);
+    const unit = UNITS[exponent];
+    return prefix + numberString + ' ' + unit;
+} //# sourceMappingURL=pretty-bytes.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/is-serializable-props.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+0 && (module.exports = {
+    SerializableError: null,
+    isSerializableProps: null
+});
+function _export(target, all) {
+    for(var name in all)Object.defineProperty(target, name, {
+        enumerable: true,
+        get: all[name]
+    });
+}
+_export(exports, {
+    SerializableError: function() {
+        return SerializableError;
+    },
+    isSerializableProps: function() {
+        return isSerializableProps;
+    }
+});
+const _isplainobject = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/shared/lib/is-plain-object.js [app-client] (ecmascript)");
+const regexpPlainIdentifier = /^[A-Za-z_$][A-Za-z0-9_$]*$/;
+class SerializableError extends Error {
+    constructor(page, method, path, message){
+        super(path ? `Error serializing \`${path}\` returned from \`${method}\` in "${page}".\nReason: ${message}` : `Error serializing props returned from \`${method}\` in "${page}".\nReason: ${message}`);
+    }
+}
+function isSerializableProps(page, method, input) {
+    if (!(0, _isplainobject.isPlainObject)(input)) {
+        throw Object.defineProperty(new SerializableError(page, method, '', `Props must be returned as a plain object from ${method}: \`{ props: { ... } }\` (received: \`${(0, _isplainobject.getObjectClassLabel)(input)}\`).`), "__NEXT_ERROR_CODE", {
+            value: "E394",
+            enumerable: false,
+            configurable: true
+        });
+    }
+    function visit(visited, value, path) {
+        if (visited.has(value)) {
+            throw Object.defineProperty(new SerializableError(page, method, path, `Circular references cannot be expressed in JSON (references: \`${visited.get(value) || '(self)'}\`).`), "__NEXT_ERROR_CODE", {
+                value: "E394",
+                enumerable: false,
+                configurable: true
+            });
+        }
+        visited.set(value, path);
+    }
+    function isSerializable(refs, value, path) {
+        const type = typeof value;
+        if (value === null || // n.b. `bigint`, `function`, `symbol`, and `undefined` cannot be
+        // serialized.
+        //
+        // `object` is special-cased below, as it may represent `null`, an Array,
+        // a plain object, a class, et al.
+        type === 'boolean' || type === 'number' || type === 'string') {
+            return true;
+        }
+        if (type === 'undefined') {
+            throw Object.defineProperty(new SerializableError(page, method, path, '`undefined` cannot be serialized as JSON. Please use `null` or omit this value.'), "__NEXT_ERROR_CODE", {
+                value: "E394",
+                enumerable: false,
+                configurable: true
+            });
+        }
+        if ((0, _isplainobject.isPlainObject)(value)) {
+            visit(refs, value, path);
+            if (Object.entries(value).every(([key, nestedValue])=>{
+                const nextPath = regexpPlainIdentifier.test(key) ? `${path}.${key}` : `${path}[${JSON.stringify(key)}]`;
+                const newRefs = new Map(refs);
+                return isSerializable(newRefs, key, nextPath) && isSerializable(newRefs, nestedValue, nextPath);
+            })) {
+                return true;
+            }
+            throw Object.defineProperty(new SerializableError(page, method, path, `invariant: Unknown error encountered in Object.`), "__NEXT_ERROR_CODE", {
+                value: "E394",
+                enumerable: false,
+                configurable: true
+            });
+        }
+        if (Array.isArray(value)) {
+            visit(refs, value, path);
+            if (value.every((nestedValue, index)=>{
+                const newRefs = new Map(refs);
+                return isSerializable(newRefs, nestedValue, `${path}[${index}]`);
+            })) {
+                return true;
+            }
+            throw Object.defineProperty(new SerializableError(page, method, path, `invariant: Unknown error encountered in Array.`), "__NEXT_ERROR_CODE", {
+                value: "E394",
+                enumerable: false,
+                configurable: true
+            });
+        }
+        // None of these can be expressed as JSON:
+        // const type: "bigint" | "symbol" | "object" | "function"
+        throw Object.defineProperty(new SerializableError(page, method, path, '`' + type + '`' + (type === 'object' ? ` ("${Object.prototype.toString.call(value)}")` : '') + ' cannot be serialized as JSON. Please only return JSON serializable data types.'), "__NEXT_ERROR_CODE", {
+            value: "E394",
+            enumerable: false,
+            configurable: true
+        });
+    }
+    return isSerializable(new Map(), input, '');
+} //# sourceMappingURL=is-serializable-props.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/redirect-status.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+0 && (module.exports = {
+    allowedStatusCodes: null,
+    getRedirectStatus: null,
+    modifyRouteRegex: null
+});
+function _export(target, all) {
+    for(var name in all)Object.defineProperty(target, name, {
+        enumerable: true,
+        get: all[name]
+    });
+}
+_export(exports, {
+    allowedStatusCodes: function() {
+        return allowedStatusCodes;
+    },
+    getRedirectStatus: function() {
+        return getRedirectStatus;
+    },
+    modifyRouteRegex: function() {
+        return modifyRouteRegex;
+    }
+});
+const _redirectstatuscode = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/client/components/redirect-status-code.js [app-client] (ecmascript)");
+const allowedStatusCodes = new Set([
+    301,
+    302,
+    303,
+    307,
+    308
+]);
+function getRedirectStatus(route) {
+    return route.statusCode || (route.permanent ? _redirectstatuscode.RedirectStatusCode.PermanentRedirect : _redirectstatuscode.RedirectStatusCode.TemporaryRedirect);
+}
+function modifyRouteRegex(regex, restrictedPaths) {
+    if (restrictedPaths) {
+        regex = regex.replace(/\^/, `^(?!${restrictedPaths.map((path)=>path.replace(/\//g, '\\/')).join('|')})`);
+    }
+    regex = regex.replace(/\$$/, '(?:\\/)?$');
+    return regex;
+} //# sourceMappingURL=redirect-status.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/try-to-parse-path.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+Object.defineProperty(exports, "tryToParsePath", {
+    enumerable: true,
+    get: function() {
+        return tryToParsePath;
+    }
+});
+const _pathtoregexp = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/compiled/path-to-regexp/index.js [app-client] (ecmascript)");
+const _url = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/compiled/native-url/index.js [app-client] (ecmascript)");
+const _iserror = /*#__PURE__*/ _interop_require_default(__turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/lib/is-error.js [app-client] (ecmascript)"));
+const _routepatternnormalizer = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/lib/route-pattern-normalizer.js [app-client] (ecmascript)");
+function _interop_require_default(obj) {
+    return obj && obj.__esModule ? obj : {
+        default: obj
+    };
+}
+/**
+ * If there is an error show our error link but still show original error or
+ * a formatted one if we can
+ */ function reportError({ route, parsedPath }, err) {
+    let errMatches;
+    if ((0, _iserror.default)(err) && (errMatches = err.message.match(/at (\d{0,})/))) {
+        const position = parseInt(errMatches[1], 10);
+        console.error(`\nError parsing \`${route}\` ` + `https://nextjs.org/docs/messages/invalid-route-source\n` + `Reason: ${err.message}\n\n` + `  ${parsedPath}\n` + `  ${new Array(position).fill(' ').join('')}^\n`);
+    } else {
+        console.error(`\nError parsing ${route} https://nextjs.org/docs/messages/invalid-route-source`, err);
+    }
+}
+/**
+ * Safe wrapper around tokensToRegexp that handles path-to-regexp 6.3.0+ validation errors.
+ */ function safeTokensToRegexp(tokens) {
+    try {
+        return (0, _pathtoregexp.tokensToRegexp)(tokens);
+    } catch (error) {
+        if ((0, _iserror.default)(error)) {
+            // Try to normalize tokens with repeating modifiers but no prefix/suffix
+            const normalizedTokens = (0, _routepatternnormalizer.normalizeTokensForRegexp)(tokens);
+            return (0, _pathtoregexp.tokensToRegexp)(normalizedTokens);
+        }
+        throw error;
+    }
+}
+function tryToParsePath(route, options) {
+    const result = {
+        route,
+        parsedPath: route
+    };
+    try {
+        if (options == null ? void 0 : options.handleUrl) {
+            const parsed = (0, _url.parse)(route, true);
+            result.parsedPath = `${parsed.pathname}${parsed.hash || ''}`;
+        }
+        result.tokens = (0, _pathtoregexp.parse)(result.parsedPath);
+        // Use safe wrapper instead of proactive detection
+        if (result.tokens) {
+            result.regexStr = safeTokensToRegexp(result.tokens).source;
+        }
+    } catch (err) {
+        reportError(result, err);
+        result.error = err;
+    }
+    return result;
+} //# sourceMappingURL=try-to-parse-path.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/load-custom-routes.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+var __TURBOPACK__imported__module__$5b$project$5d2f$JobPortal$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/JobPortal/frontend/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
+"use strict";
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+0 && (module.exports = {
+    checkCustomRoutes: null,
+    default: null,
+    normalizeRouteRegex: null
+});
+function _export(target, all) {
+    for(var name in all)Object.defineProperty(target, name, {
+        enumerable: true,
+        get: all[name]
+    });
+}
+_export(exports, {
+    checkCustomRoutes: function() {
+        return checkCustomRoutes;
+    },
+    default: function() {
+        return loadCustomRoutes;
+    },
+    normalizeRouteRegex: function() {
+        return normalizeRouteRegex;
+    }
+});
+const _picocolors = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/lib/picocolors.js [app-client] (ecmascript)");
+const _escaperegexp = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/shared/lib/escape-regexp.js [app-client] (ecmascript)");
+const _trytoparsepath = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/lib/try-to-parse-path.js [app-client] (ecmascript)");
+const _redirectstatus = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/lib/redirect-status.js [app-client] (ecmascript)");
+const _url = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/lib/url.js [app-client] (ecmascript)");
+const allowedHasTypes = new Set([
+    'header',
+    'cookie',
+    'query',
+    'host'
+]);
+const namedGroupsRegex = /\(\?<([a-zA-Z][a-zA-Z0-9]*)>/g;
+function normalizeRouteRegex(regex) {
+    // clean up un-necessary escaping from regex.source which turns / into \\/
+    return regex.replace(/\\\//g, '/');
+}
+function checkRedirect(route) {
+    const invalidParts = [];
+    let hadInvalidStatus = false;
+    if (route.statusCode && !_redirectstatus.allowedStatusCodes.has(route['statusCode'])) {
+        hadInvalidStatus = true;
+        invalidParts.push(`\`statusCode\` is not undefined or valid statusCode`);
+    }
+    if (typeof route.permanent !== 'boolean' && !route['statusCode']) {
+        invalidParts.push(`\`permanent\` is not set to \`true\` or \`false\``);
+    }
+    return {
+        invalidParts,
+        hadInvalidStatus
+    };
+}
+function checkHeader(route) {
+    const invalidParts = [];
+    if (!Array.isArray(route.headers)) {
+        invalidParts.push('`headers` field must be an array');
+    } else if (route.headers.length === 0) {
+        invalidParts.push('`headers` field cannot be empty');
+    } else {
+        for (const header of route.headers){
+            if (!header || typeof header !== 'object') {
+                invalidParts.push("`headers` items must be object with { key: '', value: '' }");
+                break;
+            }
+            if (typeof header.key !== 'string') {
+                invalidParts.push('`key` in header item must be string');
+                break;
+            }
+            if (typeof header.value !== 'string') {
+                invalidParts.push('`value` in header item must be string');
+                break;
+            }
+        }
+    }
+    return invalidParts;
+}
+function checkCustomRoutes(routes, type) {
+    if (!Array.isArray(routes)) {
+        console.error(`Error: ${type}s must return an array, received ${typeof routes}.\n` + `See here for more info: https://nextjs.org/docs/messages/routes-must-be-array`);
+        __TURBOPACK__imported__module__$5b$project$5d2f$JobPortal$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].exit(1);
+    }
+    let numInvalidRoutes = 0;
+    let hadInvalidStatus = false;
+    let hadInvalidHas = false;
+    let hadInvalidMissing = false;
+    const allowedKeys = new Set([
+        'source',
+        'locale',
+        'has',
+        'missing'
+    ]);
+    if (type === 'rewrite') {
+        allowedKeys.add('basePath');
+        allowedKeys.add('destination');
+    }
+    if (type === 'redirect') {
+        allowedKeys.add('basePath');
+        allowedKeys.add('statusCode');
+        allowedKeys.add('permanent');
+        allowedKeys.add('destination');
+    }
+    if (type === 'header') {
+        allowedKeys.add('basePath');
+        allowedKeys.add('headers');
+    }
+    for (const route of routes){
+        if (!route || typeof route !== 'object') {
+            console.error(`The route ${JSON.stringify(route)} is not a valid object with \`source\`${type !== 'middleware' ? ` and \`${type === 'header' ? 'headers' : 'destination'}\`` : ''}`);
+            numInvalidRoutes++;
+            continue;
+        }
+        if (type === 'rewrite' && route.basePath === false && !(route.destination.startsWith('http://') || route.destination.startsWith('https://'))) {
+            console.error(`The route ${route.source} rewrites urls outside of the basePath. Please use a destination that starts with \`http://\` or \`https://\` https://nextjs.org/docs/messages/invalid-external-rewrite`);
+            numInvalidRoutes++;
+            continue;
+        }
+        const keys = Object.keys(route);
+        const invalidKeys = keys.filter((key)=>!allowedKeys.has(key));
+        const invalidParts = [];
+        if ('basePath' in route && typeof route.basePath !== 'undefined' && route.basePath !== false) {
+            invalidParts.push('`basePath` must be undefined or false');
+        }
+        if (typeof route.locale !== 'undefined' && route.locale !== false) {
+            invalidParts.push('`locale` must be undefined or false');
+        }
+        const checkInvalidHasMissing = (items, fieldName)=>{
+            let hadInvalidItem = false;
+            if (typeof items !== 'undefined' && !Array.isArray(items)) {
+                invalidParts.push(`\`${fieldName}\` must be undefined or valid has object`);
+                hadInvalidItem = true;
+            } else if (items) {
+                const invalidHasItems = [];
+                for (const hasItem of items){
+                    let invalidHasParts = [];
+                    if (!allowedHasTypes.has(hasItem.type)) {
+                        invalidHasParts.push(`invalid type "${hasItem.type}"`);
+                    }
+                    if (typeof hasItem.key !== 'string' && hasItem.type !== 'host') {
+                        invalidHasParts.push(`invalid key "${hasItem.key}"`);
+                    }
+                    if (typeof hasItem.value !== 'undefined' && typeof hasItem.value !== 'string') {
+                        invalidHasParts.push(`invalid value "${hasItem.value}"`);
+                    }
+                    if (typeof hasItem.value === 'undefined' && hasItem.type === 'host') {
+                        invalidHasParts.push(`value is required for "host" type`);
+                    }
+                    if (invalidHasParts.length > 0) {
+                        invalidHasItems.push(`${invalidHasParts.join(', ')} for ${JSON.stringify(hasItem)}`);
+                    }
+                }
+                if (invalidHasItems.length > 0) {
+                    hadInvalidItem = true;
+                    const itemStr = `item${invalidHasItems.length === 1 ? '' : 's'}`;
+                    console.error(`Invalid \`${fieldName}\` ${itemStr}:\n` + invalidHasItems.join('\n'));
+                    console.error();
+                    invalidParts.push(`invalid \`${fieldName}\` ${itemStr} found`);
+                }
+            }
+            return hadInvalidItem;
+        };
+        if (checkInvalidHasMissing(route.has, 'has')) {
+            hadInvalidHas = true;
+        }
+        if (checkInvalidHasMissing(route.missing, 'missing')) {
+            hadInvalidMissing = true;
+        }
+        if (!route.source) {
+            invalidParts.push('`source` is missing');
+        } else if (typeof route.source !== 'string') {
+            invalidParts.push('`source` is not a string');
+        } else if (!route.source.startsWith('/')) {
+            invalidParts.push('`source` does not start with /');
+        }
+        if (type === 'header') {
+            invalidParts.push(...checkHeader(route));
+        } else if (type !== 'middleware') {
+            let _route = route;
+            if (!_route.destination) {
+                invalidParts.push('`destination` is missing');
+            } else if (typeof _route.destination !== 'string') {
+                invalidParts.push('`destination` is not a string');
+            } else if (type === 'rewrite' && !_route.destination.match(/^(\/|https:\/\/|http:\/\/)/)) {
+                invalidParts.push('`destination` does not start with `/`, `http://`, or `https://`');
+            }
+        }
+        if (type === 'redirect') {
+            const result = checkRedirect(route);
+            hadInvalidStatus = hadInvalidStatus || result.hadInvalidStatus;
+            invalidParts.push(...result.invalidParts);
+        }
+        let sourceTokens;
+        if (typeof route.source === 'string' && route.source.startsWith('/')) {
+            // only show parse error if we didn't already show error
+            // for not being a string
+            const { tokens, error, regexStr } = (0, _trytoparsepath.tryToParsePath)(route.source);
+            if (error) {
+                invalidParts.push('`source` parse failed');
+            }
+            if (regexStr && regexStr.length > 4096) {
+                invalidParts.push('`source` exceeds max built length of 4096');
+            }
+            sourceTokens = tokens;
+        }
+        const hasSegments = new Set();
+        if (route.has) {
+            for (const hasItem of route.has){
+                if (!hasItem.value && hasItem.key) {
+                    hasSegments.add(hasItem.key);
+                }
+                if (hasItem.value) {
+                    for (const match of hasItem.value.matchAll(namedGroupsRegex)){
+                        if (match[1]) {
+                            hasSegments.add(match[1]);
+                        }
+                    }
+                    if (hasItem.type === 'host') {
+                        hasSegments.add('host');
+                    }
+                }
+            }
+        }
+        // make sure no unnamed patterns are attempted to be used in the
+        // destination as this can cause confusion and is not allowed
+        if (typeof route.destination === 'string') {
+            if (route.destination.startsWith('/') && Array.isArray(sourceTokens)) {
+                const unnamedInDest = new Set();
+                for (const token of sourceTokens){
+                    if (typeof token === 'object' && typeof token.name === 'number') {
+                        const unnamedIndex = new RegExp(`:${token.name}(?!\\d)`);
+                        if (route.destination.match(unnamedIndex)) {
+                            unnamedInDest.add(`:${token.name}`);
+                        }
+                    }
+                }
+                if (unnamedInDest.size > 0) {
+                    invalidParts.push(`\`destination\` has unnamed params ${[
+                        ...unnamedInDest
+                    ].join(', ')}`);
+                } else {
+                    const { tokens: destTokens, regexStr: destRegexStr, error: destinationParseFailed } = (0, _trytoparsepath.tryToParsePath)(route.destination, {
+                        handleUrl: true
+                    });
+                    if (destRegexStr && destRegexStr.length > 4096) {
+                        invalidParts.push('`destination` exceeds max built length of 4096');
+                    }
+                    if (destinationParseFailed) {
+                        invalidParts.push('`destination` parse failed');
+                    } else {
+                        const sourceSegments = new Set(sourceTokens.map((item)=>typeof item === 'object' && item.name).filter(Boolean));
+                        const invalidDestSegments = new Set();
+                        for (const token of destTokens){
+                            if (typeof token === 'object' && !sourceSegments.has(token.name) && !hasSegments.has(token.name)) {
+                                invalidDestSegments.add(token.name);
+                            }
+                        }
+                        if (invalidDestSegments.size) {
+                            invalidParts.push(`\`destination\` has segments not in \`source\` or \`has\` (${[
+                                ...invalidDestSegments
+                            ].join(', ')})`);
+                        }
+                    }
+                }
+            }
+        }
+        const hasInvalidKeys = invalidKeys.length > 0;
+        const hasInvalidParts = invalidParts.length > 0;
+        if (hasInvalidKeys || hasInvalidParts) {
+            console.error(`${invalidParts.join(', ')}${invalidKeys.length ? (hasInvalidParts ? ',' : '') + ` invalid field${invalidKeys.length === 1 ? '' : 's'}: ` + invalidKeys.join(',') : ''} for route ${JSON.stringify(route)}`);
+            console.error();
+            numInvalidRoutes++;
+        }
+    }
+    if (numInvalidRoutes > 0) {
+        if (hadInvalidStatus) {
+            console.error(`\nValid redirect statusCode values are ${[
+                ..._redirectstatus.allowedStatusCodes
+            ].join(', ')}`);
+        }
+        if (hadInvalidHas) {
+            console.error(`\nValid \`has\` object shape is ${JSON.stringify({
+                type: [
+                    ...allowedHasTypes
+                ].join(', '),
+                key: 'the key to check for',
+                value: 'undefined or a value string to match against'
+            }, null, 2)}`);
+        }
+        if (hadInvalidMissing) {
+            console.error(`\nValid \`missing\` object shape is ${JSON.stringify({
+                type: [
+                    ...allowedHasTypes
+                ].join(', '),
+                key: 'the key to check for',
+                value: 'undefined or a value string to match against'
+            }, null, 2)}`);
+        }
+        console.error();
+        console.error(`Error: Invalid ${type}${numInvalidRoutes === 1 ? '' : 's'} found`);
+        __TURBOPACK__imported__module__$5b$project$5d2f$JobPortal$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].exit(1);
+    }
+}
+function processRoutes(routes, config, type) {
+    const _routes = routes;
+    const newRoutes = [];
+    const defaultLocales = [];
+    if (config.i18n && type === 'redirect') {
+        var _config_i18n;
+        for (const item of ((_config_i18n = config.i18n) == null ? void 0 : _config_i18n.domains) || []){
+            defaultLocales.push({
+                locale: item.defaultLocale,
+                base: `http${item.http ? '' : 's'}://${item.domain}`
+            });
+        }
+        defaultLocales.push({
+            locale: config.i18n.defaultLocale,
+            base: ''
+        });
+    }
+    for (const r of _routes){
+        var _r_destination;
+        const srcBasePath = config.basePath && r.basePath !== false ? config.basePath : '';
+        const isExternal = !((_r_destination = r.destination) == null ? void 0 : _r_destination.startsWith('/'));
+        const destBasePath = srcBasePath && !isExternal ? srcBasePath : '';
+        if (config.i18n && r.locale !== false) {
+            var _r_destination1;
+            if (!isExternal) {
+                defaultLocales.forEach((item)=>{
+                    let destination;
+                    if (r.destination) {
+                        destination = item.base ? `${item.base}${destBasePath}${r.destination}` : `${destBasePath}${r.destination}`;
+                    }
+                    newRoutes.push({
+                        ...r,
+                        destination,
+                        source: `${srcBasePath}/${item.locale}${r.source === '/' && !config.trailingSlash ? '' : r.source}`
+                    });
+                });
+            }
+            r.source = `/:nextInternalLocale(${config.i18n.locales.map((locale)=>(0, _escaperegexp.escapeStringRegexp)(locale)).join('|')})${r.source === '/' && !config.trailingSlash ? '' : r.source}`;
+            if (r.destination && ((_r_destination1 = r.destination) == null ? void 0 : _r_destination1.startsWith('/'))) {
+                r.destination = `/:nextInternalLocale${r.destination === '/' && !config.trailingSlash ? '' : r.destination}`;
+            }
+        }
+        r.source = `${srcBasePath}${r.source === '/' && srcBasePath ? '' : r.source}`;
+        if (r.destination) {
+            r.destination = `${destBasePath}${r.destination === '/' && destBasePath ? '' : r.destination}`;
+        }
+        newRoutes.push(r);
+    }
+    return newRoutes;
+}
+async function loadRedirects(config) {
+    if (typeof config.redirects !== 'function') {
+        return [];
+    }
+    let redirects = await config.redirects();
+    // check before we process the routes and after to ensure
+    // they are still valid
+    checkCustomRoutes(redirects, 'redirect');
+    // save original redirects before transforms
+    if (Array.isArray(redirects)) {
+        config._originalRedirects = redirects.map((r)=>({
+                ...r
+            }));
+    }
+    redirects = processRoutes(redirects, config, 'redirect');
+    checkCustomRoutes(redirects, 'redirect');
+    return redirects;
+}
+async function loadRewrites(config) {
+    // If assetPrefix is set, add a rewrite for `/${assetPrefix}/_next/*`
+    // requests so that they are handled in any of dev, start, or deploy
+    // automatically without the user having to configure this.
+    // If the assetPrefix is an absolute URL, we still consider the path for automatic rewrite.
+    // but hostname routing must be handled by the user
+    let maybeAssetPrefixRewrite = [];
+    if (config.assetPrefix) {
+        let prefix = config.assetPrefix;
+        if ((0, _url.isFullStringUrl)(config.assetPrefix) && URL.canParse(config.assetPrefix)) {
+            prefix = new URL(config.assetPrefix).pathname;
+        }
+        if (prefix && prefix !== '/') {
+            const assetPrefix = prefix.startsWith('/') ? prefix : `/${prefix}`;
+            const basePath = config.basePath || '';
+            // If these are the same, then this would result in an infinite rewrite.
+            if (assetPrefix !== basePath) {
+                maybeAssetPrefixRewrite.push({
+                    source: `${assetPrefix}/_next/:path+`,
+                    destination: `${basePath}/_next/:path+`
+                });
+            }
+        }
+    }
+    if (typeof config.rewrites !== 'function') {
+        return {
+            beforeFiles: [
+                ...maybeAssetPrefixRewrite
+            ],
+            afterFiles: [],
+            fallback: []
+        };
+    }
+    const _rewrites = await config.rewrites();
+    let beforeFiles = [];
+    let afterFiles = [];
+    let fallback = [];
+    if (!Array.isArray(_rewrites) && typeof _rewrites === 'object' && Object.keys(_rewrites).every((key)=>key === 'beforeFiles' || key === 'afterFiles' || key === 'fallback')) {
+        beforeFiles = _rewrites.beforeFiles || [];
+        afterFiles = _rewrites.afterFiles || [];
+        fallback = _rewrites.fallback || [];
+    } else {
+        afterFiles = _rewrites;
+    }
+    // check before we process the routes and after to ensure
+    // they are still valid
+    checkCustomRoutes(beforeFiles, 'rewrite');
+    checkCustomRoutes(afterFiles, 'rewrite');
+    checkCustomRoutes(fallback, 'rewrite');
+    // save original rewrites before transforms
+    config._originalRewrites = {
+        beforeFiles: beforeFiles.map((r)=>({
+                ...r
+            })),
+        afterFiles: afterFiles.map((r)=>({
+                ...r
+            })),
+        fallback: fallback.map((r)=>({
+                ...r
+            }))
+    };
+    beforeFiles = [
+        ...maybeAssetPrefixRewrite,
+        ...processRoutes(beforeFiles, config, 'rewrite')
+    ];
+    afterFiles = processRoutes(afterFiles, config, 'rewrite');
+    fallback = processRoutes(fallback, config, 'rewrite');
+    checkCustomRoutes(beforeFiles, 'rewrite');
+    checkCustomRoutes(afterFiles, 'rewrite');
+    checkCustomRoutes(fallback, 'rewrite');
+    return {
+        beforeFiles,
+        afterFiles,
+        fallback
+    };
+}
+async function loadHeaders(config) {
+    if (typeof config.headers !== 'function') {
+        return [];
+    }
+    let headers = await config.headers();
+    // check before we process the routes and after to ensure
+    // they are still valid
+    checkCustomRoutes(headers, 'header');
+    headers = processRoutes(headers, config, 'header');
+    checkCustomRoutes(headers, 'header');
+    return headers;
+}
+async function loadCustomRoutes(config) {
+    var _config_experimental;
+    const [headers, rewrites, redirects] = await Promise.all([
+        loadHeaders(config),
+        loadRewrites(config),
+        loadRedirects(config)
+    ]);
+    const totalRewrites = rewrites.beforeFiles.length + rewrites.afterFiles.length + rewrites.fallback.length;
+    const totalRoutes = headers.length + redirects.length + totalRewrites;
+    if (totalRoutes > 1000) {
+        console.warn((0, _picocolors.bold)((0, _picocolors.yellow)(`Warning: `)) + `total number of custom routes exceeds 1000, this can reduce performance. Route counts:\n` + `headers: ${headers.length}\n` + `rewrites: ${totalRewrites}\n` + `redirects: ${redirects.length}\n` + `See more info: https://nextjs.org/docs/messages/max-custom-routes-reached`);
+    }
+    if (((_config_experimental = config.experimental) == null ? void 0 : _config_experimental.useSkewCookie) && config.deploymentId) {
+        headers.unshift({
+            source: '/:path*',
+            headers: [
+                {
+                    key: 'Set-Cookie',
+                    value: `__vdpl=${config.deploymentId}; Path=/; HttpOnly`
+                }
+            ]
+        });
+    }
+    if (!config.skipTrailingSlashRedirect) {
+        if (config.trailingSlash) {
+            redirects.unshift({
+                source: '/:file((?!\\.well-known(?:/.*)?)(?:[^/]+/)*[^/]+\\.\\w+)/',
+                destination: '/:file',
+                permanent: true,
+                locale: config.i18n ? false : undefined,
+                internal: true,
+                priority: true,
+                // don't run this redirect for _next/data requests
+                missing: [
+                    {
+                        type: 'header',
+                        key: 'x-nextjs-data'
+                    }
+                ]
+            }, {
+                source: '/:notfile((?!\\.well-known(?:/.*)?)(?:[^/]+/)*[^/\\.]+)',
+                destination: '/:notfile/',
+                permanent: true,
+                locale: config.i18n ? false : undefined,
+                internal: true,
+                priority: true
+            });
+            if (config.basePath) {
+                redirects.unshift({
+                    source: config.basePath,
+                    destination: config.basePath + '/',
+                    permanent: true,
+                    basePath: false,
+                    locale: config.i18n ? false : undefined,
+                    internal: true,
+                    priority: true
+                });
+            }
+        } else {
+            redirects.unshift({
+                source: '/:path+/',
+                destination: '/:path+',
+                permanent: true,
+                locale: config.i18n ? false : undefined,
+                internal: true,
+                priority: true
+            });
+            if (config.basePath) {
+                redirects.unshift({
+                    source: config.basePath + '/',
+                    destination: config.basePath,
+                    permanent: true,
+                    basePath: false,
+                    locale: config.i18n ? false : undefined,
+                    internal: true,
+                    priority: true
+                });
+            }
+        }
+    }
+    return {
+        headers,
+        rewrites,
+        redirects
+    };
+} //# sourceMappingURL=load-custom-routes.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/build-custom-route.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+Object.defineProperty(exports, "buildCustomRoute", {
+    enumerable: true,
+    get: function() {
+        return buildCustomRoute;
+    }
+});
+const _pathtoregexp = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/compiled/path-to-regexp/index.js [app-client] (ecmascript)");
+const _loadcustomroutes = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/lib/load-custom-routes.js [app-client] (ecmascript)");
+const _redirectstatus = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/lib/redirect-status.js [app-client] (ecmascript)");
+function buildCustomRoute(type, route, restrictedRedirectPaths) {
+    const compiled = (0, _pathtoregexp.pathToRegexp)(route.source, [], {
+        strict: true,
+        sensitive: false,
+        delimiter: '/'
+    });
+    let source = compiled.source;
+    if (!route.internal) {
+        source = (0, _redirectstatus.modifyRouteRegex)(source, type === 'redirect' ? restrictedRedirectPaths : undefined);
+    }
+    // If this is an internal rewrite and it already provides a regex, use it
+    // otherwise, normalize the source to a regex.
+    let regex;
+    if (!route.internal || type !== 'rewrite' || !('regex' in route) || typeof route.regex !== 'string') {
+        regex = (0, _loadcustomroutes.normalizeRouteRegex)(source);
+    } else {
+        regex = route.regex;
+    }
+    if (type !== 'redirect') {
+        return {
+            ...route,
+            regex
+        };
+    }
+    return {
+        ...route,
+        statusCode: (0, _redirectstatus.getRedirectStatus)(route),
+        permanent: undefined,
+        regex
+    };
+} //# sourceMappingURL=build-custom-route.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/get-network-host.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+Object.defineProperty(exports, "getNetworkHost", {
+    enumerable: true,
+    get: function() {
+        return getNetworkHost;
+    }
+});
+const _os = /*#__PURE__*/ _interop_require_default(__turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/compiled/os-browserify/browser.js [app-client] (ecmascript)"));
+function _interop_require_default(obj) {
+    return obj && obj.__esModule ? obj : {
+        default: obj
+    };
+}
+function getNetworkHosts(family) {
+    const interfaces = _os.default.networkInterfaces();
+    const hosts = [];
+    Object.keys(interfaces).forEach((key)=>{
+        var _interfaces_key;
+        (_interfaces_key = interfaces[key]) == null ? void 0 : _interfaces_key.filter((networkInterface)=>{
+            switch(networkInterface.family){
+                case 'IPv6':
+                    return family === 'IPv6' && networkInterface.scopeid === 0 && networkInterface.address !== '::1';
+                case 'IPv4':
+                    return family === 'IPv4' && networkInterface.address !== '127.0.0.1';
+                default:
+                    return false;
+            }
+        }).forEach((networkInterface)=>{
+            if (networkInterface.address) {
+                hosts.push(networkInterface.address);
+            }
+        });
+    });
+    return hosts;
+}
+function getNetworkHost(family) {
+    const hosts = getNetworkHosts(family);
+    return hosts[0] ?? null;
+} //# sourceMappingURL=get-network-host.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/verify-partytown-setup.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+Object.defineProperty(exports, "verifyPartytownSetup", {
+    enumerable: true,
+    get: function() {
+        return verifyPartytownSetup;
+    }
+});
+const _fs = (()=>{
+    const e = new Error("Cannot find module 'fs'");
+    e.code = 'MODULE_NOT_FOUND';
+    throw e;
+})();
+const _picocolors = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/lib/picocolors.js [app-client] (ecmascript)");
+const _path = /*#__PURE__*/ _interop_require_default(__turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/compiled/path-browserify/index.js [app-client] (ecmascript)"));
+const _hasnecessarydependencies = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/lib/has-necessary-dependencies.js [app-client] (ecmascript)");
+const _fileexists = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/lib/file-exists.js [app-client] (ecmascript)");
+const _fatalerror = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/lib/fatal-error.js [app-client] (ecmascript)");
+const _log = /*#__PURE__*/ _interop_require_wildcard(__turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/build/output/log.js [app-client] (ecmascript)"));
+const _getpkgmanager = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/lib/helpers/get-pkg-manager.js [app-client] (ecmascript)");
+function _interop_require_default(obj) {
+    return obj && obj.__esModule ? obj : {
+        default: obj
+    };
+}
+function _getRequireWildcardCache(nodeInterop) {
+    if (typeof WeakMap !== "function") return null;
+    var cacheBabelInterop = new WeakMap();
+    var cacheNodeInterop = new WeakMap();
+    return (_getRequireWildcardCache = function(nodeInterop) {
+        return nodeInterop ? cacheNodeInterop : cacheBabelInterop;
+    })(nodeInterop);
+}
+function _interop_require_wildcard(obj, nodeInterop) {
+    if (!nodeInterop && obj && obj.__esModule) {
+        return obj;
+    }
+    if (obj === null || typeof obj !== "object" && typeof obj !== "function") {
+        return {
+            default: obj
+        };
+    }
+    var cache = _getRequireWildcardCache(nodeInterop);
+    if (cache && cache.has(obj)) {
+        return cache.get(obj);
+    }
+    var newObj = {
+        __proto__: null
+    };
+    var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;
+    for(var key in obj){
+        if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) {
+            var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;
+            if (desc && (desc.get || desc.set)) {
+                Object.defineProperty(newObj, key, desc);
+            } else {
+                newObj[key] = obj[key];
+            }
+        }
+    }
+    newObj.default = obj;
+    if (cache) {
+        cache.set(obj, newObj);
+    }
+    return newObj;
+}
+async function missingDependencyError(dir) {
+    const packageManager = (0, _getpkgmanager.getPkgManager)(dir);
+    throw Object.defineProperty(new _fatalerror.FatalError((0, _picocolors.bold)((0, _picocolors.red)("It looks like you're trying to use Partytown with next/script but do not have the required package(s) installed.")) + '\n\n' + (0, _picocolors.bold)(`Please install Partytown by running:`) + '\n\n' + `\t${(0, _picocolors.bold)((0, _picocolors.cyan)((packageManager === 'yarn' ? 'yarn add --dev' : packageManager === 'pnpm' ? 'pnpm install --save-dev' : 'npm install --save-dev') + ' @builder.io/partytown'))}` + '\n\n' + (0, _picocolors.bold)(`If you are not trying to use Partytown, please disable the experimental ${(0, _picocolors.cyan)('"nextScriptWorkers"')} flag in next.config.js.`) + '\n'), "__NEXT_ERROR_CODE", {
+        value: "E552",
+        enumerable: false,
+        configurable: true
+    });
+}
+async function copyPartytownStaticFiles(deps, staticDir) {
+    const partytownLibDir = _path.default.join(staticDir, '~partytown');
+    const hasPartytownLibDir = await (0, _fileexists.fileExists)(partytownLibDir, _fileexists.FileType.Directory);
+    if (hasPartytownLibDir) {
+        await _fs.promises.rm(partytownLibDir, {
+            recursive: true,
+            force: true
+        });
+    }
+    const { copyLibFiles } = await Promise.resolve((()=>{
+        const e = new Error("Cannot find module as expression is too dynamic");
+        e.code = 'MODULE_NOT_FOUND';
+        throw e;
+    })());
+    await copyLibFiles(partytownLibDir);
+}
+async function verifyPartytownSetup(dir, targetDir) {
+    try {
+        var _partytownDeps_missing;
+        const partytownDeps = (0, _hasnecessarydependencies.hasNecessaryDependencies)(dir, [
+            {
+                file: '@builder.io/partytown',
+                pkg: '@builder.io/partytown',
+                exportsRestrict: false
+            }
+        ]);
+        if (((_partytownDeps_missing = partytownDeps.missing) == null ? void 0 : _partytownDeps_missing.length) > 0) {
+            await missingDependencyError(dir);
+        } else {
+            try {
+                await copyPartytownStaticFiles(partytownDeps, targetDir);
+            } catch (err) {
+                _log.warn(`Partytown library files could not be copied to the static directory. Please ensure that ${(0, _picocolors.bold)((0, _picocolors.cyan)('@builder.io/partytown'))} is installed as a dependency.`);
+            }
+        }
+    } catch (err) {
+        // Don't show a stack trace when there is an error due to missing dependencies
+        if (err instanceof _fatalerror.FatalError) {
+            console.error(err.message);
+            // Throw to allow finally blocks to run (e.g., telemetry flush)
+            throw err;
+        }
+        throw err;
+    }
+} //# sourceMappingURL=verify-partytown-setup.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/create-client-router-filter.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+Object.defineProperty(exports, "createClientRouterFilter", {
+    enumerable: true,
+    get: function() {
+        return createClientRouterFilter;
+    }
+});
+const _bloomfilter = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/shared/lib/bloom-filter.js [app-client] (ecmascript)");
+const _utils = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/shared/lib/router/utils/index.js [app-client] (ecmascript)");
+const _removetrailingslash = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/shared/lib/router/utils/remove-trailing-slash.js [app-client] (ecmascript)");
+const _trytoparsepath = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/lib/try-to-parse-path.js [app-client] (ecmascript)");
+const _interceptionroutes = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/shared/lib/router/utils/interception-routes.js [app-client] (ecmascript)");
+function createClientRouterFilter(paths, redirects, allowedErrorRate) {
+    const staticPaths = new Set();
+    const dynamicPaths = new Set();
+    for (let path of paths){
+        if ((0, _utils.isDynamicRoute)(path)) {
+            if ((0, _interceptionroutes.isInterceptionRouteAppPath)(path)) {
+                path = (0, _interceptionroutes.extractInterceptionRouteInformation)(path).interceptedRoute;
+            }
+            let subPath = '';
+            const pathParts = path.split('/');
+            // start at 1 since we split on '/' and the path starts
+            // with this so the first entry is an empty string
+            for(let i = 1; i < pathParts.length; i++){
+                const curPart = pathParts[i];
+                if (curPart.startsWith('[')) {
+                    break;
+                }
+                subPath = `${subPath}/${curPart}`;
+            }
+            if (subPath) {
+                dynamicPaths.add(subPath);
+            }
+        } else {
+            staticPaths.add(path);
+        }
+    }
+    for (const redirect of redirects){
+        const { source } = redirect;
+        const path = (0, _removetrailingslash.removeTrailingSlash)(source);
+        let tokens = [];
+        try {
+            tokens = (0, _trytoparsepath.tryToParsePath)(source).tokens || [];
+        } catch  {}
+        if (tokens.every((token)=>typeof token === 'string')) {
+            // only include static redirects initially
+            staticPaths.add(path);
+        }
+    }
+    const staticFilter = _bloomfilter.BloomFilter.from([
+        ...staticPaths
+    ], allowedErrorRate);
+    const dynamicFilter = _bloomfilter.BloomFilter.from([
+        ...dynamicPaths
+    ], allowedErrorRate);
+    const data = {
+        staticFilter: staticFilter.export(),
+        dynamicFilter: dynamicFilter.export()
+    };
+    return data;
+} //# sourceMappingURL=create-client-router-filter.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/normalize-path.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+Object.defineProperty(exports, "normalizePath", {
+    enumerable: true,
+    get: function() {
+        return normalizePath;
+    }
+});
+const _path = /*#__PURE__*/ _interop_require_default(__turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/compiled/path-browserify/index.js [app-client] (ecmascript)"));
+function _interop_require_default(obj) {
+    return obj && obj.__esModule ? obj : {
+        default: obj
+    };
+}
+function normalizePath(file) {
+    return _path.default.sep === '\\' ? file.replace(/\\/g, '/') : file;
+} //# sourceMappingURL=normalize-path.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/with-promise-cache.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+Object.defineProperty(exports, "withPromiseCache", {
+    enumerable: true,
+    get: function() {
+        return withPromiseCache;
+    }
+});
+function withPromiseCache(cache, fn, getKey) {
+    return (...values)=>{
+        const key = getKey ? getKey(...values) : values[0];
+        let p = cache.get(key);
+        if (!p) {
+            p = fn(...values);
+            p.catch(()=>cache.remove(key));
+            cache.set(key, p);
+        }
+        return p;
+    };
+} //# sourceMappingURL=with-promise-cache.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/is-internal-component.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+0 && (module.exports = {
+    isInternalComponent: null,
+    isNonRoutePagesPage: null
+});
+function _export(target, all) {
+    for(var name in all)Object.defineProperty(target, name, {
+        enumerable: true,
+        get: all[name]
+    });
+}
+_export(exports, {
+    isInternalComponent: function() {
+        return isInternalComponent;
+    },
+    isNonRoutePagesPage: function() {
+        return isNonRoutePagesPage;
+    }
+});
+function isInternalComponent(pathname) {
+    switch(pathname){
+        case 'next/dist/pages/_app':
+        case 'next/dist/pages/_document':
+            return true;
+        default:
+            return false;
+    }
+}
+function isNonRoutePagesPage(pathname) {
+    return pathname === '/_app' || pathname === '/_document';
+} //# sourceMappingURL=is-internal-component.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/find-config.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+var __TURBOPACK__imported__module__$5b$project$5d2f$JobPortal$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/JobPortal/frontend/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
+"use strict";
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+0 && (module.exports = {
+    findConfig: null,
+    findConfigPath: null
+});
+function _export(target, all) {
+    for(var name in all)Object.defineProperty(target, name, {
+        enumerable: true,
+        get: all[name]
+    });
+}
+_export(exports, {
+    findConfig: function() {
+        return findConfig;
+    },
+    findConfigPath: function() {
+        return findConfigPath;
+    }
+});
+const _findup = /*#__PURE__*/ _interop_require_default(__turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/compiled/find-up/index.js [app-client] (ecmascript)"));
+const _promises = (()=>{
+    const e = new Error("Cannot find module 'fs/promises'");
+    e.code = 'MODULE_NOT_FOUND';
+    throw e;
+})();
+const _json5 = /*#__PURE__*/ _interop_require_default(__turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/compiled/json5/index.js [app-client] (ecmascript)"));
+const _url = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/compiled/native-url/index.js [app-client] (ecmascript)");
+function _interop_require_default(obj) {
+    return obj && obj.__esModule ? obj : {
+        default: obj
+    };
+}
+function findConfigPath(dir, key) {
+    // If we didn't find the configuration in `package.json`, we should look for
+    // known filenames.
+    return (0, _findup.default)([
+        `.${key}rc.json`,
+        `${key}.config.json`,
+        `.${key}rc.js`,
+        `${key}.config.js`,
+        `${key}.config.mjs`,
+        `${key}.config.cjs`
+    ], {
+        cwd: dir
+    });
+}
+async function findConfig(directory, key, _returnFile) {
+    // `package.json` configuration always wins. Let's check that first.
+    const packageJsonPath = await (0, _findup.default)('package.json', {
+        cwd: directory
+    });
+    let isESM = false;
+    if (packageJsonPath) {
+        try {
+            const packageJsonStr = await (0, _promises.readFile)(packageJsonPath, 'utf8');
+            const packageJson = JSON.parse(packageJsonStr);
+            if (typeof packageJson !== 'object') {
+                throw new Error() // Stop processing and continue
+                ;
+            }
+            if (packageJson.type === 'module') {
+                isESM = true;
+            }
+            if (packageJson[key] != null && typeof packageJson[key] === 'object') {
+                return packageJson[key];
+            }
+        } catch  {
+        // Ignore error and continue
+        }
+    }
+    const filePath = await findConfigPath(directory, key);
+    const esmImport = (path)=>{
+        // Skip mapping to absolute url with pathToFileURL on windows if it's jest
+        // https://github.com/nodejs/node/issues/31710#issuecomment-587345749
+        if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
+        ;
+        else {
+            return Promise.resolve().then(()=>{
+                const e = new Error("Cannot find module as expression is too dynamic");
+                e.code = 'MODULE_NOT_FOUND';
+                throw e;
+            });
+        }
+    };
+    if (filePath) {
+        if (filePath.endsWith('.js')) {
+            if (isESM) {
+                return (await esmImport(filePath)).default;
+            } else {
+                return (()=>{
+                    const e = new Error("Cannot find module as expression is too dynamic");
+                    e.code = 'MODULE_NOT_FOUND';
+                    throw e;
+                })();
+            }
+        } else if (filePath.endsWith('.mjs')) {
+            return (await esmImport(filePath)).default;
+        } else if (filePath.endsWith('.cjs')) {
+            return (()=>{
+                const e = new Error("Cannot find module as expression is too dynamic");
+                e.code = 'MODULE_NOT_FOUND';
+                throw e;
+            })();
+        }
+        // We load JSON contents with JSON5 to allow users to comment in their
+        // configuration file. This pattern was popularized by TypeScript.
+        const fileContents = await (0, _promises.readFile)(filePath, 'utf8');
+        return _json5.default.parse(fileContents);
+    }
+    return null;
+} //# sourceMappingURL=find-config.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/known-edge-safe-packages.json (json)", ((__turbopack_context__) => {
+
+__turbopack_context__.v(["function-bind"]);}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/server-external-packages.json (json)", ((__turbopack_context__) => {
+
+__turbopack_context__.v(["@appsignal/nodejs","@aws-sdk/client-s3","@aws-sdk/s3-presigned-post","@blockfrost/blockfrost-js","@highlight-run/node","@huggingface/transformers","@jpg-store/lucid-cardano","@libsql/client","@mikro-orm/core","@mikro-orm/knex","@node-rs/argon2","@node-rs/bcrypt","@prisma/client","@react-pdf/renderer","@sentry/profiling-node","@sparticuz/chromium","@sparticuz/chromium-min","@statsig/statsig-node-core","@swc/core","@xenova/transformers","argon2","autoprefixer","aws-crt","bcrypt","better-sqlite3","canvas","chromadb-default-embed","config","cpu-features","cypress","dd-trace","eslint","express","firebase-admin","htmlrewriter","import-in-the-middle","isolated-vm","jest","jsdom","keyv","libsql","mdx-bundler","mongodb","mongoose","newrelic","next-mdx-remote","next-seo","node-cron","node-pty","node-web-audio-api","onnxruntime-node","oslo","pg","playwright","playwright-core","postcss","prettier","prisma","puppeteer","puppeteer-core","ravendb","require-in-the-middle","rimraf","sharp","shiki","sqlite3","ts-node","ts-morph","typescript","vscode-oniguruma","webpack","websocket","zeromq"]);}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/default-transpiled-packages.json (json)", ((__turbopack_context__) => {
+
+__turbopack_context__.v(["geist"]);}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/recursive-delete.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+0 && (module.exports = {
+    calcBackoffMs: null,
+    recursiveDeleteSyncWithAsyncRetries: null
+});
+function _export(target, all) {
+    for(var name in all)Object.defineProperty(target, name, {
+        enumerable: true,
+        get: all[name]
+    });
+}
+_export(exports, {
+    calcBackoffMs: function() {
+        return calcBackoffMs;
+    },
+    recursiveDeleteSyncWithAsyncRetries: function() {
+        return recursiveDeleteSyncWithAsyncRetries;
+    }
+});
+const _nodefs = /*#__PURE__*/ _interop_require_wildcard((()=>{
+    const e = new Error("Cannot find module 'node:fs': Unsupported external type Url for commonjs reference");
+    e.code = 'MODULE_NOT_FOUND';
+    throw e;
+})());
+const _nodepath = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/compiled/path-browserify/index.js [app-client] (ecmascript)");
+const _iserror = /*#__PURE__*/ _interop_require_default(__turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/lib/is-error.js [app-client] (ecmascript)"));
+const _wait = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/lib/wait.js [app-client] (ecmascript)");
+function _interop_require_default(obj) {
+    return obj && obj.__esModule ? obj : {
+        default: obj
+    };
+}
+function _getRequireWildcardCache(nodeInterop) {
+    if (typeof WeakMap !== "function") return null;
+    var cacheBabelInterop = new WeakMap();
+    var cacheNodeInterop = new WeakMap();
+    return (_getRequireWildcardCache = function(nodeInterop) {
+        return nodeInterop ? cacheNodeInterop : cacheBabelInterop;
+    })(nodeInterop);
+}
+function _interop_require_wildcard(obj, nodeInterop) {
+    if (!nodeInterop && obj && obj.__esModule) {
+        return obj;
+    }
+    if (obj === null || typeof obj !== "object" && typeof obj !== "function") {
+        return {
+            default: obj
+        };
+    }
+    var cache = _getRequireWildcardCache(nodeInterop);
+    if (cache && cache.has(obj)) {
+        return cache.get(obj);
+    }
+    var newObj = {
+        __proto__: null
+    };
+    var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;
+    for(var key in obj){
+        if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) {
+            var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;
+            if (desc && (desc.get || desc.set)) {
+                Object.defineProperty(newObj, key, desc);
+            } else {
+                newObj[key] = obj[key];
+            }
+        }
+    }
+    newObj.default = obj;
+    if (cache) {
+        cache.set(obj, newObj);
+    }
+    return newObj;
+}
+// We use an exponential backoff. See the unit test for example values.
+//
+// - Node's `fs` module uses a linear backoff, starting with 100ms.
+// - Rust tries 64 times with only a `thread::yield_now` in between.
+//
+// We want something more aggressive, as `recursiveDelete` is in the critical
+// path of `next dev` and `next build` startup.
+const INITIAL_RETRY_MS = 8;
+const MAX_RETRY_MS = 64;
+const MAX_RETRIES = 6;
+function calcBackoffMs(attempt) {
+    return Math.min(INITIAL_RETRY_MS * Math.pow(2, attempt), MAX_RETRY_MS);
+}
+function unlinkPath(p, isDir = false, attempt = 0) {
+    try {
+        if (isDir) {
+            _nodefs.rmdirSync(p);
+        } else {
+            _nodefs.unlinkSync(p);
+        }
+    } catch (e) {
+        const code = (0, _iserror.default)(e) && e.code;
+        if ((code === 'EBUSY' || code === 'ENOTEMPTY' || code === 'EPERM' || code === 'EMFILE') && attempt < MAX_RETRIES) {
+            // retrying is unlikely to succeed on POSIX platforms, but Windows can
+            // fail due to temporarily-open files
+            return (async ()=>{
+                await (0, _wait.wait)(calcBackoffMs(attempt));
+                return unlinkPath(p, isDir, attempt + 1);
+            })();
+        }
+        if (code === 'ENOENT') {
+            return;
+        }
+        throw e;
+    }
+}
+async function recursiveDeleteSyncWithAsyncRetries(/** Directory to delete the contents of */ dir, /** Exclude based on relative file path */ exclude, /** Relative path to the directory being deleted, used for exclude */ previousPath = '') {
+    let result;
+    try {
+        result = _nodefs.readdirSync(dir, {
+            withFileTypes: true
+        });
+    } catch (e) {
+        if ((0, _iserror.default)(e) && e.code === 'ENOENT') {
+            return;
+        }
+        throw e;
+    }
+    await Promise.all(result.map(async (part)=>{
+        const absolutePath = (0, _nodepath.join)(dir, part.name);
+        const pp = (0, _nodepath.join)(previousPath, part.name);
+        const isNotExcluded = !exclude || !exclude.test(pp);
+        if (isNotExcluded) {
+            // Note: readdir does not follow symbolic links, that's good: we want to
+            // delete the links and not the destination.
+            let isDirectory = part.isDirectory();
+            if (isDirectory) {
+                await recursiveDeleteSyncWithAsyncRetries(absolutePath, exclude, pp);
+            }
+            return unlinkPath(absolutePath, isDirectory);
+        }
+    }));
+} //# sourceMappingURL=recursive-delete.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/fs/rename.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+/*
+MIT License
+
+Copyright (c) 2015 - present Microsoft Corporation
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+ */ // This file is based on https://github.com/microsoft/vscode/blob/f860fcf11022f10a992440fd54c6e45674e39617/src/vs/base/node/pfs.ts
+// See the LICENSE at the top of the file
+var __TURBOPACK__imported__module__$5b$project$5d2f$JobPortal$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/JobPortal/frontend/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
+"use strict";
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+Object.defineProperty(exports, "renameSync", {
+    enumerable: true,
+    get: function() {
+        return renameSync;
+    }
+});
+const _nodefs = (()=>{
+    const e = new Error("Cannot find module 'node:fs': Unsupported external type Url for commonjs reference");
+    e.code = 'MODULE_NOT_FOUND';
+    throw e;
+})();
+function renameSync(source, target, windowsRetryTimeout = 60000 /* matches graceful-fs */ ) {
+    if (source === target) {
+        return; // simulate node.js behaviour here and do a no-op if paths match
+    }
+    if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
+    ;
+    else {
+        (0, _nodefs.renameSync)(source, target);
+    }
+}
+function renameSyncWithRetry(source, target, startTime, retryTimeout, attempt = 0) {
+    try {
+        return (0, _nodefs.renameSync)(source, target);
+    } catch (error) {
+        if (error.code !== 'EACCES' && error.code !== 'EPERM' && error.code !== 'EBUSY') {
+            throw error // only for errors we think are temporary
+            ;
+        }
+        if (Date.now() - startTime >= retryTimeout) {
+            console.error(`Node.js fs rename failed after ${attempt} retries with error: ${error}`);
+            throw error // give up after configurable timeout
+            ;
+        }
+        if (attempt > 100) {
+            console.error(`Node.js fs rename failed after ${attempt} retries with error ${error}`);
+            throw error;
+        }
+        if (attempt === 0) {
+            let abortRetry = false;
+            try {
+                const statTarget = (0, _nodefs.statSync)(target);
+                if (!statTarget.isFile()) {
+                    abortRetry = true // if target is not a file, EPERM error may be raised and we should not attempt to retry
+                    ;
+                }
+            } catch (e) {
+            // Ignore
+            }
+            if (abortRetry) {
+                throw error;
+            }
+        }
+        // Attempt again
+        return renameSyncWithRetry(source, target, startTime, retryTimeout, attempt + 1);
+    }
+} //# sourceMappingURL=rename.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/fs/write-atomic.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+Object.defineProperty(exports, "writeFileAtomic", {
+    enumerable: true,
+    get: function() {
+        return writeFileAtomic;
+    }
+});
+const _fs = (()=>{
+    const e = new Error("Cannot find module 'fs'");
+    e.code = 'MODULE_NOT_FOUND';
+    throw e;
+})();
+const _rename = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/lib/fs/rename.js [app-client] (ecmascript)");
+function writeFileAtomic(filePath, content) {
+    const tempPath = filePath + '.tmp.' + Math.random().toString(36).slice(2);
+    try {
+        (0, _fs.writeFileSync)(tempPath, content, 'utf-8');
+        (0, _rename.renameSync)(tempPath, filePath);
+    } catch (e) {
+        try {
+            (0, _fs.unlinkSync)(tempPath);
+        } catch  {
+        // ignore
+        }
+        throw e;
+    }
+} //# sourceMappingURL=write-atomic.js.map
+}),
+"[project]/JobPortal/frontend/node_modules/next/dist/lib/turbopack-warning.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+var __TURBOPACK__imported__module__$5b$project$5d2f$JobPortal$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/JobPortal/frontend/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
+"use strict";
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+Object.defineProperty(exports, "validateTurboNextConfig", {
+    enumerable: true,
+    get: function() {
+        return validateTurboNextConfig;
+    }
+});
+const _config = /*#__PURE__*/ _interop_require_default(__turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/server/config.js [app-client] (ecmascript)"));
+const _log = /*#__PURE__*/ _interop_require_wildcard(__turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/build/output/log.js [app-client] (ecmascript)"));
+const _constants = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/shared/lib/constants.js [app-client] (ecmascript)");
+function _interop_require_default(obj) {
+    return obj && obj.__esModule ? obj : {
+        default: obj
+    };
+}
+function _getRequireWildcardCache(nodeInterop) {
+    if (typeof WeakMap !== "function") return null;
+    var cacheBabelInterop = new WeakMap();
+    var cacheNodeInterop = new WeakMap();
+    return (_getRequireWildcardCache = function(nodeInterop) {
+        return nodeInterop ? cacheNodeInterop : cacheBabelInterop;
+    })(nodeInterop);
+}
+function _interop_require_wildcard(obj, nodeInterop) {
+    if (!nodeInterop && obj && obj.__esModule) {
+        return obj;
+    }
+    if (obj === null || typeof obj !== "object" && typeof obj !== "function") {
+        return {
+            default: obj
+        };
+    }
+    var cache = _getRequireWildcardCache(nodeInterop);
+    if (cache && cache.has(obj)) {
+        return cache.get(obj);
+    }
+    var newObj = {
+        __proto__: null
+    };
+    var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;
+    for(var key in obj){
+        if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) {
+            var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;
+            if (desc && (desc.get || desc.set)) {
+                Object.defineProperty(newObj, key, desc);
+            } else {
+                newObj[key] = obj[key];
+            }
+        }
+    }
+    newObj.default = obj;
+    if (cache) {
+        cache.set(obj, newObj);
+    }
+    return newObj;
+}
+const unsupportedTurbopackNextConfigOptions = [
+    // Left to be implemented (priority)
+    // 'experimental.clientRouterFilter',
+    // 'experimental.optimizePackageImports',
+    // 'compiler.emotion',
+    // 'compiler.reactRemoveProperties',
+    // 'compiler.relay',
+    // 'compiler.removeConsole',
+    // 'compiler.styledComponents',
+    'experimental.fetchCacheKeyPrefix',
+    // Left to be implemented
+    // 'excludeDefaultMomentLocales',
+    // 'experimental.optimizeServerReact',
+    'experimental.clientRouterFilterAllowedRate',
+    // 'experimental.serverMinification',
+    // 'experimental.serverSourceMaps',
+    'experimental.allowedRevalidateHeaderKeys',
+    'experimental.extensionAlias',
+    'experimental.fallbackNodePolyfills',
+    'experimental.sri.algorithm',
+    'experimental.swcTraceProfiling',
+    // Left to be implemented (Might not be needed for Turbopack)
+    'experimental.craCompat',
+    'experimental.disablePostcssPresetEnv',
+    'experimental.esmExternals',
+    // This is used to force swc-loader to run regardless of finding Babel.
+    'experimental.forceSwcTransforms',
+    'experimental.fullySpecified',
+    'experimental.urlImports',
+    'experimental.slowModuleDetection'
+];
+async function validateTurboNextConfig({ dir, isDev }) {
+    const { defaultConfig } = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/server/config-shared.js [app-client] (ecmascript)");
+    const { cyan, red, underline } = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/lib/picocolors.js [app-client] (ecmascript)");
+    const { interopDefault } = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/next/dist/lib/interop-default.js [app-client] (ecmascript)");
+    let unsupportedParts = '';
+    let hasWebpackConfig = false;
+    let hasTurboConfig = false;
+    const unsupportedConfig = [];
+    let rawNextConfig = {};
+    const phase = isDev ? _constants.PHASE_DEVELOPMENT_SERVER : _constants.PHASE_PRODUCTION_BUILD;
+    try {
+        rawNextConfig = interopDefault(await (0, _config.default)(phase, dir, {
+            rawConfig: true
+        }));
+        if (typeof rawNextConfig === 'function') {
+            rawNextConfig = rawNextConfig(phase, {
+                defaultConfig
+            });
+        }
+        hasWebpackConfig = Boolean(rawNextConfig.webpack);
+        hasTurboConfig = Boolean(rawNextConfig.turbopack);
+        const flattenKeys = (obj, prefix = '')=>{
+            let keys = [];
+            for(const key in obj){
+                const value = obj == null ? void 0 : obj[key];
+                if (typeof value === 'undefined') {
+                    continue;
+                }
+                const pre = prefix.length ? `${prefix}.` : '';
+                if (typeof value === 'object' && !Array.isArray(value) && value !== null) {
+                    keys = keys.concat(flattenKeys(value, pre + key));
+                } else {
+                    keys.push(pre + key);
+                }
+            }
+            return keys;
+        };
+        const getDeepValue = (obj, keys)=>{
+            if (typeof keys === 'string') {
+                keys = keys.split('.');
+            }
+            if (keys.length === 1) {
+                return obj == null ? void 0 : obj[keys == null ? void 0 : keys[0]];
+            }
+            return getDeepValue(obj == null ? void 0 : obj[keys == null ? void 0 : keys[0]], keys.slice(1));
+        };
+        const customKeys = flattenKeys(rawNextConfig);
+        for (const key of customKeys){
+            if (key.startsWith('experimental.turbo')) {
+                hasTurboConfig = true;
+            }
+            const isUnsupported = unsupportedTurbopackNextConfigOptions.some((unsupportedKey)=>// unsupportedKey, or the key is the path to a specific subkey.
+                // | key     | unsupportedKey |
+                // |---------|----------------|
+                // | foo     | foo            |
+                // | foo.bar | foo            |
+                // | foo     | foo.bar        |
+                key.startsWith(unsupportedKey) || unsupportedKey.startsWith(`${key}.`)) && getDeepValue(rawNextConfig, key) !== getDeepValue(defaultConfig, key);
+            if (isUnsupported) {
+                unsupportedConfig.push(key);
+            }
+        }
+    } catch (e) {
+        _log.error('Unexpected error occurred while checking config', e);
+    }
+    // If the build was defaulted to Turbopack, we want to warn about possibly ignored webpack
+    // configuration. Otherwise the user explicitly picked turbopack and thus we expect that
+    // they have configured it correctly.
+    if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
+    ;
+    if (unsupportedConfig.length) {
+        unsupportedParts += `\n\n- Unsupported Next.js configuration option(s) (${cyan('next.config.js')})\n  Turbopack will ignore the following configuration options:\n${unsupportedConfig.map((name)=>`    - ${red(name)}\n`).join('')}`;
+    }
+    if (unsupportedParts) {
+        _log.error(`You are using configuration and/or tools that are not yet\nsupported by Next.js with Turbopack:\n${unsupportedParts}\n`);
+        _log.warn('Learn more about how to configure Turbopack with Next.js:\n' + underline('https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack'));
+    }
+    return rawNextConfig;
+} //# sourceMappingURL=turbopack-warning.js.map
+}),
+]);
+
+//# sourceMappingURL=661c0_next_dist_lib_62f39c5a._.js.map

@@ -1,0 +1,161 @@
+(globalThis.TURBOPACK || (globalThis.TURBOPACK = [])).push([typeof document === "object" ? document.currentScript : undefined,
+"[project]/JobPortal/frontend/node_modules/caniuse-lite/dist/unpacker/browsers.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+
+module.exports.browsers = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/caniuse-lite/data/browsers.js [app-client] (ecmascript)");
+}),
+"[project]/JobPortal/frontend/node_modules/caniuse-lite/dist/unpacker/browserVersions.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+
+module.exports.browserVersions = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/caniuse-lite/data/browserVersions.js [app-client] (ecmascript)");
+}),
+"[project]/JobPortal/frontend/node_modules/caniuse-lite/dist/unpacker/agents.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+const browsers = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/caniuse-lite/dist/unpacker/browsers.js [app-client] (ecmascript)").browsers;
+const versions = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/caniuse-lite/dist/unpacker/browserVersions.js [app-client] (ecmascript)").browserVersions;
+const agentsData = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/caniuse-lite/data/agents.js [app-client] (ecmascript)");
+function unpackBrowserVersions(versionsData) {
+    return Object.keys(versionsData).reduce((usage, version)=>{
+        usage[versions[version]] = versionsData[version];
+        return usage;
+    }, {});
+}
+module.exports.agents = Object.keys(agentsData).reduce((map, key)=>{
+    let versionsData = agentsData[key];
+    map[browsers[key]] = Object.keys(versionsData).reduce((data, entry)=>{
+        if (entry === 'A') {
+            data.usage_global = unpackBrowserVersions(versionsData[entry]);
+        } else if (entry === 'C') {
+            data.versions = versionsData[entry].reduce((list, version)=>{
+                if (version === '') {
+                    list.push(null);
+                } else {
+                    list.push(versions[version]);
+                }
+                return list;
+            }, []);
+        } else if (entry === 'D') {
+            data.prefix_exceptions = unpackBrowserVersions(versionsData[entry]);
+        } else if (entry === 'E') {
+            data.browser = versionsData[entry];
+        } else if (entry === 'F') {
+            data.release_date = Object.keys(versionsData[entry]).reduce((map2, key2)=>{
+                map2[versions[key2]] = versionsData[entry][key2];
+                return map2;
+            }, {});
+        } else {
+            // entry is B
+            data.prefix = versionsData[entry];
+        }
+        return data;
+    }, {});
+    return map;
+}, {});
+}),
+"[project]/JobPortal/frontend/node_modules/caniuse-lite/dist/lib/statuses.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+
+module.exports = {
+    1: 'ls',
+    2: 'rec',
+    3: 'pr',
+    4: 'cr',
+    5: 'wd',
+    6: 'other',
+    7: 'unoff' // Unofficial, Editor's Draft or W3C "Note"
+};
+}),
+"[project]/JobPortal/frontend/node_modules/caniuse-lite/dist/lib/supported.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+
+module.exports = {
+    y: 1 << 0,
+    n: 1 << 1,
+    a: 1 << 2,
+    p: 1 << 3,
+    u: 1 << 4,
+    x: 1 << 5,
+    d: 1 << 6
+};
+}),
+"[project]/JobPortal/frontend/node_modules/caniuse-lite/dist/unpacker/feature.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+const statuses = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/caniuse-lite/dist/lib/statuses.js [app-client] (ecmascript)");
+const supported = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/caniuse-lite/dist/lib/supported.js [app-client] (ecmascript)");
+const browsers = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/caniuse-lite/dist/unpacker/browsers.js [app-client] (ecmascript)").browsers;
+const versions = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/caniuse-lite/dist/unpacker/browserVersions.js [app-client] (ecmascript)").browserVersions;
+const MATH2LOG = Math.log(2);
+function unpackSupport(cipher) {
+    // bit flags
+    let stats = Object.keys(supported).reduce((list, support)=>{
+        if (cipher & supported[support]) list.push(support);
+        return list;
+    }, []);
+    // notes
+    let notes = cipher >> 7;
+    let notesArray = [];
+    while(notes){
+        let note = Math.floor(Math.log(notes) / MATH2LOG) + 1;
+        notesArray.unshift(`#${note}`);
+        notes -= Math.pow(2, note - 1);
+    }
+    return stats.concat(notesArray).join(' ');
+}
+function unpackFeature(packed) {
+    let unpacked = {
+        status: statuses[packed.B],
+        title: packed.C,
+        shown: packed.D
+    };
+    unpacked.stats = Object.keys(packed.A).reduce((browserStats, key)=>{
+        let browser = packed.A[key];
+        browserStats[browsers[key]] = Object.keys(browser).reduce((stats, support)=>{
+            let packedVersions = browser[support].split(' ');
+            let unpacked2 = unpackSupport(support);
+            packedVersions.forEach((v)=>stats[versions[v]] = unpacked2);
+            return stats;
+        }, {});
+        return browserStats;
+    }, {});
+    return unpacked;
+}
+module.exports = unpackFeature;
+module.exports.default = unpackFeature;
+}),
+"[project]/JobPortal/frontend/node_modules/caniuse-lite/dist/unpacker/region.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+const browsers = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/caniuse-lite/dist/unpacker/browsers.js [app-client] (ecmascript)").browsers;
+function unpackRegion(packed) {
+    return Object.keys(packed).reduce((list, browser)=>{
+        let data = packed[browser];
+        list[browsers[browser]] = Object.keys(data).reduce((memo, key)=>{
+            let stats = data[key];
+            if (key === '_') {
+                stats.split(' ').forEach((version)=>memo[version] = null);
+            } else {
+                memo[key] = stats;
+            }
+            return memo;
+        }, {});
+        return list;
+    }, {});
+}
+module.exports = unpackRegion;
+module.exports.default = unpackRegion;
+}),
+"[project]/JobPortal/frontend/node_modules/caniuse-lite/dist/unpacker/features.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+
+/*
+ * Load this dynamically so that it
+ * doesn't appear in the rollup bundle.
+ */ module.exports.features = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/caniuse-lite/data/features.js [app-client] (ecmascript)");
+}),
+"[project]/JobPortal/frontend/node_modules/caniuse-lite/dist/unpacker/index.js [app-client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+
+module.exports.agents = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/caniuse-lite/dist/unpacker/agents.js [app-client] (ecmascript)").agents;
+module.exports.feature = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/caniuse-lite/dist/unpacker/feature.js [app-client] (ecmascript)");
+module.exports.features = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/caniuse-lite/dist/unpacker/features.js [app-client] (ecmascript)").features;
+module.exports.region = __turbopack_context__.r("[project]/JobPortal/frontend/node_modules/caniuse-lite/dist/unpacker/region.js [app-client] (ecmascript)");
+}),
+]);
+
+//# sourceMappingURL=661c0_caniuse-lite_dist_0986b5ca._.js.map
